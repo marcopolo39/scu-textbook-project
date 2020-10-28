@@ -12,5 +12,8 @@ python manage.py runserver
 ```bash
 pip install -r requirements.txt
 python manage.py migrate
-npm run start --prefix frontend
+python manage.py runserver
+(open another terminal tab)
+cd frontend
+npm run dev
 ```
