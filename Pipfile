@@ -11,6 +11,9 @@ pylint = "*"
 django = "*"
 djangorestframework = "*"
 django-webpack-loader = "*"
+asgiref = "*"
+pytz = "*"
+sqlparse = "*"
 
 [requires]
 python_version = "3.9"

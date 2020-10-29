@@ -7,10 +7,23 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 
+---
+
+NEW: We don't need requirements.txt, Pipfile takes care of package management (instead of using "pip install XYZ" use "pipenv install XYZ")
+
+NEW: "npm run start" should be working correctly now
+
+---
+
 ## Running Locally
 
+Need: node.js, pip, pipenv
+
 ```bash
-pip install -r requirements.txt
+pipenv shell
+pipenv install
 python manage.py migrate
-npm run start --prefix frontend
+cd frontend
+npm install
+npm run start
 ```
