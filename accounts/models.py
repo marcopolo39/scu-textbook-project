@@ -6,13 +6,12 @@ from django.contrib.auth.models import (
 
 
 class User(AbstractUser):
-    username = None
+    #username = models.CharField(max_length=255, null=True)
     email = models.EmailField(max_length=255, unique=True)
     school = models.CharField(max_length=255, blank=True)
     location = models.CharField(max_length=255, blank=True)
 
-    USERNAME_FIELD = 'email'
 
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'school', 'location',]
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name', 'school', 'location',]
 
     objects = CustomUserManager()
