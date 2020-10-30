@@ -108,6 +108,7 @@ ipython_config.py
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
+fontend/__pypackages__/
 
 # Celery stuff
 celerybeat-schedule
@@ -165,5 +166,7 @@ bower_components
 psd
 thumb
 sketch
+
+.vscode
 
 # End of https://www.toptal.com/developers/gitignore/api/react,django
