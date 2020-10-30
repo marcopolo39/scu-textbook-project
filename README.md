@@ -8,5 +8,6 @@ python manage.py migrate
 python manage.py runserver
 (open another terminal tab)
 cd frontend
+npm install
 npm run dev
 ```
