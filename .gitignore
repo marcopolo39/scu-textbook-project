@@ -168,5 +168,5 @@ thumb
 sketch
 
 .vscode
-
+run.sh
 # End of https://www.toptal.com/developers/gitignore/api/react,django
