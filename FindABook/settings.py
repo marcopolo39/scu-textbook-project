@@ -46,9 +46,12 @@ INSTALLED_APPS = [
     'webpack_loader',
 
     # custom
-    'textbook.apps.TextbookConfig',
+    'accounts',
+    'textbook',
     'frontend.apps.FrontendConfig',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
