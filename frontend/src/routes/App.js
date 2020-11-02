@@ -17,6 +17,7 @@ const App = () => {
         >
           Learn React
         </a>
+        <p>Routes:</p>
         <Link to="/profile/">Profile</Link>
         <Link to="/cart/">Cart</Link>
         <Link to="/search/">Search</Link>
