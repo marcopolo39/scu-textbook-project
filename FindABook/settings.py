@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'webpack_loader',
 
     # custom
-    'textbook',
+    'textbook.apps.TextbookConfig',
     'frontend.apps.FrontendConfig',
 ]
 
