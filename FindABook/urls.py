@@ -18,5 +18,6 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'(^\w*\/$|^$)', include("frontend.urls")),
+    re_path(r'^$|^profile\/$|^cart\/$|^search\/$|^messages\/',
+            include("frontend.urls")),
 ]

@@ -18,6 +18,9 @@ const App = () => {
           Learn React
         </a>
         <Link to="/profile/">Profile</Link>
+        <Link to="/cart/">Cart</Link>
+        <Link to="/search/">Search</Link>
+        <Link to="/messages/">Messages</Link>
       </header>
     </div>
   );
