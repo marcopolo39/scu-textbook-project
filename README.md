@@ -24,7 +24,9 @@ Need: python3, node.js, pip, pipenv
 ```bash
 pipenv shell
 pipenv install
+python manage.py makemigrations
 python manage.py migrate
+python manage.py runserver
 cd frontend
 npm install
 npm run start
