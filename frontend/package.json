@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --mode development --watch ./src/index.js -o ./static/frontend",
     "build": "webpack --mode production ./src/index.js -o ./static/frontend",
-    "start": "concurrently \"python ../manage.py runserver 3000\" \"npm run dev\""
+    "start": "concurrently \"python ../manage.py runserver\" \"npm run dev\""
   },
   "keywords": [],
   "author": "",
