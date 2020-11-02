@@ -39,3 +39,4 @@ npm run start
 - /cart
 - /search
 - /messages
+- /login

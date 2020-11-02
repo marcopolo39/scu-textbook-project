@@ -9,6 +9,7 @@ import Profile from "./routes/Profile";
 import Cart from "./routes/Cart";
 import Search from "./routes/Search";
 import Messages from "./routes/Messages";
+import Login from "./routes/Login";
 
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -23,6 +24,7 @@ ReactDOM.render(
           <Route exact path="/cart/" component={Cart} />
           <Route exact path="/search/" component={Search} />
           <Route exact path="/messages/" component={Messages} />
+          <Route exact path="/login/" component={Login} />
         </Switch>
       </Router>
     </Provider>

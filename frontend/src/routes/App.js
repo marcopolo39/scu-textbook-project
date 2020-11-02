@@ -22,6 +22,7 @@ const App = () => {
         <Link to="/cart/">Cart</Link>
         <Link to="/search/">Search</Link>
         <Link to="/messages/">Messages</Link>
+        <Link to="/login/">Login</Link>
       </header>
     </div>
   );
