@@ -31,3 +31,15 @@ cd frontend
 npm install
 npm run start
 ```
+
+---
+
+## Frontend Routes
+
+- /
+- /profile
+- /cart
+- /search
+- /messages
+- /login
+- /textbook/{textbookId}/
