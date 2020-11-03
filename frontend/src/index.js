@@ -10,6 +10,7 @@ import Cart from "./routes/Cart";
 import Search from "./routes/Search";
 import Messages from "./routes/Messages";
 import Login from "./routes/Login";
+import Textbook from "./routes/Textbook";
 
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -25,6 +26,7 @@ ReactDOM.render(
           <Route exact path="/search/" component={Search} />
           <Route exact path="/messages/" component={Messages} />
           <Route exact path="/login/" component={Login} />
+          <Route exact path="/textbook/:textbookId/" component={Textbook} />
         </Switch>
       </Router>
     </Provider>

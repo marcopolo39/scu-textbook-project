@@ -1,28 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "../css/App.css";
 
 const App = () => {
+  const [textbookId, setTextbookId] = useState("");
+  const history = useHistory();
+
+  const searchTextbook = () => {
+    history.push(`/textbook/${textbookId}`);
+  };
+
+  const handleTextChange = (e) => {
+    e.preventDefault();
+    setTextbookId(e.target.value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <p>Routes:</p>
         <Link to="/profile/">Profile</Link>
         <Link to="/cart/">Cart</Link>
         <Link to="/search/">Search</Link>
         <Link to="/messages/">Messages</Link>
         <Link to="/login/">Login</Link>
+        <form onSubmit={searchTextbook}>
+          <label>
+            <p>Textbook Search (Concept):</p>
+            <input type="text" name="textbookId" onChange={handleTextChange} />
+          </label>
+          <input type="submit" value="Go" />
+        </form>
       </header>
     </div>
   );

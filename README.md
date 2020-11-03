@@ -40,3 +40,4 @@ npm run start
 - /search
 - /messages
 - /login
+- /textbook/{textbookId}/
