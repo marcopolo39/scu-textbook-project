@@ -13,6 +13,11 @@
   color: white;
 }
 
+.titleLogo {
+  color: orange;
+  padding: 0;
+}
+
 .App-link {
   color: #61dafb;
 }
