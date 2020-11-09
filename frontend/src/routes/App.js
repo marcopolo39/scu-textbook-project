@@ -28,7 +28,13 @@ const App = () => {
         <form onSubmit={searchTextbook}>
           <label>
             <p>Textbook Search (Concept):</p>
-            <input type="text" name="textbookId" onChange={handleTextChange} />
+            <input
+                className = "searchBar"
+                type="text"
+                name="textbookId"
+                onChange={handleTextChange}
+
+            />
           </label>
           <input type="submit" value="Go" />
         </form>
