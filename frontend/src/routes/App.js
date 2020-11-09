@@ -25,6 +25,7 @@ const App = () => {
         <Link to="/search/">Search</Link>
         <Link to="/messages/">Messages</Link>
         <Link to="/login/">Login</Link>
+        <Link to="/createAccount/"> Create Account </Link>
         <form onSubmit={searchTextbook}>
           <label>
             <p>Textbook Search (Concept):</p>
