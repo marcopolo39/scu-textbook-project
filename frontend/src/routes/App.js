@@ -18,7 +18,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p className = "titleLogo"> FindABook</p>
+        <p className="titleLogo"> FindABook</p>
         <p>Routes:</p>
         <Link to="/profile/">Profile</Link>
         <Link to="/cart/">Cart</Link>
