@@ -56,10 +56,10 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.User'
 
 REST_FRAMEWORK = {
-    # 'DEFAULT_PERMISSION_CLASSES': [  # remove
+    # 'DEFAULT_PERMISSION_CLASSES': [
     #     'rest_framework.permissions.AllowAny'
     # ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (  # added
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'knox.auth.TokenAuthentication',
     ),
     'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",
