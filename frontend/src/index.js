@@ -13,22 +13,25 @@ import Login from "./routes/Login";
 import Textbook from "./routes/Textbook";
 
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { store, persistor } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={App} />
-          <Route exact path="/profile/" component={Profile} />
-          <Route exact path="/cart/" component={Cart} />
-          <Route exact path="/search/" component={Search} />
-          <Route exact path="/messages/" component={Messages} />
-          <Route exact path="/login/" component={Login} />
-          <Route exact path="/textbook/:textbookId/" component={Textbook} />
-        </Switch>
-      </Router>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={App} />
+            <Route exact path="/profile/" component={Profile} />
+            <Route exact path="/cart/" component={Cart} />
+            <Route exact path="/search/" component={Search} />
+            <Route exact path="/messages/" component={Messages} />
+            <Route exact path="/login/" component={Login} />
+            <Route exact path="/textbook/:textbookId/" component={Textbook} />
+          </Switch>
+        </Router>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
