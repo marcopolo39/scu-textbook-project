@@ -18,7 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # React app build path
-REACT_APP_DIR = os.path.join(BASE_DIR, "client")
+REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
+
+STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -138,9 +140,9 @@ STATIC_URL = '/static/'
 #     os.path.join(REACT_APP_DIR, "build", "static")
 # ]
 
-# WEBPACK_LOADER = {
-#     'DEFAULT': {
-#         'BUNDLE_DIR_NAME': 'bundles/',
-#         'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats.dev.json'),
-#     }
-# }
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats.dev.json'),
+    }
+}
