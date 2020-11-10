@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$|profile/|cart/|search/|messages/|login/|textbook/.+/',
             include("frontend.urls")),
+    path("api/account/", include("accounts.urls"))
 ]
