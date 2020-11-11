@@ -17,7 +17,12 @@ class Textbook(models.Model):
     price = models.DecimalField(max_digits=9, decimal_places=2)
     state = models.CharField(max_length=1, default='F', choices=STATE_CHOICES)
     comment = models.CharField(max_length=300, blank=True, null=True)
+    textbookId = models.CharField(max_length=30, blank=True, null=True)
     # Static Image Field not added yet
+
+    def save(self, *args, **kwargs):
+        self.textbookId = '%s-%s' % (self.isbn, self.owner.id)
+        super().save(*args, **kwargs)
     
     def __str__(self):
-        return self.isbn
+        return self.textbookId
