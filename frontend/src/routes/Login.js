@@ -5,6 +5,8 @@ import cookie from "react-cookies";
 
 import { setToken } from "../actions/accountActions";
 
+import { useLogout } from "../hooks/useLogout";
+
 import Registration from "../components/Registration";
 
 const Login = () => {
@@ -14,6 +16,8 @@ const Login = () => {
   const [registering, setRegistering] = useState(false);
 
   const token = useSelector((store) => store.accountReducer.token);
+
+  const logout = useLogout();
 
   const loginAccount = (e) => {
     e.preventDefault();
@@ -28,21 +32,6 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
 
-  const logoutAccount = () => {
-    axios
-      .post("/api/account/logout", null, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      })
-      .then((res) => {
-        dispatch(setToken(null));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   const handleChange = (e) => {
     e.preventDefault();
     setUser({
@@ -51,6 +40,7 @@ const Login = () => {
     });
   };
 
+  /** Initializes user state if logged in */
   useEffect(() => {
     if (token) {
       axios
@@ -68,7 +58,7 @@ const Login = () => {
             email: res.data.email,
             school: res.data.school,
             location: res.data.location,
-            // password: res.data.password, --> not implemented yet, might need it
+            // password: res.data.password, --> not implemented yet, might need it later?
           });
         })
         .catch((err) => console.log(err));
@@ -106,7 +96,7 @@ const Login = () => {
     return (
       <div className="Login">
         <p>You are Logged In</p>
-        <button onClick={logoutAccount}>Logout</button>
+        <button onClick={logout}>Logout</button>
       </div>
     );
   }

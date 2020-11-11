@@ -5,9 +5,11 @@ import cookie from "react-cookies";
 const Registration = () => {
   const [user, setUser] = useState({});
 
+  /** Calls POST request to /api/account/register with input user data
+   * TODO: handle errors
+   */
   const registerAccount = (e) => {
     e.preventDefault();
-    console.log(user);
     axios
       .post("/api/account/register", {
         username: user.username,
@@ -18,13 +20,10 @@ const Registration = () => {
         school: user.school,
         location: user.location,
       })
-      .then((res) => {
-        console.log("User created:");
-        console.log(res.data);
-      })
       .catch((err) => console.log(err));
   };
 
+  /** Updates user state on change in text input field */
   const handleChange = (e) => {
     e.preventDefault();
     setUser({
@@ -34,7 +33,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="ProfileEditor">
+    <div className="Registration">
       <p>Register Account</p>
       <form method="post" onSubmit={registerAccount}>
         <p>Username</p>
