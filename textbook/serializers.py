@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Textbook
 
-class TextbookSerializer(serializers.Serializer):
+class TextbookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Textbook
         fields = ['textbookId', 'owner', 'isbn', 'price', 'state']

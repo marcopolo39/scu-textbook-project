@@ -18,6 +18,7 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/textbook/', include('textbook.urls')),
     re_path(r'^$|profile/|cart/|search/|messages/|login/|textbook/.+/',
             include("frontend.urls")),
 ]
