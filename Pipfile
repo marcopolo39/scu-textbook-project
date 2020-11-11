@@ -8,13 +8,13 @@ autopep8 = "*"
 pylint = "*"
 
 [packages]
-django = "*"
-djangorestframework = "*"
+djangorestframework = "==3.12.1"
 django-webpack-loader = "*"
-asgiref = "*"
-pytz = "*"
-sqlparse = "*"
+asgiref = "==3.2.10"
+pytz = "==2020.1"
+sqlparse = "==0.4.1"
 django-rest-knox = "*"
+Django = "==3.1.2"
 
 [requires]
 python_version = "3.9"

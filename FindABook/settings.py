@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # custom
     'accounts',
+    'messaging',
     'textbook',
     'frontend.apps.FrontendConfig',
 ]
