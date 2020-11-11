@@ -7,6 +7,9 @@ export const useLogout = () => {
   const token = useSelector((store) => store.accountReducer.token);
   const dispatch = useDispatch();
 
+  /** Calls POST request to /api/account/logout with Auth token to log user out
+   * TODO: handle errors
+   */
   const logoutAccount = () => {
     axios
       .post("/api/account/logout", null, {
@@ -14,7 +17,7 @@ export const useLogout = () => {
           Authorization: `Token ${token}`,
         },
       })
-      .then((res) => {
+      .then(() => {
         dispatch(setToken(null));
       })
       .catch((err) => {

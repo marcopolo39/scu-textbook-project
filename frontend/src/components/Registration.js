@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import cookie from "react-cookies";
 
-const Registration = () => {
+const Registration = ({ setRegistering }) => {
   const [user, setUser] = useState({});
 
-  /** Calls POST request to /api/account/register with input user data
+  /** Calls POST request to /api/account/register with input user data to create user
    * TODO: handle errors
    */
   const registerAccount = (e) => {
@@ -37,19 +37,24 @@ const Registration = () => {
       <p>Register Account</p>
       <form method="post" onSubmit={registerAccount}>
         <p>Username</p>
-        <input type="text" name="username" onChange={handleChange} />
+        <input type="text" name="username" onChange={handleChange} required />
         <p>Password</p>
-        <input type="text" name="password" onChange={handleChange} />
+        <input
+          type="password"
+          name="password"
+          onChange={handleChange}
+          required
+        />
         <p>First Name</p>
-        <input type="text" name="firstName" onChange={handleChange} />
+        <input type="text" name="firstName" onChange={handleChange} required />
         <p>Last Name</p>
-        <input type="text" name="lastName" onChange={handleChange} />
+        <input type="text" name="lastName" onChange={handleChange} required />
         <p>Email</p>
-        <input type="text" name="email" onChange={handleChange} />
+        <input type="email" name="email" onChange={handleChange} required />
         <p>School</p>
         <input type="text" name="school" onChange={handleChange} />
         <p>Location</p>
-        <input type="text" name="location" onChange={handleChange} />
+        <input type="text" name="location" onChange={handleChange} required />
         <input
           type="hidden"
           value={cookie.load("csrftoken")}
@@ -57,6 +62,7 @@ const Registration = () => {
         />
         <input type="submit" />
       </form>
+      <button onClick={() => setRegistering(false)}>Cancel</button>
     </div>
   );
 };

@@ -69,7 +69,7 @@ const Login = () => {
     if (registering) {
       return (
         <div className="Login">
-          <Registration />
+          <Registration setRegistering={setRegistering} />
         </div>
       );
     } else {
@@ -80,7 +80,7 @@ const Login = () => {
             <p>Username</p>
             <input type="text" name="username" onChange={handleChange} />
             <p>Password</p>
-            <input type="text" name="password" onChange={handleChange} />
+            <input type="password" name="password" onChange={handleChange} />
             <input
               type="hidden"
               value={cookie.load("csrftoken")}

@@ -4,6 +4,10 @@ import cookie from "react-cookies";
 
 const ProfileEditor = ({ user, token }) => {
   const [editiedUser, setEditiedUser] = useState(user);
+
+  /** Calls PUT request to /api/account/update/id with new input user data to update user
+   * TODO: handle errors
+   */
   const updateAccount = () => {
     axios
       .put(
@@ -22,7 +26,6 @@ const ProfileEditor = ({ user, token }) => {
           },
         }
       )
-      .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
 
@@ -37,20 +40,49 @@ const ProfileEditor = ({ user, token }) => {
   return (
     <div className="ProfileEditor">
       <p>Edit Profile</p>
-      <button onClick={updateAccount}>Test Edit</button>
       <form method="post" onSubmit={updateAccount}>
         <p>Username</p>
-        <input type="text" name="username" onChange={handleChange} />
+        <input
+          type="text"
+          name="username"
+          onChange={handleChange}
+          placeholder={user.username}
+        />
         <p>First Name</p>
-        <input type="text" name="firstName" onChange={handleChange} />
+        <input
+          type="text"
+          name="firstName"
+          onChange={handleChange}
+          placeholder={user.firstName}
+        />
         <p>Last Name</p>
-        <input type="text" name="lastName" onChange={handleChange} />
+        <input
+          type="text"
+          name="lastName"
+          onChange={handleChange}
+          placeholder={user.lastName}
+        />
         <p>Email</p>
-        <input type="text" name="email" onChange={handleChange} />
+        <input
+          type="email"
+          name="email"
+          onChange={handleChange}
+          placeholder={user.email}
+        />
         <p>School</p>
-        <input type="text" name="school" onChange={handleChange} />
+        <input
+          type="text"
+          name="school"
+          onChange={handleChange}
+          placeholder={user.school}
+        />
         <p>Location</p>
-        <input type="text" name="location" onChange={handleChange} />
+        <input
+          type="text"
+          name="location"
+          onChange={handleChange}
+          placeholder={user.location}
+        />
         <input
           type="hidden"
           value={cookie.load("csrftoken")}
