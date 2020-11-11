@@ -15,7 +15,7 @@ class Textbook(models.Model):
     isbn = models.CharField(max_length=13)
     # 9 digit max with 2 decimal places means that 9,999,999.99 is the max retail price
     price = models.DecimalField(max_digits=9, decimal_places=2)
-    state = models.CharField(max_length=1, default='F')
+    state = models.CharField(max_length=1, default='F', choices=STATE_CHOICES)
     comment = models.CharField(max_length=300, blank=True, null=True)
     # Static Image Field not added yet
     
