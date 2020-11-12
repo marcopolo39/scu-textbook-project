@@ -11,3 +11,6 @@ class Messages(models.Model):
 
     def __str__(self):
         return self.sender.username + " -> " + self.receiver.username
+
+    def getRecieverUsername(self):
+        return self.receiver.username
