@@ -1,0 +1,22 @@
+.loginBlock {
+    background-color: #F4F8F9;
+    height: 200px;
+    width: 200px;
+}
+
+.usernameEntryField {
+    background-color: #F2F2F2;
+
+}
+
+.passwordEntryField {
+    background-color: #F2F2F2;
+}
+
+.signUpBtn {
+    background-color: #84A4F4;
+}
+
+.loginBtn {
+    background-color: #84A4F4;
+}

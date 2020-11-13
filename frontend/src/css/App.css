@@ -1,26 +1,108 @@
 .App {
-  text-align: center;
-}
 
-.App-header {
-  background-color: #FFFFFF;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.titleLogo {
-  color: orange;
-  padding: 0;
-  left: 0;
-  top: 0;
 }
 
 
 
-.App-link {
-  color: #61dafb;
+
+
+
+
+
+
+.cartLink{
+    text-decoration:none;
 }
+
+.filterResults {
+    background-color: #F4F8F9;
+    color: #000000;
+    height: 623px;
+    width: 300px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 50px;
+
+}
+
+.filterResultsHeader {
+    position: relative;
+    text-align: center;
+    top: 20px;
+}
+
+.sameUniCheckbox {
+    background-color: #C4C4C4;
+    color: #000000;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    height: 30px;
+    width: 30px;
+
+}
+
+.lowerLimitAreaInput {
+    background-color: #C4C4C4;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.upperLimitAreaInput {
+    background-color: #C4C4C4;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.lowerPrinceRangeInput {
+    background-color: #C4C4C4;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.upperPriceRangeInput {
+
+    background-color: #C4C4C4;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    font-size: 24px;
+}
+
+
+.firstFilterGap {
+    margin-top: 50px;
+}
+
+.secondFilterGap{
+    margin-top: 50px;
+}
+
+.spacingFromHeader {
+    margin-top: 75px;
+}
+

@@ -1,7 +1,15 @@
 import React from "react";
+import PageHeader from "./components/PageHeader.js"
+import "../css/Profile.css"
+
 
 const Profile = () => {
-  return <h1>Profile</h1>;
+  return (
+      <div>
+        <PageHeader />
+      </div>
+        );
+
 };
 
 

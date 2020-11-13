@@ -1,46 +1,36 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
 import "../css/App.css";
+import PageHeader from "./components/PageHeader.js"
+
 
 const App = () => {
-  const [textbookId, setTextbookId] = useState("");
-  const history = useHistory();
 
-  const searchTextbook = () => {
-    history.push(`/textbook/${textbookId}`);
-  };
-
-  const handleTextChange = (e) => {
-    e.preventDefault();
-    setTextbookId(e.target.value);
-  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className="titleLogo"> FindABook</p>
-        <p>Routes:</p>
-        <Link to="/profile/">Profile</Link>
-        <Link to="/cart/">Cart</Link>
-        <Link to="/search/">Search</Link>
-        <Link to="/messages/">Messages</Link>
-        <Link to="/login/">Login</Link>
-        <Link to="/createAccount/"> Create Account </Link>
-        <form onSubmit={searchTextbook}>
-          <label>
-            <p>Textbook Search (Concept):</p>
-            <input
-                className = "searchBar"
-                type="text"
-                name="textbookId"
-                onChange={handleTextChange}
+      <div className = "App">
+          <PageHeader />
+          <div className="spacingFromHeader"></div>
+          <div className="filterResults">
+              <h1 className="filterResultsHeader">Filter Results</h1>
 
-            />
-          </label>
-          <input type="submit" value="Go" />
-        </form>
-      </header>
-    </div>
+              <form className="filterForm">
+                  <input className="sameUniCheckbox" type="checkbox"></input>
+                      Items sold by students who attend my University
+                  <div className="firstFilterGap"></div>
+                      Search Within <br></br>
+                  <input className="lowerLimitAreaInput" type="text"></input>
+                          to
+                  <input className="upperLimitAreaInput" type="text"></input>
+                  <div className="secondFilterGap"></div>
+                      Price Range
+                  <br></br>
+                  <input className="lowerPrinceRangeInput" type="text"></input>
+                        to
+                  <input className="upperPriceRangeInput" type="text"></input>
+
+              </form>
+          </div>
+      </div>
   );
 };
 

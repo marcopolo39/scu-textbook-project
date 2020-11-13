@@ -14,6 +14,7 @@ import Textbook from "./routes/Textbook";
 import CreateAccount from "./routes/CreateAccount";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Sell from "./routes/Sell";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route exact path="/login/" component={Login} />
           <Route exact path="/createAccount/" component = {CreateAccount} />
           <Route exact path="/textbook/:textbookId/" component={Textbook} />
+          <Route exact path="/sell/" component={Sell} />
         </Switch>
       </Router>
     </Provider>
