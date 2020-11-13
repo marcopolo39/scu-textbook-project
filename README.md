@@ -48,7 +48,7 @@ npm run start
 
 ## Backend Routes
 
-- /////Description of Users API/////
+Description of Users API
 - This API handles login, logout, and registering fucntionality. The api can also display the user profile as well as edit the user profile.
 - The following links for the Users API is: 
 - 1. localhost:8000/api/account/user
@@ -57,15 +57,14 @@ npm run start
 - 4. localhost:8000/api/account/logout
 - 5. localhost:8000/api/account/update/<int:pk> (pk is id number)
 - 6. localhost:8000//api/account/delete/<int: pk>
-- 
 - The user endpoint takes 'token' and returns the user profile for the user associated with the token
 - The register endpoint takes in 'username', 'email', 'first_name', 'last_name', 'school', 'location', 'password' and saves the user account to the database
 - The login endpoint takes in 'username', 'password' and returns a token
 - The logout endpoint takes in 'token' and logs the user out by invalidating their token
 - The update endpoint takes in 'token' allows for the fields in register except password to be modified and then saves the changes to the database
 - The delete enpoint takes in 'token' and delelets the user acccount
-- 
-- /////Description of Message API/////
+
+Description of Message API
 - This API handles messaging between the active user and another register user on the website. 
 - Enpoints for this API:
 - localhost:8000/api/messages
