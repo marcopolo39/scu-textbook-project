@@ -1,26 +1,35 @@
 import React, { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
 import axios from "axios";
 import cookie from "react-cookies";
 
 const Registration = ({ setRegistering }) => {
   const [user, setUser] = useState({});
+  const login = useLogin();
 
   /** Calls POST request to /api/account/register with input user data to create user
    * TODO: handle errors
    */
   const registerAccount = (e) => {
     e.preventDefault();
+    const data = {
+      username: user.username,
+      email: user.email,
+      first_name: user.firstName,
+      last_name: user.lastName,
+      school: user.school,
+      location: user.location,
+      password: user.password,
+    };
     axios
-      .post("/api/account/register", {
-        username: user.username,
-        password: user.password,
-        email: user.email,
-        first_name: user.firstName,
-        last_name: user.lastName,
-        school: user.school,
-        location: user.location,
+      .post("/api/account/register", data)
+      .then(() => {
+        login(user);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        console.log("Email or Username is in use");
+      });
   };
 
   /** Updates user state on change in text input field */

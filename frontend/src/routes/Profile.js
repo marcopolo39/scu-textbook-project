@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useToken } from "../hooks/useToken";
 import ProfileEditor from "../components/ProfileEditor";
 
 const Profile = () => {
-  const token = useSelector((store) => store.accountReducer.token);
+  const token = useToken();
   const [user, setUser] = useState({});
   const [editing, setEditing] = useState(false);
 

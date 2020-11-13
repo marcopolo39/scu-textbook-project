@@ -1,15 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setToken } from "../actions/accountActions";
+import { useToken } from "../hooks/useToken";
 import axios from "axios";
 
 export const useLogout = () => {
-  const token = useSelector((store) => store.accountReducer.token);
+  const token = useToken();
   const dispatch = useDispatch();
 
-  /** Calls POST request to /api/account/logout with Auth token to log user out
-   * TODO: handle errors
-   */
   const logoutAccount = () => {
     axios
       .post("/api/account/logout", null, {

@@ -1,35 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import cookie from "react-cookies";
 
-import { setToken } from "../actions/accountActions";
-
 import { useLogout } from "../hooks/useLogout";
+import { useLogin } from "../hooks/useLogin";
+import { useToken } from "../hooks/useToken";
 
 import Registration from "../components/Registration";
 
 const Login = () => {
-  const dispatch = useDispatch();
-
   const [user, setUser] = useState({});
   const [registering, setRegistering] = useState(false);
 
-  const token = useSelector((store) => store.accountReducer.token);
-
+  const token = useToken();
   const logout = useLogout();
+  const login = useLogin();
 
-  const loginAccount = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    axios
-      .post("/api/account/login", {
-        username: user.username,
-        password: user.password,
-      })
-      .then((res) => {
-        dispatch(setToken(res.data.token));
-      })
-      .catch((err) => console.log(err));
+    login(user);
   };
 
   const handleChange = (e) => {
@@ -58,7 +47,6 @@ const Login = () => {
             email: res.data.email,
             school: res.data.school,
             location: res.data.location,
-            // password: res.data.password, --> not implemented yet, might need it later?
           });
         })
         .catch((err) => console.log(err));
@@ -76,7 +64,7 @@ const Login = () => {
       return (
         <div className="Login">
           <p>Login</p>
-          <form method="post" onSubmit={loginAccount}>
+          <form method="post" onSubmit={handleLogin}>
             <p>Username</p>
             <input type="text" name="username" onChange={handleChange} />
             <p>Password</p>

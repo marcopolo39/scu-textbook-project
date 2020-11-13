@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -54,6 +55,12 @@ INSTALLED_APPS = [
     'textbook',
     'frontend.apps.FrontendConfig',
 ]
+
+REST_KNOX = {
+    # I'm not sure if this amount is possible right now, default is 10hr
+    'TOKEN_TTL': timedelta(days=7),
+    'AUTO_REFRESH': True,
+}
 
 AUTH_USER_MODEL = 'accounts.User'
 
