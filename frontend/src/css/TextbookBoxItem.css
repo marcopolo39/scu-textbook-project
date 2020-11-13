@@ -1,0 +1,20 @@
+.textbookBoxProp{
+    height: 250px;
+    width: 225px;
+    background-color: #F4F8F9;
+    display: inline-block;
+    align: center;
+    font-size: 18px;
+    font-weight:bold;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+
+}
+
+.textbookImage {
+    background-color: #C4C4C4;
+    height:125px;
+    width: 125px;
+    margin: auto;
+}

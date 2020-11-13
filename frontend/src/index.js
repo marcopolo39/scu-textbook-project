@@ -11,6 +11,9 @@ import Search from "./routes/Search";
 import Messages from "./routes/Messages";
 import Login from "./routes/Login";
 import Textbook from "./routes/Textbook";
+import CreateAccount from "./routes/CreateAccount";
+import Sell from "./routes/Sell";
+
 import TokenValidator from "./components/TokenValidator";
 
 import { Provider } from "react-redux";
@@ -31,7 +34,9 @@ ReactDOM.render(
               <Route exact path="/search/" component={Search} />
               <Route exact path="/messages/" component={Messages} />
               <Route exact path="/login/" component={Login} />
+              <Route exact path="/createAccount/" component={CreateAccount} />
               <Route exact path="/textbook/:textbookId/" component={Textbook} />
+              <Route exact path="/sell/" component={Sell} />
             </Fragment>
           </Switch>
         </Router>
