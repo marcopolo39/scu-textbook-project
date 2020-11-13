@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "../../css/PageHeader.css";
 import { Link, useHistory } from "react-router-dom";
 
+import findabook from "../../../admin/img/findabook.png";
+import cart from "../../../admin/img/cart.png";
+
 const PageHeader = () => {
   const [textbookId, setTextbookId] = useState("");
   const history = useHistory();
@@ -19,7 +22,7 @@ const PageHeader = () => {
     <div>
       <nav className="pageHeader">
         <Link className="titleLogo" to="/">
-          {/*<img src={require('../../../admin/img/findabook.png)'} alt = "Logo" /> */}
+          <img src={findabook} alt="Logo" />
           FindABook
         </Link>
         <form onSubmit={searchTextbook} className="searchForm">
@@ -39,7 +42,7 @@ const PageHeader = () => {
         </Link>
         <Link className="cartImageLogo" to="/cart">
           Cart
-          {/*<img src={require('../../../admin/img/cart.png')} alt = "Cart Logo" />*/}
+          <img src={cart} alt="Cart Logo" />
         </Link>
 
         <button className="profileDot"></button>

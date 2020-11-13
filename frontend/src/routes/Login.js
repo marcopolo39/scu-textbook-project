@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Registration from "../components/Registration";
 import PageHeader from "./components/PageHeader.js";
 import "../css/Login.css";
@@ -14,7 +14,6 @@ const Login = () => {
   const [user, setUser] = useState({});
   const [registering, setRegistering] = useState(false);
 
-  const history = useHistory();
   const token = useToken();
   const logout = useLogout();
   const login = useLogin();
@@ -112,7 +111,7 @@ const Login = () => {
       <div className="Login">
         <p>You are Logged In</p>
         <button onClick={logout}>Logout</button>
-        <button onClick={() => history.push("/")}>Home</button>
+        <Link to="/">Home</Link>
       </div>
     );
   }
