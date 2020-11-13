@@ -10,10 +10,6 @@
 
 
 
-.cartLink{
-    text-decoration:none;
-}
-
 .filterResults {
     background-color: #F4F8F9;
     color: #000000;
@@ -22,8 +18,9 @@
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    margin-left: 20px;
-
+    margin-left: 50px;
+    display: inline-block;
+    position: absolute;
 }
 
 .filterResultsHeader {
@@ -39,8 +36,8 @@
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: hidden;
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 
 }
 
@@ -106,3 +103,12 @@
     margin-top: 75px;
 }
 
+.textbookDisplayBlock {
+    height: 800px;
+    width: 800px;
+    color: inherit;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 450px;
+    position: relative;
+}

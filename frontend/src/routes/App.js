@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/App.css";
 import PageHeader from "./components/PageHeader.js"
+import TextbookBoxItem from "./components/TextbookBoxItem.js"
 
 
 const App = () => {
@@ -29,6 +30,17 @@ const App = () => {
                   <input className="upperPriceRangeInput" type="text"></input>
 
               </form>
+          </div>
+          <div className = "textbookDisplayBlock">
+              <TextbookBoxItem />
+              <TextbookBoxItem />
+              <TextbookBoxItem />
+              <TextbookBoxItem />
+              <TextbookBoxItem />
+              <TextbookBoxItem />
+              <TextbookBoxItem />
+              <TextbookBoxItem />
+              <TextbookBoxItem />
           </div>
       </div>
   );
