@@ -1,7 +1,4 @@
-from .models import Messages
-from rest_framework import generics, permissions, status
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework import generics, permissions
 from django.contrib.auth import get_user_model
 from .serializers import MessageSerializer
 
@@ -15,11 +12,13 @@ class MessageView(generics.ListCreateAPIView):
     ]
     serializer_class = MessageSerializer
 
-
     def get_queryset(self):
-        print(self.request.data)
-        messages_sent = self.request.user.sender.filter(receiver=self.request.data['send_to'])
-        messages_received = self.request.user.recipient.filter(sender=self.request.data['send_to'])
+        user = User.objects.filter(username=self.request.data['send_to'])[0]
+        messages_sent = self.request.user.sender.filter(receiver=user.id)
+        messages_received = self.request.user.recipient.filter(sender=user.id)
         all_messages = messages_sent | messages_received
         return all_messages
 
+    def perform_create(self, serializer):
+        recipient = User.objects.filter(username=self.request.data['send_to'])[0]
+        serializer.save(sender=self.request.user, receiver=recipient)
