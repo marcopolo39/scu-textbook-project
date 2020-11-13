@@ -14,6 +14,7 @@ django-webpack-loader = "*"
 asgiref = "*"
 pytz = "*"
 sqlparse = "*"
+django-rest-knox = "*"
 
 [requires]
 python_version = "3.9"
