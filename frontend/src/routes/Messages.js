@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CSRFToken from "../components/CSRFToken";
 import { useToken } from "../hooks/useToken";
 
 const Messages = () => {
   const token = useToken();
-  const [otherUser, setOtherUser] = useState("testAcc123"); // change later
+  // const username = useSelector(store => store.accountReducer.user.username)
   const [currentUsername, setCurrentUsername] = useState();
+  const [receiver, setReceiver] = useState();
+  const [message, setMessage] = useState();
   const [conversation, setConversation] = useState([]);
 
   const getCurrentUser = () => {
@@ -21,10 +24,10 @@ const Messages = () => {
       .catch((err) => console.log(err));
   };
 
-  const sendMessage = (receiver, message) => {
+  const sendMessage = (message) => {
     axios
       .post(
-        "/api/messages",
+        "/api/messages/",
         {
           send_to: receiver,
           message: message,
@@ -38,32 +41,37 @@ const Messages = () => {
       .catch((err) => console.log(err));
   };
 
-  const getConversation = (username) => {
+  const getConversation = () => {
     const requestConfig = {
       headers: {
         Authorization: `Token ${token}`,
       },
       params: {
-        send_to: username,
+        send_to: receiver,
       },
     };
+
     axios
-      .get("/api/messages", requestConfig)
+      .get("/api/messages/", requestConfig)
       .then((res) => {
         setConversation(res.data.reverse());
       })
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    if (otherUser) {
-      getConversation(otherUser);
-    }
-  }, [otherUser]);
+  const handleChange = (e) => {
+    e.preventDefault();
+    setMessage(e.target.value);
+  };
 
   useEffect(() => {
     getCurrentUser();
+    getConversation(receiver);
   }, []);
+
+  useEffect(() => {
+    setMessage(null);
+  }, [conversation]);
 
   /**
    * Right now, currentUser's messages are red, the messages receeived are black.
@@ -72,10 +80,10 @@ const Messages = () => {
    * Eg: Instead of {color: "red"}, we could give it a className="sender" and
    * edit that in css
    */
-  if (otherUser) {
+  if (receiver) {
     return (
       <div className="Messages">
-        <p>{otherUser}</p>
+        <p>{receiver}</p>
         {conversation.map((message, key) => {
           return (
             <p
@@ -90,10 +98,20 @@ const Messages = () => {
             </p>
           );
         })}
+        <form
+          method="post"
+          onSubmit={(e) => {
+            sendMessage(message);
+          }}
+        >
+          <input type="text" name="message" onChange={handleChange} />
+          <input type="submit" value="Send" />
+          <CSRFToken />
+        </form>
       </div>
     );
   } else {
-    return <h1>Messages</h1>;
+    return <h1>User not Found</h1>;
   }
 };
 
