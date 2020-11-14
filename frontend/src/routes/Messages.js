@@ -2,19 +2,28 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CSRFToken from "../components/CSRFToken";
 import { useToken } from "../hooks/useToken";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setReceiver } from "../actions/messageActions";
 
 const Messages = () => {
   const token = useToken();
+  const dispatch = useDispatch();
   const username = useSelector((store) => store.accountReducer.user.username);
+  const receiver = useSelector(
+    (store) => store.messageReducer.conversationReceiver
+  );
 
-  const [receiver, setReceiver] = useState();
   const [message, setMessage] = useState();
   const [conversation, setConversation] = useState([]);
-  const [allReceivers, setAll] = useState(["testAcc123", "dtlndo"]);
+  const [allReceivers, setAll] = useState([
+    "testAcc123",
+    "dtlndo",
+    "dlindo-admin",
+  ]);
 
   // const getAllReceivers -> User[]
   // onClick button -> setReceiver(someReceiver.username)
+  // TODO: move state to redux (in progress)
   // TODO: validate receiver exists
 
   const sendMessage = (message) => {
@@ -107,7 +116,9 @@ const Messages = () => {
           <input type="submit" value="Send" />
           <CSRFToken />
         </form>
-        <button onClick={() => setReceiver(null)}>Back to Messages</button>
+        <button onClick={() => dispatch(setReceiver(null))}>
+          Back to Messages
+        </button>
       </div>
     );
   } else {
@@ -117,7 +128,7 @@ const Messages = () => {
         {allReceivers.map((rec, key) => {
           //if receiverIsValid(rec) {
           return (
-            <div key={key} onClick={() => setReceiver(rec)}>
+            <div key={key} onClick={() => dispatch(setReceiver(rec))}>
               <h3>{rec}</h3>
             </div>
           );
