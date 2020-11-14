@@ -22,9 +22,7 @@ const Messages = () => {
   ]);
 
   // const getAllReceivers -> User[]
-  // onClick button -> setReceiver(someReceiver.username)
-  // TODO: move state to redux (in progress)
-  // TODO: validate receiver exists
+  // TODO: validate receiver exists?
 
   const sendMessage = (message) => {
     axios
