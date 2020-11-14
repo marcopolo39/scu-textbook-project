@@ -95,7 +95,12 @@ const Messages = () => {
             sendMessage(message);
           }}
         >
-          <input type="text" name="message" onChange={handleChange} />
+          <input
+            type="text"
+            name="message"
+            onChange={handleChange}
+            autoComplete="false"
+          />
           <input type="submit" value="Send" />
           <CSRFToken />
         </form>

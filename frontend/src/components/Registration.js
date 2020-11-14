@@ -46,12 +46,19 @@ const Registration = ({ setRegistering }) => {
       <p>Register Account</p>
       <form method="post" onSubmit={registerAccount}>
         <p>Username</p>
-        <input type="text" name="username" onChange={handleChange} required />
+        <input
+          type="text"
+          name="username"
+          onChange={handleChange}
+          autoComplete="false"
+          required
+        />
         <p>Password</p>
         <input
           type="password"
           name="password"
           onChange={handleChange}
+          autoComplete="false"
           required
         />
         <p>First Name</p>
@@ -61,9 +68,20 @@ const Registration = ({ setRegistering }) => {
         <p>Email</p>
         <input type="email" name="email" onChange={handleChange} required />
         <p>School</p>
-        <input type="text" name="school" onChange={handleChange} />
+        <input
+          type="text"
+          name="school"
+          onChange={handleChange}
+          autoComplete="false"
+        />
         <p>Location</p>
-        <input type="text" name="location" onChange={handleChange} required />
+        <input
+          type="text"
+          name="location"
+          onChange={handleChange}
+          autoComplete="false"
+          required
+        />
         <CSRFToken />
         <input type="submit" />
       </form>
