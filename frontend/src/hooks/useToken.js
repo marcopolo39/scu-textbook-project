@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setToken } from "../actions/accountActions";
+import { setToken, setUser } from "../actions/accountActions";
 import axios from "axios";
 
 export const useToken = () => {
@@ -18,7 +18,9 @@ export const useToken = () => {
         },
       })
       .catch((err) => {
+        // user is logged out -> reset state
         dispatch(setToken(null));
+        dispatch(setUser({}));
       });
   };
 

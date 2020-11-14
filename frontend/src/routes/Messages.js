@@ -2,27 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CSRFToken from "../components/CSRFToken";
 import { useToken } from "../hooks/useToken";
+import { useSelector } from "react-redux";
 
 const Messages = () => {
   const token = useToken();
-  // const username = useSelector(store => store.accountReducer.user.username)
-  const [currentUsername, setCurrentUsername] = useState();
-  const [receiver, setReceiver] = useState();
+  const username = useSelector((store) => store.accountReducer.user.username);
+  const [receiver, setReceiver] = useState("testAcc123");
   const [message, setMessage] = useState();
   const [conversation, setConversation] = useState([]);
 
-  const getCurrentUser = () => {
-    axios
-      .get("/api/account/user", {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      })
-      .then((res) => {
-        setCurrentUsername(res.data.username);
-      })
-      .catch((err) => console.log(err));
-  };
+  // const getAllReceivers -> User[]
+  // onClick button -> setReceiver(someReceiver.username)
 
   const sendMessage = (message) => {
     axios
@@ -65,16 +55,17 @@ const Messages = () => {
   };
 
   useEffect(() => {
-    getCurrentUser();
-    getConversation(receiver);
-  }, []);
+    if (receiver) {
+      getConversation(receiver);
+    }
+  }, [receiver]);
 
   useEffect(() => {
     setMessage(null);
   }, [conversation]);
 
   /**
-   * Right now, currentUser's messages are red, the messages receeived are black.
+   * Right now, current user's messages are red, the messages receeived are black.
    * We can change this in our css to fit our design
    *
    * Eg: Instead of {color: "red"}, we could give it a className="sender" and
@@ -89,7 +80,7 @@ const Messages = () => {
             <p
               key={key}
               style={
-                message.sender == currentUsername
+                message.sender == username
                   ? { color: "red" }
                   : { color: "black" }
               }
@@ -111,7 +102,7 @@ const Messages = () => {
       </div>
     );
   } else {
-    return <h1>User not Found</h1>;
+    return <h1>Messages List</h1>;
   }
 };
 
