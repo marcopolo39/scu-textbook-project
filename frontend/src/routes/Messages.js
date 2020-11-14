@@ -7,12 +7,15 @@ import { useSelector } from "react-redux";
 const Messages = () => {
   const token = useToken();
   const username = useSelector((store) => store.accountReducer.user.username);
-  const [receiver, setReceiver] = useState("testAcc123");
+
+  const [receiver, setReceiver] = useState();
   const [message, setMessage] = useState();
   const [conversation, setConversation] = useState([]);
+  const [allReceivers, setAll] = useState(["testAcc123", "dtlndo"]);
 
   // const getAllReceivers -> User[]
   // onClick button -> setReceiver(someReceiver.username)
+  // TODO: validate receiver exists
 
   const sendMessage = (message) => {
     axios
@@ -74,7 +77,7 @@ const Messages = () => {
   if (receiver) {
     return (
       <div className="Messages">
-        <p>{receiver}</p>
+        <h1>{receiver}</h1>
         {conversation.map((message, key) => {
           return (
             <p
@@ -104,10 +107,24 @@ const Messages = () => {
           <input type="submit" value="Send" />
           <CSRFToken />
         </form>
+        <button onClick={() => setReceiver(null)}>Back to Messages</button>
       </div>
     );
   } else {
-    return <h1>Messages List</h1>;
+    return (
+      <div className="Messages">
+        <h1>Messages List</h1>
+        {allReceivers.map((rec, key) => {
+          //if receiverIsValid(rec) {
+          return (
+            <div key={key} onClick={() => setReceiver(rec)}>
+              <h3>{rec}</h3>
+            </div>
+          );
+          // }
+        })}
+      </div>
+    );
   }
 };
 
