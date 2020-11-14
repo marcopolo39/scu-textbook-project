@@ -111,7 +111,7 @@ const Messages = () => {
             type="text"
             name="message"
             onChange={handleChange}
-            autoComplete="false"
+            autoComplete="off"
           />
           <input type="submit" value="Send" />
           <CSRFToken />
