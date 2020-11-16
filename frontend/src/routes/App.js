@@ -1,38 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../css/App.css";
+import PageHeader from "./components/PageHeader.js";
+import TextbookBoxItem from "./components/TextbookBoxItem.js";
 
 const App = () => {
-  const [textbookId, setTextbookId] = useState("");
-  const history = useHistory();
-
-  const searchTextbook = () => {
-    history.push(`/textbook/${textbookId}`);
-  };
-
-  const handleTextChange = (e) => {
-    e.preventDefault();
-    setTextbookId(e.target.value);
-  };
-
   return (
     <div className="App">
-      <header className="App-header">
-        <p className = "titleLogo"> FindABook</p>
-        <p>Routes:</p>
-        <Link to="/profile/">Profile</Link>
-        <Link to="/cart/">Cart</Link>
-        <Link to="/search/">Search</Link>
-        <Link to="/messages/">Messages</Link>
-        <Link to="/login/">Login</Link>
-        <form onSubmit={searchTextbook}>
-          <label>
-            <p>Textbook Search (Concept):</p>
-            <input type="text" name="textbookId" onChange={handleTextChange} />
-          </label>
-          <input type="submit" value="Go" />
+      <PageHeader />
+      <div className="spacingFromHeader"></div>
+      <div className="filterResults">
+        <h1 className="filterResultsHeader">Filter Results</h1>
+
+        <form className="filterForm">
+          <input className="sameUniCheckbox" type="checkbox"></input>
+          Items sold by students who attend my University
+          <div className="firstFilterGap"></div>
+          Search Within <br></br>
+          <input className="lowerLimitAreaInput" type="text"></input>
+          to
+          <input className="upperLimitAreaInput" type="text"></input>
+          <div className="secondFilterGap"></div>
+          Price Range
+          <br></br>
+          <input className="lowerPrinceRangeInput" type="text"></input>
+          to
+          <input className="upperPriceRangeInput" type="text"></input>
         </form>
-      </header>
+      </div>
+      <div className="textbookDisplayBlock">
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+        <TextbookBoxItem />
+      </div>
     </div>
   );
 };
