@@ -8,12 +8,14 @@ class TextbookISBNSerializer(serializers.ModelSerializer):
         model = Textbook
         fields = (
             'isbn',
+            'volume_edition',
             'price', 
             'comment',
             'owner',
             'title',
+            'authors',
         )
-        read_only_fields = ('title', 'owner')
+        read_only_fields = ('title', 'owner', 'authors',)
 
 class TextbookTitleSerializer(serializers.ModelSerializer):
     owner = serializers.StringRelatedField()
@@ -21,6 +23,8 @@ class TextbookTitleSerializer(serializers.ModelSerializer):
         model = Textbook
         fields = (
             'title',
+            'volume_edition',
+            'authors',
             'isbn', 
             'price', 
             'comment',

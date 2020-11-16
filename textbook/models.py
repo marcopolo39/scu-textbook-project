@@ -1,3 +1,4 @@
+import json
 from django.db import models
 from django.contrib.auth import get_user_model
 from accounts.models import User
@@ -18,7 +19,13 @@ class Textbook(models.Model):
     price = models.DecimalField(max_digits=9, decimal_places=2)
     state = models.CharField(max_length=1, default='F', choices=STATE_CHOICES)
     comment = models.CharField(max_length=300, blank=True, null=True)
-    # Static Image Field not added yet
+    volume_edition = models.IntegerField(blank=True, null=True)
+    authors = models.CharField(max_length=200, blank=True, null=True)
     
-    def __str__(self):
+    def set_authors(self, x):
+        self.authors = json.dumps(x)
+
+    def get_authors(self):
+        return json.loads(self.authors)
+
         return self.title + ' ' + self.isbn
