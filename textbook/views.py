@@ -1,6 +1,7 @@
 import requests
 import json
 from django.shortcuts import render
+from django.contrib.auth import get_user_model
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -14,6 +15,7 @@ from .serializers import TextbookISBNSerializer, TextbookTitleSerializer
 from .permissions import isTextbookOwnerPermission
 
 URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
+USER = get_user_model()
 
 class TextbookListView(generics.ListAPIView):
     queryset = Textbook.objects.all()
@@ -31,6 +33,7 @@ class TextbookDestroyView(generics.DestroyAPIView):
 class TextbookCreateView(generics.CreateAPIView):
     queryset = Textbook.objects.all()
     serializer_class = TextbookTitleSerializer
+    permission_classes = (IsAuthenticated, )
 
 class TextbookISBNCreateView(generics.CreateAPIView):
     queryset = Textbook.objects.all()
@@ -50,9 +53,15 @@ class TextbookISBNCreateView(generics.CreateAPIView):
         
         serializer = TextbookISBNSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(title=title, owner=request.user)
+            serializer.save(title=title, owner=self.request.user)
             return Response(serializer.data, status=HTTP_201_CREATED)
         return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+
+# Use update view with HTML PATCH request
+class TextbookUpdateView(generics.UpdateAPIView):
+    queryset = Textbook.objects.all()
+    serializer_class = TextbookTitleSerializer
+    permission_classes = (IsAuthenticated, isTextbookOwnerPermission)
 
 
     

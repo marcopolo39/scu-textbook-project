@@ -18,7 +18,6 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
     path("api/account/", include("accounts.urls")),
     path('api/textbook/', include('textbook.urls')),
     re_path(r'^$|profile/|cart/|search/|messages/|login/|textbook/.+/',
