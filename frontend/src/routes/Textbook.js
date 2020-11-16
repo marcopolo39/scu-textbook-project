@@ -10,6 +10,8 @@ const Textbook = () => {
       <div>
         <PageHeader />
         <h1>ID: {textbookId}</h1>
+          <div className = "textbookInfoBlock"></div>
+          <div className = "userInfoBlock"></div>
       </div>
 );
 };

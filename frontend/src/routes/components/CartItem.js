@@ -1,18 +1,15 @@
 import React from "react"
-import "../../css/TextbookBoxItem.css";
+import "../../css/CartItem.css";
 import {Link} from "react-router-dom";
-import { useParams } from "react-router-dom";
 
-function TextbookBoxItem(){
-  const { textbookId } = useParams();
-
+const CartItem = () => {
 return (
-    <div className = "textbookBoxProp">
+    <div className = "cartItemProp">
        <Link to = "/textbook">
                <img className = "textbookImage">
                </img>
        </Link>
-       <Link className = "textbookInfo" to = '/textbook/${textbookID}'>
+       <Link className = "textbookInfo" to = "/textbook">
            <br></br>
            Textbook Name
            <br></br>
@@ -21,12 +18,12 @@ return (
            Price
        </Link>
 
-
+        <button className = "removeFromCartBtn">Remove</button>
 
     </div>
 );
 }
 
-export default TextbookBoxItem;
+export default CartItem;
 
 

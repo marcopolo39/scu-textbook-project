@@ -1,0 +1,73 @@
+.sellBlock{
+    background-color: #F4F8F9;
+    height: 500px;
+    width: 1250px;
+    margin-top: 100px;
+    margin-left: 100px;
+    text-align: center;
+
+}
+
+.uploadImgBtn {
+      background-color: #CA521F;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    height: 37px;
+    width: 80px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+
+.listBtn {
+       background-color: #84A4F4;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    height: 37px;
+    width: 80px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+     margin-left: 10px;
+    margin-right:10px;
+}
+
+.ISBNInput {
+  background-color: #C4C4C4;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    font-size: 24px;
+}
+
+.authorInput {
+ background-color: #C4C4C4;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    font-size: 24px;
+}
+
+.bookTitleInput {
+    background-color: #C4C4C4;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    font-size: 24px;
+}

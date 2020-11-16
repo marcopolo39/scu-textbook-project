@@ -59,7 +59,7 @@ const Login = () => {
   if (!isLoggedIn()) {
     if (registering) {
       return (
-        <div className="Login">
+        <div className="loginBlock">
           <Registration setRegistering={setRegistering} />
         </div>
       );
@@ -67,8 +67,10 @@ const Login = () => {
       return (
         <div className="Login">
           <PageHeader />
+
           <div className="loginBlock">
-            <h1> Login </h1>
+            <div className = "loginHeader"> Log In </div>
+              <div className = "headerLineBreak"></div>
             <form method="post" onSubmit={handleLogin}>
               <input
                 className="usernameEntryField"
@@ -77,11 +79,19 @@ const Login = () => {
                 placeholder="Username"
                 onChange={handleChange}
               />
+                <div className = "lineBreak"></div>
               <input
                 className="passwordEntryField"
                 type="text"
                 name="password"
                 placeholder="Password"
+                onChange={handleChange}
+              />
+               <div className = "lineBreak"></div>
+              <input
+                className="loginBtn"
+                type="submit"
+                value="Login"
                 onChange={handleChange}
               />
               <input
@@ -90,12 +100,8 @@ const Login = () => {
                 value="Sign Up"
                 onChange={() => setRegistering(true)}
               />
-              <input
-                className="loginBtn"
-                type="submit"
-                value="Login"
-                onChange={handleChange}
-              />
+
+
               <input
                 type="hidden"
                 value={cookie.load("csrftoken")}
