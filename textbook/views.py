@@ -47,15 +47,15 @@ class TextbookISBNCreateView(generics.CreateAPIView):
             r = requests.get(URL + isbn)
             bookData = r.json()
             title = bookData['items'][0]['volumeInfo']['title']
+        
+            serializer = TextbookISBNSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save(title=title, owner=self.request.user)
+                return Response(serializer.data, status=HTTP_201_CREATED)
+            return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
         except:
             print('Bad ISBN')
             return Response(status=HTTP_400_BAD_REQUEST)
-        
-        serializer = TextbookISBNSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(title=title, owner=self.request.user)
-            return Response(serializer.data, status=HTTP_201_CREATED)
-        return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
 # Use update view with HTML PATCH request
 class TextbookUpdateView(generics.UpdateAPIView):
