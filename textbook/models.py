@@ -28,4 +28,5 @@ class Textbook(models.Model):
     def get_authors(self):
         return json.loads(self.authors)
 
+    def __str__(self):
         return self.title + ' ' + self.isbn
