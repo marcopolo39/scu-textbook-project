@@ -47,10 +47,11 @@ class TextbookISBNCreateView(generics.CreateAPIView):
             r = requests.get(URL + isbn)
             bookData = r.json()
             title = bookData['items'][0]['volumeInfo']['title']
-        
+            bookAuthors = bookData['items'][0]['volumeInfo']['authors']
+            print(bookAuthors)
             serializer = TextbookISBNSerializer(data=request.data)
             if serializer.is_valid():
-                serializer.save(title=title, owner=self.request.user)
+                serializer.save(title=title, owner=self.request.user, authors=bookAuthors)
                 return Response(serializer.data, status=HTTP_201_CREATED)
             return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
         except:
