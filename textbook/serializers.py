@@ -1,20 +1,34 @@
 from rest_framework import serializers
 from .models import Textbook
 
-class TextbookSerializer(serializers.Serializer):
+class TextbookISBNSerializer(serializers.ModelSerializer):
+
+    owner = serializers.StringRelatedField()
     class Meta:
         model = Textbook
-        fields = ['textbookId', 'owner', 'isbn', 'price', 'state']
-    
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
-        data['title'] = get_ISBN_Title(instance.isbn)
-        return data
+        fields = (
+            'isbn',
+            'price', 
+            'comment',
+            'owner',
+            'title',
+        )
+        read_only_fields = ('title', 'owner')
 
+class TextbookTitleSerializer(serializers.ModelSerializer):
+    owner = serializers.StringRelatedField()
+    class Meta:
+        model = Textbook
+        fields = (
+            'title',
+            'isbn', 
+            'price', 
+            'comment',
+            'owner',
+            'pk',
+        )
+        read_only_fields = ('owner', 'pk', )
 
-def get_ISBN_Title(isbn):
-    #
-    return isbn
         
     
 

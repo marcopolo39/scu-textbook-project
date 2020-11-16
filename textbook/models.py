@@ -13,6 +13,7 @@ class Textbook(models.Model):
     # ISBN can be 13 or 10 digits (They should not be entered with '-')
     # for example ISBN = 9780321334879 not 978-0-321-33478-9
     isbn = models.CharField(max_length=13)
+    title = models.CharField(max_length=100)
     # 9 digit max with 2 decimal places means that 9,999,999.99 is the max retail price
     price = models.DecimalField(max_digits=9, decimal_places=2)
     state = models.CharField(max_length=1, default='F', choices=STATE_CHOICES)
@@ -20,4 +21,4 @@ class Textbook(models.Model):
     # Static Image Field not added yet
     
     def __str__(self):
-        return self.isbn
+        return self.title + ' ' + self.isbn
