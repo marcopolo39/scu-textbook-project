@@ -48,7 +48,6 @@ class TextbookISBNCreateView(generics.CreateAPIView):
             bookData = r.json()
             title = bookData['items'][0]['volumeInfo']['title']
             bookAuthors = bookData['items'][0]['volumeInfo']['authors']
-            print(bookAuthors)
             serializer = TextbookISBNSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save(title=title, owner=self.request.user, authors=bookAuthors)
