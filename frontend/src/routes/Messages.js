@@ -4,6 +4,17 @@ import CSRFToken from "../components/CSRFToken";
 import { useToken } from "../hooks/useToken";
 import { useSelector, useDispatch } from "react-redux";
 import { setReceiver } from "../actions/messageActions";
+import {
+  Alert,
+  InputGroup,
+  InputGroupAddon,
+  Input,
+  Button,
+  Form,
+  ListGroup,
+  ListGroupItem,
+} from "reactstrap";
+import "../css/Messages.css";
 
 const Messages = () => {
   const token = useToken();
@@ -17,12 +28,13 @@ const Messages = () => {
   const [conversation, setConversation] = useState([]);
   const [allReceivers, setAll] = useState([
     "testAcc123",
-    "dtlndo",
+    "testAcc456",
     "dlindo-admin",
   ]);
 
   // const getAllReceivers -> User[]
   // TODO: validate receiver exists?
+  // Maybe later: add timestamps
 
   const sendMessage = (message) => {
     axios
@@ -74,64 +86,63 @@ const Messages = () => {
     setMessage(null);
   }, [conversation]);
 
-  /**
-   * Right now, current user's messages are red, the messages receeived are black.
-   * We can change this in our css to fit our design
-   *
-   * Eg: Instead of {color: "red"}, we could give it a className="sender" and
-   * edit that in css
-   */
   if (receiver) {
     return (
       <div className="Messages">
         <h1>{receiver}</h1>
-        {conversation.map((message, key) => {
-          return (
-            <p
-              key={key}
-              style={
-                message.sender == username
-                  ? { color: "red" }
-                  : { color: "black" }
-              }
-            >
-              {message.sender}: {message.message}
-            </p>
-          );
-        })}
-        <form
-          method="post"
-          onSubmit={(e) => {
-            sendMessage(message);
-          }}
-        >
-          <input
-            type="text"
-            name="message"
-            onChange={handleChange}
-            autoComplete="off"
-          />
-          <input type="submit" value="Send" />
-          <CSRFToken />
-        </form>
-        <button onClick={() => dispatch(setReceiver(null))}>
+        <div className="chatContainer clearfix">
+          {conversation.map((message, key) => {
+            return (
+              <div
+                key={key}
+                className={`col-lg-6 col-md-12 col-md-12 ${
+                  message.sender == username ? "floatRight" : "floatLeft"
+                }`}
+              >
+                <Alert
+                  color={`${
+                    message.sender == username ? "primary" : "secondary"
+                  }`}
+                >
+                  {message.message}
+                </Alert>
+              </div>
+            );
+          })}
+        </div>
+        <Form onSubmit={() => sendMessage(message)}>
+          <InputGroup>
+            <Input onChange={handleChange} />
+            <InputGroupAddon addonType="prepend">
+              <Button onChange={handleChange} type="submit">
+                Send
+              </Button>
+            </InputGroupAddon>
+            <CSRFToken />
+          </InputGroup>
+        </Form>
+
+        <Button onClick={() => dispatch(setReceiver(null))}>
           Back to Messages
-        </button>
+        </Button>
       </div>
     );
   } else {
     return (
       <div className="Messages">
-        <h1>Messages List</h1>
-        {allReceivers.map((rec, key) => {
-          //if receiverIsValid(rec) {
-          return (
-            <div key={key} onClick={() => dispatch(setReceiver(rec))}>
-              <h3>{rec}</h3>
-            </div>
-          );
-          // }
-        })}
+        <h1 className="center">Messages</h1>
+        <ListGroup className="conversationsContainer col-lg-6 col-md-6 col-sm-6 clickable">
+          {allReceivers.map((rec, key) => {
+            return (
+              <ListGroupItem
+                key={key}
+                onClick={() => dispatch(setReceiver(rec))}
+              >
+                {rec}
+              </ListGroupItem>
+            );
+          })}
+        </ListGroup>
       </div>
     );
   }

@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useToken } from "../hooks/useToken";
+import PageHeader from "./components/PageHeader.js";
 import ProfileEditor from "../components/ProfileEditor";
+import "../css/Profile.css";
+import { useToken } from "../hooks/useToken";
 
 const Profile = () => {
   const token = useToken();
@@ -34,6 +35,7 @@ const Profile = () => {
     if (!editing) {
       return (
         <div className="Profile">
+          <PageHeader />
           <p>Username: {user.username}</p>
           <p>
             Name: {user.firstName} {user.lastName}
@@ -47,6 +49,7 @@ const Profile = () => {
     } else {
       return (
         <div className="Profile">
+          <PageHeader />
           <ProfileEditor user={user} token={token} />
           <button onClick={() => setEditing(false)}>Close</button>
         </div>
@@ -55,6 +58,7 @@ const Profile = () => {
   } else {
     return (
       <div className="Profile">
+        <PageHeader />
         <p>Log in to view Profile</p>
       </div>
     );
