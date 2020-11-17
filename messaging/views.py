@@ -20,9 +20,7 @@ class MessageDetailView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         recipient = User.objects.filter(username=self.request.data['send_to'])[0]
-        chat = \
-        Chat.objects.filter(members__username=self.request.user.username).filter(members__username=recipient.username)[
-            0]
+        chat = Chat.objects.filter(members__username=self.request.user.username).filter(members__username=recipient.username)[0]
         serializer.save(sender=self.request.user, receiver=recipient, chat=chat)
 
 
