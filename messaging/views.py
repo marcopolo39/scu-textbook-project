@@ -32,11 +32,9 @@ class ChatListView(generics.ListAPIView):
 
     def get_queryset(self):
         my_chats = self.request.user.chats.all()
-        print(my_chats)
         contacts = User.objects.none()
         for chat in my_chats:
             contacts = contacts | chat.members.exclude(username=self.request.user.username)
-        print(contacts)
         return contacts
 
 
@@ -49,5 +47,4 @@ class ChatCreateView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         recipient = User.objects.filter(username=self.request.data['members'][0])[0]
-        print(recipient)
         serializer.save(members=[self.request.user.id, recipient.id])
