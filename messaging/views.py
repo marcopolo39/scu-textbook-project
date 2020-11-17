@@ -1,48 +1,55 @@
 from rest_framework import generics, permissions
 from django.contrib.auth import get_user_model
-from .serializers import MessageSerializer, MessageListSerializer
-from .models import Messages
+from .serializers import MessageSerializer, MessageListSerializer, CreateChatSerializer
+from .models import Message, Chat
 
 User = get_user_model()
 
 
 class MessageDetailView(generics.ListCreateAPIView):
-
     permission_classes = [
         permissions.IsAuthenticated
     ]
     serializer_class = MessageSerializer
 
     def get_queryset(self):
-        user = User.objects.filter(username=self.request.data['send_to'])[0]
-        messages_sent = self.request.user.sender.filter(receiver=user.id)
-        messages_received = self.request.user.recipient.filter(sender=user.id)
-        all_messages = messages_sent | messages_received
-        return all_messages
+        chat = Chat.objects.filter(members__username=self.request.user.username).filter(
+            members__username=self.request.query_params.get('send_to', None))[0]
+        messages = Message.objects.filter(chat=chat)
+        return messages
 
     def perform_create(self, serializer):
         recipient = User.objects.filter(username=self.request.data['send_to'])[0]
-        serializer.save(sender=self.request.user, receiver=recipient)
+        chat = \
+        Chat.objects.filter(members__username=self.request.user.username).filter(members__username=recipient.username)[
+            0]
+        serializer.save(sender=self.request.user, receiver=recipient, chat=chat)
 
 
-class MessageListView(generics.ListAPIView):
-
+class ChatListView(generics.ListAPIView):
     permission_classes = [
         permissions.IsAuthenticated
     ]
     serializer_class = MessageListSerializer
 
     def get_queryset(self):
-        messages_sent = self.request.user.sender.all()
-        messages_received = self.request.user.recipient.all()
-        all_messages = messages_sent | messages_received
-        contacts = {}
-        for message in all_messages:
-            if message.sender is not self.request.user and message.sender not in contacts:
-                contacts[message.sender] = message.sender.username
-            if message.receiver is not self.request.user and message.receiver not in contacts:
-                contacts[message.receiver] = message.receiver.username
+        my_chats = self.request.user.chats.all()
+        print(my_chats)
+        contacts = User.objects.none()
+        for chat in my_chats:
+            contacts = contacts | chat.members.exclude(username=self.request.user.username)
         print(contacts)
         return contacts
 
 
+class ChatCreateView(generics.CreateAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+    serializer_class = CreateChatSerializer
+    queryset = Chat.objects.all()
+
+    def perform_create(self, serializer):
+        recipient = User.objects.filter(username=self.request.data['members'][0])[0]
+        print(recipient)
+        serializer.save(members=[self.request.user.id, recipient.id])
