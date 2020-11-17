@@ -26,20 +26,27 @@ const Messages = () => {
 
   const [message, setMessage] = useState();
   const [conversation, setConversation] = useState([]);
-  const [allReceivers, setAll] = useState([
-    "testAcc123",
-    "testAcc456",
-    "dlindo-admin",
-  ]);
+  const [allReceivers, setAll] = useState([]);
 
-  // const getAllReceivers -> User[]
-  // TODO: validate receiver exists?
   // Maybe later: add timestamps
+
+  const getAllConversations = () => {
+    axios
+      .get("/api/messages/chat-list/", {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
+      .then((res) => {
+        let chatList = res.data.map((chat) => chat.username);
+        setAll(chatList);
+      });
+  };
 
   const sendMessage = (message) => {
     axios
       .post(
-        "/api/messages/",
+        "/api/messages/conversation/",
         {
           send_to: receiver,
           message: message,
@@ -64,7 +71,7 @@ const Messages = () => {
     };
 
     axios
-      .get("/api/messages/", requestConfig)
+      .get("/api/messages/conversation/", requestConfig)
       .then((res) => {
         setConversation(res.data.reverse());
       })
@@ -79,6 +86,8 @@ const Messages = () => {
   useEffect(() => {
     if (receiver) {
       getConversation(receiver);
+    } else {
+      getAllConversations();
     }
   }, [receiver]);
 
