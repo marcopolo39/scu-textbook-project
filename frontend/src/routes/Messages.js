@@ -2,22 +2,51 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CSRFToken from "../components/CSRFToken";
 import { useToken } from "../hooks/useToken";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setReceiver } from "../actions/messageActions";
+import {
+  Alert,
+  InputGroup,
+  InputGroupAddon,
+  Input,
+  Button,
+  Form,
+  ListGroup,
+  ListGroupItem,
+} from "reactstrap";
+import "../css/Messages.css";
 
 const Messages = () => {
   const token = useToken();
+  const dispatch = useDispatch();
   const username = useSelector((store) => store.accountReducer.user.username);
-  const [receiver, setReceiver] = useState("testAcc123");
+  const receiver = useSelector(
+    (store) => store.messageReducer.conversationReceiver
+  );
+
   const [message, setMessage] = useState();
   const [conversation, setConversation] = useState([]);
+  const [allReceivers, setAll] = useState([]);
 
-  // const getAllReceivers -> User[]
-  // onClick button -> setReceiver(someReceiver.username)
+  // Maybe later: add timestamps
+
+  const getAllConversations = () => {
+    axios
+      .get("/api/messages/chat-list/", {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
+      .then((res) => {
+        let chatList = res.data.map((chat) => chat.username);
+        setAll(chatList);
+      });
+  };
 
   const sendMessage = (message) => {
     axios
       .post(
-        "/api/messages/",
+        "/api/messages/conversation/",
         {
           send_to: receiver,
           message: message,
@@ -42,7 +71,7 @@ const Messages = () => {
     };
 
     axios
-      .get("/api/messages/", requestConfig)
+      .get("/api/messages/conversation/", requestConfig)
       .then((res) => {
         setConversation(res.data.reverse());
       })
@@ -57,6 +86,8 @@ const Messages = () => {
   useEffect(() => {
     if (receiver) {
       getConversation(receiver);
+    } else {
+      getAllConversations();
     }
   }, [receiver]);
 
@@ -64,50 +95,65 @@ const Messages = () => {
     setMessage(null);
   }, [conversation]);
 
-  /**
-   * Right now, current user's messages are red, the messages receeived are black.
-   * We can change this in our css to fit our design
-   *
-   * Eg: Instead of {color: "red"}, we could give it a className="sender" and
-   * edit that in css
-   */
   if (receiver) {
     return (
       <div className="Messages">
-        <p>{receiver}</p>
-        {conversation.map((message, key) => {
-          return (
-            <p
-              key={key}
-              style={
-                message.sender == username
-                  ? { color: "red" }
-                  : { color: "black" }
-              }
-            >
-              {message.sender}: {message.message}
-            </p>
-          );
-        })}
-        <form
-          method="post"
-          onSubmit={(e) => {
-            sendMessage(message);
-          }}
-        >
-          <input
-            type="text"
-            name="message"
-            onChange={handleChange}
-            autoComplete="false"
-          />
-          <input type="submit" value="Send" />
-          <CSRFToken />
-        </form>
+        <h1>{receiver}</h1>
+        <div className="chatContainer clearfix">
+          {conversation.map((message, key) => {
+            return (
+              <div
+                key={key}
+                className={`col-lg-6 col-md-12 col-md-12 ${
+                  message.sender == username ? "floatRight" : "floatLeft"
+                }`}
+              >
+                <Alert
+                  color={`${
+                    message.sender == username ? "primary" : "secondary"
+                  }`}
+                >
+                  {message.message}
+                </Alert>
+              </div>
+            );
+          })}
+        </div>
+        <Form onSubmit={() => sendMessage(message)}>
+          <InputGroup>
+            <Input onChange={handleChange} />
+            <InputGroupAddon addonType="prepend">
+              <Button onChange={handleChange} type="submit">
+                Send
+              </Button>
+            </InputGroupAddon>
+            <CSRFToken />
+          </InputGroup>
+        </Form>
+
+        <Button onClick={() => dispatch(setReceiver(null))}>
+          Back to Messages
+        </Button>
       </div>
     );
   } else {
-    return <h1>Messages List</h1>;
+    return (
+      <div className="Messages">
+        <h1 className="center">Messages</h1>
+        <ListGroup className="conversationsContainer col-lg-6 col-md-6 col-sm-6 clickable">
+          {allReceivers.map((rec, key) => {
+            return (
+              <ListGroupItem
+                key={key}
+                onClick={() => dispatch(setReceiver(rec))}
+              >
+                {rec}
+              </ListGroupItem>
+            );
+          })}
+        </ListGroup>
+      </div>
+    );
   }
 };
 

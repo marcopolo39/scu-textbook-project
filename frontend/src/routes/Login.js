@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Registration from "../components/Registration";
+import PageHeader from "./components/PageHeader.js";
+import CSRFToken from "../components/CSRFToken";
+import "../css/Login.css";
 import axios from "axios";
 
 import { useLogout } from "../hooks/useLogout";
 import { useLogin } from "../hooks/useLogin";
 import { useToken } from "../hooks/useToken";
-
-import Registration from "../components/Registration";
-import CSRFToken from "../components/CSRFToken";
 
 const Login = () => {
   const [user, setUser] = useState({});
@@ -15,6 +17,7 @@ const Login = () => {
   const token = useToken();
   const logout = useLogout();
   const login = useLogin();
+  const isLoggedIn = () => (token ? true : false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -53,7 +56,7 @@ const Login = () => {
     }
   }, []);
 
-  if (!token) {
+  if (!isLoggedIn()) {
     if (registering) {
       return (
         <div className="Login">
@@ -63,16 +66,39 @@ const Login = () => {
     } else {
       return (
         <div className="Login">
-          <p>Login</p>
-          <form method="post" onSubmit={handleLogin}>
-            <p>Username</p>
-            <input type="text" name="username" onChange={handleChange} />
-            <p>Password</p>
-            <input type="password" name="password" onChange={handleChange} />
-            <CSRFToken />
-            <input type="submit" />
-          </form>
-          <button onClick={() => setRegistering(true)}>Register</button>
+          <PageHeader />
+          <div className="loginBlock">
+            <h1> Login </h1>
+            <form method="post" onSubmit={handleLogin}>
+              <input
+                className="usernameEntryField"
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={handleChange}
+              />
+              <input
+                className="passwordEntryField"
+                type="text"
+                name="password"
+                placeholder="Password"
+                onChange={handleChange}
+              />
+              <input
+                className="signUpBtn"
+                type="submit"
+                value="Sign Up"
+                onChange={() => setRegistering(true)}
+              />
+              <input
+                className="loginBtn"
+                type="submit"
+                value="Login"
+                onChange={handleChange}
+              />
+              <CSRFToken />
+            </form>
+          </div>
         </div>
       );
     }
@@ -81,6 +107,7 @@ const Login = () => {
       <div className="Login">
         <p>You are Logged In</p>
         <button onClick={logout}>Logout</button>
+        <Link to="/">Home</Link>
       </div>
     );
   }

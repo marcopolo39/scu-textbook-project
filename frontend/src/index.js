@@ -11,11 +11,15 @@ import Search from "./routes/Search";
 import Messages from "./routes/Messages";
 import Login from "./routes/Login";
 import Textbook from "./routes/Textbook";
+import Sell from "./routes/Sell";
+
 import TokenValidator from "./components/TokenValidator";
 
 import { Provider } from "react-redux";
 import { store, persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
+
+import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -32,6 +36,7 @@ ReactDOM.render(
               <Route exact path="/messages/" component={Messages} />
               <Route exact path="/login/" component={Login} />
               <Route exact path="/textbook/:textbookId/" component={Textbook} />
+              <Route exact path="/sell/" component={Sell} />
             </Fragment>
           </Switch>
         </Router>

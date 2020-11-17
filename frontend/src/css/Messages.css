@@ -1,0 +1,13 @@
+.Messages {
+  margin: 0px 50px;
+  overflow: auto;
+}
+
+.conversationsContainer a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.conversationsContainer:hover {
+  size: 40%;
+}

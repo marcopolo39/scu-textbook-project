@@ -50,7 +50,7 @@ const Registration = ({ setRegistering }) => {
           type="text"
           name="username"
           onChange={handleChange}
-          autoComplete="false"
+          autoComplete="off"
           required
         />
         <p>Password</p>
@@ -58,7 +58,7 @@ const Registration = ({ setRegistering }) => {
           type="password"
           name="password"
           onChange={handleChange}
-          autoComplete="false"
+          autoComplete="off"
           required
         />
         <p>First Name</p>
@@ -72,14 +72,14 @@ const Registration = ({ setRegistering }) => {
           type="text"
           name="school"
           onChange={handleChange}
-          autoComplete="false"
+          autoComplete="off"
         />
         <p>Location</p>
         <input
           type="text"
           name="location"
           onChange={handleChange}
-          autoComplete="false"
+          autoComplete="off"
           required
         />
         <CSRFToken />
