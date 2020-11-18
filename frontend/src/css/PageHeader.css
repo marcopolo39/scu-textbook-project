@@ -119,7 +119,7 @@ display: inline-block;
 .cartImageLogo{
    color: inherit;
     text-decoration: none;
-    margin-right: 30px;
+    margin-right: 20px;
     margin-top: 10px;
 
 }
@@ -135,6 +135,19 @@ display: inline-block;
     display: inline-block;
 }
 
+.registerLink{
+   text-decoration: none;
+    color: inherit;
+    margin-left: 10px;
+    top: 20px;
+    margin-right:15px;
+}
+
+
+.registerLink:hover {
+     opacity: 0.5;
+    transition: all 1s ease;
+}
 
 
 

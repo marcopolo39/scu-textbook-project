@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import PageHeader from "./components/PageHeader.js";
+import PageHeader from "../components/PageHeader.js";
 import ProfileEditor from "../components/ProfileEditor";
 import "../css/Profile.css";
 import { useToken } from "../hooks/useToken";
+
 
 const Profile = () => {
   const token = useToken();
@@ -43,7 +44,7 @@ const Profile = () => {
           <p>Email: {user.email}</p>
           <p>School: {user.school}</p>
           <p>Location: {user.location}</p>
-          <button onClick={() => setEditing(true)}>Edit</button>
+          <button className = "editBtn" onClick={() => setEditing(true)}>Edit</button>
         </div>
       );
     } else {
@@ -51,7 +52,7 @@ const Profile = () => {
         <div className="Profile">
           <PageHeader />
           <ProfileEditor user={user} token={token} />
-          <button onClick={() => setEditing(false)}>Close</button>
+          <button className = "closeBtn" onClick={() => setEditing(false)}>Close</button>
         </div>
       );
     }

@@ -1,6 +1,6 @@
 import React from "react";
-import PageHeader from "./components/PageHeader";
-import CartItem from "./components/CartItem"
+import PageHeader from "../components/PageHeader";
+import CartItem from "../components/CartItem"
 import "../css/Cart.css";
 
 const Cart = () => {

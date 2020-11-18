@@ -1,5 +1,5 @@
 import React from "react"
-import "../../css/CartItem.css";
+import "../css/CartItem.css";
 import {Link} from "react-router-dom";
 
 const CartItem = () => {
@@ -9,16 +9,15 @@ return (
                <img className = "textbookImage">
                </img>
        </Link>
-       <Link className = "textbookInfo" to = "/textbook">
-           <br></br>
-           Textbook Name
-           <br></br>
-           ISBN
-           <br></br>
-           Price
-       </Link>
+       <div className = "infoBlock">
+               <p className = "textbook">Textbook</p>
 
-        <button className = "removeFromCartBtn">Remove</button>
+               <p className = "isbn">ISBN</p>
+
+               <p className = "price">Price</p>
+           <button className = "removeFromCartBtn">Remove</button>
+        </div>
+
 
     </div>
 );

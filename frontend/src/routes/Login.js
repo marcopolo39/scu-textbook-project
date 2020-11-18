@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Registration from "../components/Registration";
-import PageHeader from "./components/PageHeader.js";
+import PageHeader from "../components/PageHeader.js";
 import CSRFToken from "../components/CSRFToken";
 import "../css/Login.css";
 import axios from "axios";
@@ -10,9 +10,9 @@ import { useLogout } from "../hooks/useLogout";
 import { useLogin } from "../hooks/useLogin";
 import { useToken } from "../hooks/useToken";
 
-const Login = () => {
+const Login = ({ location }) => {
   const [user, setUser] = useState({});
-  const [registering, setRegistering] = useState(false);
+  const [registering, setRegistering] = useState(location.isRegistering);
 
   const token = useToken();
   const logout = useLogout();
@@ -59,7 +59,7 @@ const Login = () => {
   if (!isLoggedIn()) {
     if (registering) {
       return (
-        <div className="Login">
+        <div className="loginBlock">
           <Registration setRegistering={setRegistering} />
         </div>
       );
@@ -67,8 +67,10 @@ const Login = () => {
       return (
         <div className="Login">
           <PageHeader />
+
           <div className="loginBlock">
-            <h1> Login </h1>
+            <div className="loginHeader"> Log In </div>
+            <div className="headerLineBreak"></div>
             <form method="post" onSubmit={handleLogin}>
               <input
                 className="usernameEntryField"
@@ -77,6 +79,7 @@ const Login = () => {
                 placeholder="Username"
                 onChange={handleChange}
               />
+              <div className="lineBreak"></div>
               <input
                 className="passwordEntryField"
                 type="text"
@@ -84,17 +87,19 @@ const Login = () => {
                 placeholder="Password"
                 onChange={handleChange}
               />
-              <input
-                className="signUpBtn"
-                type="submit"
-                value="Sign Up"
-                onChange={() => setRegistering(true)}
-              />
+              <div className="lineBreak"></div>
               <input
                 className="loginBtn"
                 type="submit"
                 value="Login"
                 onChange={handleChange}
+              />
+
+              <input
+                className="signUpBtn"
+                type="submit"
+                value="Sign Up"
+                onChange={() => setRegistering(true)}
               />
               <CSRFToken />
             </form>

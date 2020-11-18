@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "../css/App.css";
-import PageHeader from "./components/PageHeader.js";
-import TextbookBoxItem from "./components/TextbookBoxItem.js";
+import PageHeader from "../components/PageHeader.js";
+import TextbookBoxItem from "../components/TextbookBoxItem.js";
 
 const App = () => {
   const [textbooks, setTextbooks] = useState([]);
