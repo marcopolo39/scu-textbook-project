@@ -7,6 +7,52 @@ import TextbookBoxItem from "./components/TextbookBoxItem.js";
 
 const App = () => {
   const [textbooks, setTextbooks] = useState([]);
+  const [filter, setFilter] = useState({
+    price: {
+      low: 0,
+      high: 10000,
+    },
+  });
+
+  const changePriceLow = (e) => {
+    if (e.target.value) {
+      setFilter({
+        ...filter,
+        price: {
+          ...filter.price,
+          low: parseInt(e.target.value, 10),
+        },
+      });
+    } else {
+      setFilter({
+        ...filter,
+        price: {
+          ...filter.price,
+          low: 0,
+        },
+      });
+    }
+  };
+
+  const changePriceHigh = (e) => {
+    if (e.target.value) {
+      setFilter({
+        ...filter,
+        price: {
+          ...filter.price,
+          high: parseInt(e.target.value, 10),
+        },
+      });
+    } else {
+      setFilter({
+        ...filter,
+        price: {
+          ...filter.price,
+          high: 0,
+        },
+      });
+    }
+  };
 
   const getTextbooks = () => {
     axios
@@ -39,14 +85,27 @@ const App = () => {
           <div className="secondFilterGap"></div>
           Price Range
           <br></br>
-          <input className="lowerPrinceRangeInput" type="text"></input>
+          <input
+            className="lowerPrinceRangeInput"
+            type="text"
+            name="priceLow"
+            onChange={changePriceLow}
+          ></input>
           to
-          <input className="upperPriceRangeInput" type="text"></input>
+          <input
+            className="upperPriceRangeInput"
+            type="text"
+            name="priceHigh"
+            onChange={changePriceHigh}
+          ></input>
         </form>
       </div>
       <div className="textbookDisplayBlock">
         {textbooks.map((textbook, key) => {
-          return <TextbookBoxItem key={key} textbook={textbook} />;
+          let price = parseInt(textbook.price, 10);
+          if (filter.price.low <= price && price <= filter.price.high) {
+            return <TextbookBoxItem key={key} textbook={textbook} />;
+          }
         })}
       </div>
     </div>
@@ -54,3 +113,5 @@ const App = () => {
 };
 
 export default App;
+
+// How do we get price to automatically set as a number in the serializer?

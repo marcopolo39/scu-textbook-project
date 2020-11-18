@@ -14,6 +14,8 @@ function TextbookBoxItem({ textbook }) {
         <div>
           <div className="textbookImage"></div>
           {textbook.title}
+          <br />
+          {textbook.price}
         </div>
       </Link>
     </div>
