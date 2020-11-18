@@ -15,3 +15,11 @@
     margin-left: 100px;
     text-align: center;
 }
+
+.infoBlock {
+    display: inline-block;
+    background-color: inherit;
+    color: black;
+    text-decoration: none;
+    margin-left: 50px;
+}

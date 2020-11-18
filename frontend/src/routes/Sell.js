@@ -1,7 +1,7 @@
 import React from "react";
-import PageHeader from "./components/PageHeader.js"
+import PageHeader from "../components/PageHeader.js"
 import "../css/Sell.css"
-import ConditionDropdown from "./components/ConditionDropdown";
+
 const Sell = () => {
     return(
         <div>
@@ -14,7 +14,7 @@ const Sell = () => {
                 <br></br>
                 Book Title: <input type="texts" className = "bookTitleInput" placeholder = "Book Title"></input>
                 <br></br>
-                <ConditionDropdown />
+
                 Upload Image<button className ="uploadImgBtn">Upload</button>
                 <button className = "listBtn" >List</button>
             </div>

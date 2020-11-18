@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import PageHeader from "./components/PageHeader.js";
+import PageHeader from "../components/PageHeader.js";
 import "../css/Textbook.css";
 
 const Textbook = ({ location }) => {
