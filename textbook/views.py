@@ -24,6 +24,7 @@ class TextbookListView(generics.ListAPIView):
 class TextbookDetailVeiw(generics.RetrieveAPIView):
     queryset = Textbook.objects.all()
     serializer_class = TextbookTitleSerializer
+    lookup_field = "isbn"
 
 class TextbookDestroyView(generics.DestroyAPIView):
     queryset = Textbook.objects.all()

@@ -1,32 +1,25 @@
-import React from "react"
+import React from "react";
 import "../../css/TextbookBoxItem.css";
-import {Link} from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function TextbookBoxItem(){
-  const { textbookId } = useParams();
-
-return (
-    <div className = "textbookBoxProp">
-       <Link to = "/textbook">
-               <img className = "textbookImage">
-               </img>
-       </Link>
-       <Link className = "textbookInfo" to = '/textbook/${textbookID}'>
-           <br></br>
-           Textbook Name
-           <br></br>
-           ISBN
-           <br></br>
-           Price
-       </Link>
-
-
-
+function TextbookBoxItem({ textbook }) {
+  return (
+    <div className="textbookBoxProp">
+      <Link
+        to={{
+          pathname: `/textbook/${textbook.isbn}`,
+          textbook: textbook,
+        }}
+      >
+        <div>
+          <div className="textbookImage"></div>
+          {textbook.title}
+          <br />
+          {textbook.price}
+        </div>
+      </Link>
     </div>
-);
+  );
 }
 
 export default TextbookBoxItem;
-
-

@@ -1,7 +1,8 @@
-import { SET_TOKEN } from "../actions/actions";
+import { SET_TOKEN, SET_USER } from "../actions/actions";
 
 const initialState = {
   token: null,
+  user: {},
 };
 
 const accountReducer = (state = initialState, action) => {
@@ -10,6 +11,13 @@ const accountReducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.payload,
+      };
+    case SET_USER:
+      delete action.payload.password;
+      delete action.payload.id;
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

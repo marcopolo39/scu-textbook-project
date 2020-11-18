@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import axios from "axios";
-import cookie from "react-cookies";
+import CSRFToken from "./CSRFToken";
 
 const Registration = ({ setRegistering }) => {
   const [user, setUser] = useState({});
@@ -46,12 +46,19 @@ const Registration = ({ setRegistering }) => {
       <p>Register Account</p>
       <form method="post" onSubmit={registerAccount}>
         <p>Username</p>
-        <input type="text" name="username" onChange={handleChange} required />
+        <input
+          type="text"
+          name="username"
+          onChange={handleChange}
+          autoComplete="off"
+          required
+        />
         <p>Password</p>
         <input
           type="password"
           name="password"
           onChange={handleChange}
+          autoComplete="off"
           required
         />
         <p>First Name</p>
@@ -61,14 +68,21 @@ const Registration = ({ setRegistering }) => {
         <p>Email</p>
         <input type="email" name="email" onChange={handleChange} required />
         <p>School</p>
-        <input type="text" name="school" onChange={handleChange} />
-        <p>Location</p>
-        <input type="text" name="location" onChange={handleChange} required />
         <input
-          type="hidden"
-          value={cookie.load("csrftoken")}
-          name="csrfmiddlewaretoken"
+          type="text"
+          name="school"
+          onChange={handleChange}
+          autoComplete="off"
         />
+        <p>Location</p>
+        <input
+          type="text"
+          name="location"
+          onChange={handleChange}
+          autoComplete="off"
+          required
+        />
+        <CSRFToken />
         <input type="submit" />
       </form>
       <button onClick={() => setRegistering(false)}>Cancel</button>

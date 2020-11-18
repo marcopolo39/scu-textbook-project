@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import cookie from "react-cookies";
+import CSRFToken from "./CSRFToken";
 
 const ProfileEditor = ({ user, token }) => {
   const [editiedUser, setEditiedUser] = useState(user);
@@ -83,11 +83,7 @@ const ProfileEditor = ({ user, token }) => {
           onChange={handleChange}
           placeholder={user.location}
         />
-        <input
-          type="hidden"
-          value={cookie.load("csrftoken")}
-          name="csrfmiddlewaretoken"
-        />
+        <CSRFToken />
         <input type="submit" />
       </form>
     </div>

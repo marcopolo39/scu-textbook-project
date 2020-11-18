@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setToken } from "../actions/accountActions";
+import { setToken, setUser } from "../actions/accountActions";
 import { useToken } from "../hooks/useToken";
 import axios from "axios";
 
@@ -16,6 +16,7 @@ export const useLogout = () => {
       })
       .then(() => {
         dispatch(setToken(null));
+        dispatch(setUser({}));
       })
       .catch((err) => {
         console.log(err);

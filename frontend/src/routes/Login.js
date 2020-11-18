@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Registration from "../components/Registration";
 import PageHeader from "./components/PageHeader.js";
+import CSRFToken from "../components/CSRFToken";
 import "../css/Login.css";
 import axios from "axios";
-import cookie from "react-cookies";
 
 import { useLogout } from "../hooks/useLogout";
 import { useLogin } from "../hooks/useLogin";
@@ -59,7 +59,7 @@ const Login = () => {
   if (!isLoggedIn()) {
     if (registering) {
       return (
-        <div className="loginBlock">
+        <div className="Login">
           <Registration setRegistering={setRegistering} />
         </div>
       );
@@ -67,10 +67,8 @@ const Login = () => {
       return (
         <div className="Login">
           <PageHeader />
-
           <div className="loginBlock">
-            <div className = "loginHeader"> Log In </div>
-              <div className = "headerLineBreak"></div>
+            <h1> Login </h1>
             <form method="post" onSubmit={handleLogin}>
               <input
                 className="usernameEntryField"
@@ -79,19 +77,11 @@ const Login = () => {
                 placeholder="Username"
                 onChange={handleChange}
               />
-                <div className = "lineBreak"></div>
               <input
                 className="passwordEntryField"
                 type="text"
                 name="password"
                 placeholder="Password"
-                onChange={handleChange}
-              />
-               <div className = "lineBreak"></div>
-              <input
-                className="loginBtn"
-                type="submit"
-                value="Login"
                 onChange={handleChange}
               />
               <input
@@ -100,13 +90,13 @@ const Login = () => {
                 value="Sign Up"
                 onChange={() => setRegistering(true)}
               />
-
-
               <input
-                type="hidden"
-                value={cookie.load("csrftoken")}
-                name="csrfmiddlewaretoken"
+                className="loginBtn"
+                type="submit"
+                value="Login"
+                onChange={handleChange}
               />
+              <CSRFToken />
             </form>
           </div>
         </div>

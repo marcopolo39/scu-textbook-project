@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setToken } from "../actions/accountActions";
+import { setToken, setUser } from "../actions/accountActions";
 import axios from "axios";
 
 export const useLogin = () => {
@@ -13,6 +13,7 @@ export const useLogin = () => {
       })
       .then((res) => {
         dispatch(setToken(res.data.token));
+        dispatch(setUser(user));
       })
       .catch((err) => console.log(err));
   };

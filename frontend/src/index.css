@@ -7,5 +7,25 @@ body {
 }
 
 code {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.floatLeft {
+  float: left;
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+.floatRight {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.centerChild {
+  align-self: center;
+}
+
+.clickable:hover {
+  cursor: pointer;
 }
