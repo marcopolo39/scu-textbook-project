@@ -1,10 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 import "../css/App.css";
 import PageHeader from "./components/PageHeader.js";
 import TextbookBoxItem from "./components/TextbookBoxItem.js";
 
 const App = () => {
+  const [textbooks, setTextbooks] = useState([]);
+
+  const getTextbooks = () => {
+    axios
+      .get("/api/textbook/list")
+      .then((res) => {
+        setTextbooks(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getTextbooks();
+  }, []);
+
   return (
     <div className="App">
       <PageHeader />
@@ -29,15 +45,9 @@ const App = () => {
         </form>
       </div>
       <div className="textbookDisplayBlock">
-        <TextbookBoxItem />
-        <TextbookBoxItem />
-        <TextbookBoxItem />
-        <TextbookBoxItem />
-        <TextbookBoxItem />
-        <TextbookBoxItem />
-        <TextbookBoxItem />
-        <TextbookBoxItem />
-        <TextbookBoxItem />
+        {textbooks.map((textbook, key) => {
+          return <TextbookBoxItem key={key} textbook={textbook} />;
+        })}
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ ReactDOM.render(
               <Route exact path="/search/" component={Search} />
               <Route exact path="/messages/" component={Messages} />
               <Route exact path="/login/" component={Login} />
-              <Route exact path="/textbook/:textbookId/" component={Textbook} />
+              <Route exact path="/textbook/:isbn/" component={Textbook} />
               <Route exact path="/sell/" component={Sell} />
             </Fragment>
           </Switch>
