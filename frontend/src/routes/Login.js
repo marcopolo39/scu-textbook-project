@@ -10,9 +10,9 @@ import { useLogout } from "../hooks/useLogout";
 import { useLogin } from "../hooks/useLogin";
 import { useToken } from "../hooks/useToken";
 
-const Login = () => {
+const Login = ({ location }) => {
   const [user, setUser] = useState({});
-  const [registering, setRegistering] = useState(false);
+  const [registering, setRegistering] = useState(location.isRegistering);
 
   const token = useToken();
   const logout = useLogout();

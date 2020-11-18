@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { useToken } from "../../hooks/useToken";
 import "../../css/PageHeader.css";
 import { Link, useHistory } from "react-router-dom";
 
 import findabook from "../../../admin/img/findabook.png";
 import cart from "../../../admin/img/cart.png";
+import ToggleProfileButton from "./ToggleProfileButton";
 
 const PageHeader = () => {
   const [textbookId, setTextbookId] = useState("");
   const history = useHistory();
+  const token = useToken();
+  const isLoggedIn = token ? true : false;
 
   const searchTextbook = () => {
     history.push(`/textbook/${textbookId}`);
@@ -22,7 +26,7 @@ const PageHeader = () => {
     <div>
       <nav className="pageHeader">
         <Link className="titleLogo" to="/">
-          <img src={findabook} alt="Logo" />
+          <img className="titleLogoImage" src={findabook} alt="Logo" />
           FindABook
         </Link>
         <form onSubmit={searchTextbook} className="searchForm">
@@ -37,28 +41,24 @@ const PageHeader = () => {
           </label>
           <input className="searchBtn" type="submit" value="Go" />
         </form>
+        <Link
+          className="loginLink"
+          to={{
+            pathname: "/login",
+            isRegistering: isLoggedIn() ? false : true,
+          }}
+        >
+          Login
+        </Link>
         <Link className="sellLink" to="/sell">
           Sell
         </Link>
         <Link className="cartImageLogo" to="/cart">
-          Cart
-          <img src={cart} alt="Cart Logo" />
+          <img src={cart} className="cartImage" alt="Cart Logo" />
         </Link>
 
-        <button className="profileDot"></button>
-
-        <div className="hoverLinkBox">
-          <Link className="profileLink" to="/profile">
-            Profile
-          </Link>
-          <br></br>
-          <Link className="cartLink" to="/cart">
-            Cart
-          </Link>
-          <br></br>
-          <Link className="messagesLink" to="/messages">
-            Messages
-          </Link>
+        <div className="buttonDiv">
+          <ToggleProfileButton />
         </div>
       </nav>
     </div>
