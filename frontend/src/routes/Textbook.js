@@ -24,11 +24,15 @@ const Textbook = ({ location }) => {
 
   return (
     <div>
-      {/*<PageHeader />*/}
-      <h1>Title: {textbook.title}</h1>
-      <h1>Price: {textbook.price}</h1>
-      <h1>ISBN: {textbook.isbn}</h1>
-      <h1>Owner: {textbook.owner}</h1>
+      <PageHeader />
+      <h1>ID: {textbookId}</h1>
+      <div className="textbookInfoBlock">
+        <h1>Title: {textbook.title}</h1>
+        <h1>Price: {textbook.price}</h1>
+        <h1>ISBN: {textbook.isbn}</h1>
+        <h1>Owner: {textbook.owner}</h1>
+      </div>
+      <div className="userInfoBlock"></div>
     </div>
   );
 };

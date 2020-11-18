@@ -8370,7 +8370,7 @@ jQuery.fn.extend( {
 
 			if ( isValidValue ) {
 
-				// Toggle individual class names
+				// ToggleProfileButton individual class names
 				i = 0;
 				self = jQuery( this );
 				classNames = classesToArray( value );
@@ -8385,7 +8385,7 @@ jQuery.fn.extend( {
 					}
 				}
 
-			// Toggle whole class name
+			// ToggleProfileButton whole class name
 			} else if ( value === undefined || type === "boolean" ) {
 				className = getClass( this );
 				if ( className ) {

@@ -59,7 +59,7 @@ const Login = ({ location }) => {
   if (!isLoggedIn()) {
     if (registering) {
       return (
-        <div className="Login">
+        <div className="loginBlock">
           <Registration setRegistering={setRegistering} />
         </div>
       );
@@ -67,8 +67,10 @@ const Login = ({ location }) => {
       return (
         <div className="Login">
           <PageHeader />
+
           <div className="loginBlock">
-            <h1> Login </h1>
+            <div className="loginHeader"> Log In </div>
+            <div className="headerLineBreak"></div>
             <form method="post" onSubmit={handleLogin}>
               <input
                 className="usernameEntryField"
@@ -77,6 +79,7 @@ const Login = ({ location }) => {
                 placeholder="Username"
                 onChange={handleChange}
               />
+              <div className="lineBreak"></div>
               <input
                 className="passwordEntryField"
                 type="text"
@@ -84,17 +87,19 @@ const Login = ({ location }) => {
                 placeholder="Password"
                 onChange={handleChange}
               />
-              <input
-                className="signUpBtn"
-                type="submit"
-                value="Sign Up"
-                onChange={() => setRegistering(true)}
-              />
+              <div className="lineBreak"></div>
               <input
                 className="loginBtn"
                 type="submit"
                 value="Login"
                 onChange={handleChange}
+              />
+
+              <input
+                className="signUpBtn"
+                type="submit"
+                value="Sign Up"
+                onChange={() => setRegistering(true)}
               />
               <CSRFToken />
             </form>

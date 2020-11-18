@@ -41,14 +41,15 @@ const PageHeader = () => {
           </label>
           <input className="searchBtn" type="submit" value="Go" />
         </form>
+
         <Link
           className="loginLink"
           to={{
             pathname: "/login",
-            isRegistering: isLoggedIn() ? false : true,
+            isRegistering: isLoggedIn ? false : true,
           }}
         >
-          Login
+          {isLoggedIn ? "Login" : "Register"}
         </Link>
         <Link className="sellLink" to="/sell">
           Sell

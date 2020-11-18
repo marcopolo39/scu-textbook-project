@@ -1,0 +1,16 @@
+.profileDot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    color: black;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 1s ease;
+
+}
+
+.profileDot:hover{
+    opacity: 0.5;
+    transition: all 1s ease;
+
+}

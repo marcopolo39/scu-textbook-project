@@ -1,0 +1,38 @@
+.cartItemProp{
+    height: 250px;
+    width: 500px;
+    background-color: #F4F8F9;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    color: black;
+}
+
+.textbookImage {
+    background-color: #C4C4C4;
+    height:125px;
+    width: 125px;
+    margin-left: 35px;
+    margin-top: 50px;
+
+
+}
+
+.textbookInfo {
+
+}
+
+.removeFromCartBtn {
+       background-color: #CA521F;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    height: 20px;
+    width: 80px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}

@@ -4,6 +4,7 @@ import axios from "axios";
 import "../css/App.css";
 import PageHeader from "./components/PageHeader.js";
 import TextbookBoxItem from "./components/TextbookBoxItem.js";
+import SearchFilterBox from "./components/SearchFilterBox";
 
 const App = () => {
   const [textbooks, setTextbooks] = useState([]);
