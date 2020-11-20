@@ -98,6 +98,8 @@
 .logoutBtn:hover {
      opacity: 0.5;
     transition: all 1s ease;
+     text-decoration: none;
+    color: inherit;
 }
 
 .homeLink {
@@ -133,6 +135,8 @@
 .closeBtn:hover {
      opacity: 0.5;
     transition: all 1s ease;
+     text-decoration: none;
+    color: inherit;
 }
 
 .loggedInNotif{

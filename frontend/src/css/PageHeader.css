@@ -34,6 +34,8 @@
 .titleLogo:hover {
     opacity: 0.5;
     transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 
@@ -45,9 +47,10 @@ display: inline-block;
 .searchBtn {
   background-color: #CA521F;
     color: black;
-    font-weight: bold;
+
     font-style: normal;
     height: 37px;
+    font-size: 15px;
     width: 80px;
     border-top-style: hidden;
     border-right-style: hidden;
@@ -58,6 +61,8 @@ display: inline-block;
 .searchBtn:hover{
     opacity: 0.5;
     transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .searchBar {
@@ -87,6 +92,8 @@ display: inline-block;
 .loginLink:hover {
     opacity: 0.5;
     transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .sellLink {
@@ -101,6 +108,8 @@ display: inline-block;
 .sellLink:hover {
     opacity: 0.5;
     transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 
@@ -119,7 +128,7 @@ display: inline-block;
 .cartImageLogo{
    color: inherit;
     text-decoration: none;
-    margin-right: 20px;
+    margin-right: 35px;
     margin-top: 10px;
 
 }
@@ -129,6 +138,8 @@ display: inline-block;
 .cartImageLogo:hover{
     opacity: 0.5;
     transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .buttonDiv{
@@ -147,6 +158,8 @@ display: inline-block;
 .registerLink:hover {
      opacity: 0.5;
     transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 

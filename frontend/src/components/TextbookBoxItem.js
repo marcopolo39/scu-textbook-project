@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/TextbookBoxItem.css";
+import "../css/TextbookBoxItem.css";
 import { Link } from "react-router-dom";
 
 function TextbookBoxItem({ textbook }) {

@@ -95,12 +95,7 @@ const Login = ({ location }) => {
                 onChange={handleChange}
               />
 
-              <input
-                className="signUpBtn"
-                type="submit"
-                value="Sign Up"
-                onChange={() => setRegistering(true)}
-              />
+              <button className="signUpBtn" onClick={() => setRegistering(true)}>Sign UP</button>
               <CSRFToken />
             </form>
           </div>
@@ -109,11 +104,14 @@ const Login = ({ location }) => {
     }
   } else {
     return (
-      <div className="Login">
-        <p>You are Logged In</p>
-        <button onClick={logout}>Logout</button>
-        <Link to="/">Home</Link>
+    <div>
+      <PageHeader />
+      <div className="loginBlock">
+        <p className = "loggedInNotif">You are Logged In.</p>
+        <button className = "logoutBtn" onClick={logout}>Logout</button>
+        <Link className = "homeLink" to="/">Home</Link>
       </div>
+    </div>
     );
   }
 };

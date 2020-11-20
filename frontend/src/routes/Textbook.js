@@ -29,6 +29,7 @@ const Textbook = ({ location }) => {
       <h1>ISBN: {textbook.isbn}</h1>
       <h1>Owner: {textbook.owner}</h1>
     </div>
+
   );
 };
 
