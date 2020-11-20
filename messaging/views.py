@@ -2,6 +2,7 @@ from rest_framework import generics, permissions
 from django.contrib.auth import get_user_model
 from .serializers import MessageSerializer, MessageListSerializer, CreateChatSerializer
 from .models import Message, Chat
+from django.core.exceptions import ObjectDoesNotExist
 
 User = get_user_model()
 

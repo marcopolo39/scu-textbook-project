@@ -8,13 +8,25 @@ from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
 
 
 class UserAPIView(generics.RetrieveAPIView):
+
     permission_classes = [
-        permissions.IsAuthenticated,
+        permissions.IsAuthenticated
     ]
     serializer_class = UserSerializer
 
     def get_object(self):
         return self.request.user
+
+
+class ProfileAPIView(generics.RetrieveAPIView):
+    permission_classes = [
+        permissions.AllowAny,
+    ]
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        user = User.objects.filter(username=self.request.query_params.get('username', None))[0]
+        return user
 
 
 class RegisterAPIView(generics.GenericAPIView):
