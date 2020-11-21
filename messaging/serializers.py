@@ -30,8 +30,8 @@ class CreateChatSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
 
-    sender = serializers.StringRelatedField()
-    receiver = serializers.StringRelatedField()
+    sender = serializers.StringRelatedField(read_only=True)
+    receiver = serializers.StringRelatedField(read_only=True)
 
     class Meta:
         model = Message

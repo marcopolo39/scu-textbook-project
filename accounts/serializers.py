@@ -7,13 +7,13 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'school', 'location')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'school', 'location', 'paypal_username')
 
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'school', 'location', 'password')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'school', 'location', 'paypal_username', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -25,6 +25,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             validated_data['last_name'],
             validated_data['school'],
             validated_data['location'],
+            validated_data['paypal_username'],
             validated_data['password'],
         )
         return user
