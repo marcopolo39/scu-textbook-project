@@ -57,7 +57,7 @@ const Messages = () => {
           },
         }
       )
-      .catch((err) => console.log(err));
+      .catch((err) => console.dir(err));
   };
 
   const getConversation = () => {
@@ -75,7 +75,7 @@ const Messages = () => {
       .then((res) => {
         setConversation(res.data.reverse());
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.dir(err));
   };
 
   const handleChange = (e) => {

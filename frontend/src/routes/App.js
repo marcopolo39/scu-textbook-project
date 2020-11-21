@@ -61,7 +61,7 @@ const App = () => {
       .then((res) => {
         setTextbooks(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.dir(err));
   };
 
   useEffect(() => {

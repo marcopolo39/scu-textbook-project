@@ -52,7 +52,7 @@ const Login = ({ location }) => {
             location: res.data.location,
           });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.dir(err));
     }
   }, []);
 

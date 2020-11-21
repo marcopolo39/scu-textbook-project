@@ -26,7 +26,7 @@ const ProfileEditor = ({ user, token }) => {
           },
         }
       )
-      .catch((err) => console.log(err));
+      .catch((err) => console.dir(err));
   };
 
   const handleChange = (e) => {

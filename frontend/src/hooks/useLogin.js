@@ -15,7 +15,7 @@ export const useLogin = () => {
         dispatch(setToken(res.data.token));
         dispatch(setUser(user));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.dir(err));
   };
 
   return loginAccount;

@@ -28,7 +28,7 @@ const Profile = () => {
           location: res.data.location,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.dir(err));
   }, []);
 
   if (token) {

@@ -10,7 +10,7 @@ class TextbookISBNSerializer(serializers.ModelSerializer):
             'isbn',
             'volume_edition',
             'price', 
-            'comment',
+            'condition',
             'owner',
             'title',
             'authors',
@@ -27,7 +27,7 @@ class TextbookTitleSerializer(serializers.ModelSerializer):
             'authors',
             'isbn', 
             'price', 
-            'comment',
+            'condition',
             'owner',
             'pk',
         )
