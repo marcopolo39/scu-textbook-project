@@ -12,6 +12,6 @@ class User(AbstractUser):
     location = models.CharField(max_length=255, blank=True)
     paypal_username = models.CharField(max_length=100, blank=True)
 
-    REQUIRED_FIELDS = ['email', 'first_name', 'last_name', 'school', 'location']
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name', 'school', 'location', 'paypal_username']
 
     objects = CustomUserManager()
