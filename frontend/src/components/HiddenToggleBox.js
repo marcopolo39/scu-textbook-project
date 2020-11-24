@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import React from "react";
-import "../../css/HiddenToggleBox.css";
+import "../css/HiddenToggleBox.css";
 
     const HiddenToggleBox = () => {
     return (

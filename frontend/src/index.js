@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
+import PageHeader from "./components/PageHeader";
 import "./index.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -29,13 +30,15 @@ ReactDOM.render(
           <Switch>
             <Fragment>
               <TokenValidator />
+              <PageHeader />
               <Route exact path="/" component={App} />
               <Route exact path="/profile/" component={Profile} />
+              <Route exact path="/profile/:username" component={Profile} />
               <Route exact path="/cart/" component={Cart} />
               <Route exact path="/search/" component={Search} />
               <Route exact path="/messages/" component={Messages} />
               <Route exact path="/login/" component={Login} />
-              <Route exact path="/textbook/:isbn/" component={Textbook} />
+              <Route exact path="/textbook/:pk/" component={Textbook} />
               <Route exact path="/sell/" component={Sell} />
             </Fragment>
           </Switch>

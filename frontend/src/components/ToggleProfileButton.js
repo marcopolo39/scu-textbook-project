@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/ToggleProfileButton.css"
+import "../css/ToggleProfileButton.css"
 import HiddenToggleBox from "./HiddenToggleBox";
 
 

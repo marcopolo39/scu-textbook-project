@@ -9,14 +9,27 @@ import {
   DropdownToggle,
   DropdownMenu,
   CustomInput,
+  Button,
 } from "reactstrap";
 
 const TextbookEditor = ({
   textbookModel,
-  handleTextChange,
   setTextbookModel,
+  onSubmit,
+  onCancel,
 }) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [conditionDropdown, setConditionDropdown] = useState(false);
+  const [submit, setSubmit] = useState(false);
+  const [stateDropdown, setStateDropdown] = useState(false);
+
+  const handleTextChange = (e) => {
+    e.preventDefault();
+    setTextbookModel({
+      ...textbookModel,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div>
       <InputGroup>
@@ -34,13 +47,23 @@ const TextbookEditor = ({
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Authors</InputGroupText>
         </InputGroupAddon>
-        <Input type="text" placeholder={textbookModel.authors} name="author" />
+        <Input
+          type="text"
+          placeholder={textbookModel.authors}
+          name="author"
+          onChange={handleTextChange}
+        />
       </InputGroup>
       <InputGroup>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Title</InputGroupText>
         </InputGroupAddon>
-        <Input type="text" placeholder={textbookModel.title} name="title" />
+        <Input
+          type="text"
+          placeholder={textbookModel.title}
+          name="title"
+          onChange={handleTextChange}
+        />
       </InputGroup>
       <InputGroup>
         <InputGroupAddon addonType="prepend">
@@ -55,37 +78,79 @@ const TextbookEditor = ({
       </InputGroup>
       <InputGroup>
         <InputGroupAddon addonType="prepend">
+          <InputGroupText>Volume/Edition</InputGroupText>
+        </InputGroupAddon>
+        <Input type="number" name="volume" onChange={handleTextChange} />
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Comments</InputGroupText>
+        </InputGroupAddon>
+        <Input
+          type="text"
+          placeholder={textbookModel.comments}
+          onChange={handleTextChange}
+          name="comments"
+        />
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
           <InputGroupText>Image</InputGroupText>
         </InputGroupAddon>
         <CustomInput type="file" name="image" id="fileInput" />
       </InputGroup>
       <InputGroup>
         <Dropdown
-          isOpen={dropdownOpen}
-          toggle={() => setDropdownOpen(!dropdownOpen)}
+          isOpen={conditionDropdown}
+          toggle={() => setConditionDropdown(!conditionDropdown)}
         >
           <DropdownToggle caret>Condition</DropdownToggle>
           <DropdownMenu>
-            {["New", "Used (Like New)", "Used (Good)", "Used (Worn)"].map(
-              (condition, key) => {
-                return (
-                  <DropdownItem
-                    key={key}
-                    onClick={() =>
-                      setTextbookModel({
-                        ...textbookModel,
-                        condition: condition,
-                      })
-                    }
-                  >
-                    {condition}
-                  </DropdownItem>
-                );
-              }
-            )}
+            {["New", "Fair", "Used"].map((condition, key) => {
+              return (
+                <DropdownItem
+                  key={key}
+                  onClick={() =>
+                    setTextbookModel({
+                      ...textbookModel,
+                      condition: condition,
+                    })
+                  }
+                >
+                  {condition}
+                </DropdownItem>
+              );
+            })}
           </DropdownMenu>
         </Dropdown>
       </InputGroup>
+      <InputGroup>
+        <Dropdown
+          isOpen={stateDropdown}
+          toggle={() => setStateDropdown(!stateDropdown)}
+        >
+          <DropdownToggle caret>State</DropdownToggle>
+          <DropdownMenu>
+            {["For Sale", "Draft"].map((state, key) => {
+              return (
+                <DropdownItem
+                  key={key}
+                  onClick={() =>
+                    setTextbookModel({
+                      ...textbookModel,
+                      state: state === "Draft" ? "D" : "F",
+                    })
+                  }
+                >
+                  {state}
+                </DropdownItem>
+              );
+            })}
+          </DropdownMenu>
+        </Dropdown>
+      </InputGroup>
+      <Button onClick={onCancel}>Cancel</Button>
+      <Button onClick={onSubmit}>Submit</Button>
     </div>
   );
 };

@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import CSRFToken from "./CSRFToken";
+import {
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Button,
+} from "reactstrap";
 
-const ProfileEditor = ({ user, token }) => {
-  const [editiedUser, setEditiedUser] = useState(user);
+const ProfileEditor = ({ user, token, setEditing }) => {
+  const [editedUser, setEditiedUser] = useState(user);
 
   /** Calls PUT request to /api/account/update/id with new input user data to update user
    * TODO: handle errors
@@ -13,12 +20,13 @@ const ProfileEditor = ({ user, token }) => {
       .put(
         `/api/account/update/${user.id}`,
         {
-          username: editiedUser.username,
-          email: editiedUser.email,
-          first_name: editiedUser.firstName,
-          last_name: editiedUser.lastName,
-          school: editiedUser.school,
-          location: editiedUser.location,
+          username: editedUser.username,
+          email: editedUser.email,
+          first_name: editedUser.firstName,
+          last_name: editedUser.lastName,
+          school: editedUser.school,
+          location: editedUser.location,
+          paypal_username: editedUser.paypalUsername,
         },
         {
           headers: {
@@ -26,13 +34,14 @@ const ProfileEditor = ({ user, token }) => {
           },
         }
       )
+      .then(() => setEditing(false))
       .catch((err) => console.dir(err));
   };
 
   const handleChange = (e) => {
     e.preventDefault();
     setEditiedUser({
-      ...editiedUser,
+      ...editedUser,
       [e.target.name]: e.target.value,
     });
   };
@@ -40,52 +49,85 @@ const ProfileEditor = ({ user, token }) => {
   return (
     <div className="ProfileEditor">
       <p>Edit Profile</p>
-      <form method="post" onSubmit={updateAccount}>
-        <p>Username</p>
-        <input
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Username</InputGroupText>
+        </InputGroupAddon>
+        <Input
           type="text"
           name="username"
           onChange={handleChange}
           placeholder={user.username}
         />
-        <p>First Name</p>
-        <input
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>First Name</InputGroupText>
+        </InputGroupAddon>
+        <Input
           type="text"
           name="firstName"
           onChange={handleChange}
           placeholder={user.firstName}
         />
-        <p>Last Name</p>
-        <input
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Last Name</InputGroupText>
+        </InputGroupAddon>
+        <Input
           type="text"
           name="lastName"
           onChange={handleChange}
           placeholder={user.lastName}
         />
-        <p>Email</p>
-        <input
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Email</InputGroupText>
+        </InputGroupAddon>
+        <Input
           type="email"
           name="email"
           onChange={handleChange}
           placeholder={user.email}
         />
-        <p>School</p>
-        <input
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>School</InputGroupText>
+        </InputGroupAddon>
+        <Input
           type="text"
           name="school"
           onChange={handleChange}
           placeholder={user.school}
         />
-        <p>Location</p>
-        <input
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Location (City, State)</InputGroupText>
+        </InputGroupAddon>
+        <Input
           type="text"
           name="location"
           onChange={handleChange}
           placeholder={user.location}
         />
-        <CSRFToken />
-        <input type="submit" />
-      </form>
+      </InputGroup>
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Paypal</InputGroupText>
+        </InputGroupAddon>
+        <Input
+          type="text"
+          name="paypalUsername"
+          onChange={handleChange}
+          placeholder={user.paypalUsername}
+        />
+      </InputGroup>
+      <Button onClick={() => setEditing(false)}>Cancel</Button>
+      <Button onClick={updateAccount}>Submit</Button>
     </div>
   );
 };

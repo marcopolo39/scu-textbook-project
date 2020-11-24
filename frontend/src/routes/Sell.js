@@ -1,26 +1,15 @@
 import React, { useState } from "react";
 import { useToken } from "../hooks/useToken.js";
-import PageHeader from "./components/PageHeader.js";
 import TextbookEditor from "../components/TextbookEditor";
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardText,
-  CardImg,
-  Button,
-  InputGroup,
-  Input,
-  InputGroupAddon,
-} from "reactstrap";
+import { Button, InputGroup, Input, InputGroupAddon, Alert } from "reactstrap";
 import axios from "axios";
 import "../css/Sell.css";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import TextbookBoxItem from "../components/TextbookBoxItem.js";
 
 const Sell = () => {
   const [textbookModel, setTextbookModel] = useState({});
-  const [searchModel, setSearchModel] = useState({});
   const token = useToken();
   const history = useHistory();
   const username = useSelector((store) => store.accountReducer.user.username);
@@ -35,8 +24,7 @@ const Sell = () => {
           console.log("Google Books (Empty)", res.data);
           document.querySelector(".errorBlock").style.display = "block";
         } else {
-          console.dir(res.data.items[0]);
-          setSearchModel({
+          setTextbookModel({
             title: res.data.items[0].volumeInfo.title,
             authors: res.data.items[0].volumeInfo.authors.join(", "),
             isbn: textbookModel.isbn,
@@ -62,6 +50,8 @@ const Sell = () => {
           title: textbookModel.title,
           authors: textbookModel.authors,
           condition: textbookModel.condition,
+          volume_edition: textbookModel.volume,
+          comments: textbookModel.comments,
           state: textbookModel.state || "F",
           owner: username,
         },
@@ -71,12 +61,10 @@ const Sell = () => {
           },
         }
       )
-      .then((res) => {
-        console.log("Listing Created", res.data);
-        history.push(`/profile`);
+      .then(() => {
+        history.push("/profile");
       })
       .catch((err) => {
-        console.log("Model", textbookModel);
         console.dir(err);
       });
   };
@@ -91,7 +79,6 @@ const Sell = () => {
 
   return (
     <div>
-      <PageHeader />
       <div className="sellBlock">
         <div className="isbnSearchBlock">
           <h1>List By ISBN</h1>
@@ -115,36 +102,23 @@ const Sell = () => {
 
           <div className="searchResults" style={{ display: "none" }}>
             <h1>Results</h1>
-            <Card className="col-lg-3">
-              <CardImg
-                top
-                width="100%"
-                height="50px"
-                src={searchModel.image}
-                alt="Textbook Image"
-              />
-              <CardBody>
-                <CardTitle tag="h5">{searchModel.title}</CardTitle>
-                <CardText tag="h6">{searchModel.authors}</CardText>
-                <Button
-                  onClick={() => {
-                    setTextbookModel(searchModel);
-                    document.querySelector(".isbnSearchBlock").style.display =
-                      "none";
-                    document.querySelector(
-                      ".manualListingBlock"
-                    ).style.display = "block";
-                  }}
-                >
-                  Go
-                </Button>
-              </CardBody>
-            </Card>
+            <TextbookBoxItem textbook={textbookModel} searchCard>
+              <Button
+                onClick={() => {
+                  document.querySelector(".isbnSearchBlock").style.display =
+                    "none";
+                  document.querySelector(".manualListingBlock").style.display =
+                    "block";
+                }}
+              >
+                Go
+              </Button>
+            </TextbookBoxItem>
           </div>
           <div className="errorBlock" style={{ display: "none" }}>
-            <h1 style={{ color: "red" }}>
+            <Alert color="danger">
               We couldn't find your book. Try again or enter manually.
-            </h1>
+            </Alert>
           </div>
         </div>
         <div className="manualListingBlock" style={{ display: "none" }}>
@@ -152,21 +126,15 @@ const Sell = () => {
           <TextbookEditor
             textbookModel={textbookModel}
             setTextbookModel={setTextbookModel}
-            handleTextChange={handleTextChange}
-          />
-          <Button onClick={createListing}>List</Button>
-          <br />
-          <Button
-            onClick={() => {
+            onSubmit={createListing}
+            onCancel={() => {
               document.querySelector(".isbnSearchBlock").style.display =
                 "block";
               document.querySelector(".errorBlock").style.display = "none";
               document.querySelector(".manualListingBlock").style.display =
                 "none";
             }}
-          >
-            Back to ISBN Search
-          </Button>
+          />
         </div>
       </div>
     </div>

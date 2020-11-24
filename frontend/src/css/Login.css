@@ -80,3 +80,68 @@
 .spacingFromHeader {
     margin-top: 75px;
 }
+.logoutBtn {
+     background-color: #84A4F4;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    height: 37px;
+    width: 80px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+     margin-left: 10px;
+    margin-right:10px;
+}
+
+.logoutBtn:hover {
+     opacity: 0.5;
+    transition: all 1s ease;
+     text-decoration: none;
+    color: inherit;
+}
+
+.homeLink {
+    text-decoration: none;
+    color: #CA521F;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 40px;
+    top: 20px;
+    margin-right:15px;
+}
+
+.homeLink:hover {
+    opacity: 0.5;
+    transition: all 1s ease;
+}
+
+.closeBtn {
+     background-color: #84A4F4;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    height: 37px;
+    width: 80px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+     margin-left: 10px;
+    margin-right:10px;
+}
+
+.closeBtn:hover {
+     opacity: 0.5;
+    transition: all 1s ease;
+     text-decoration: none;
+    color: inherit;
+}
+
+.loggedInNotif{
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+
+}

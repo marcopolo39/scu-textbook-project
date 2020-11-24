@@ -22,6 +22,4 @@ export const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
-const unsubscribe = store.subscribe(() => console.dir(store.getState()));
-
 export const persistor = persistStore(store);

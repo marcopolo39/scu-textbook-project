@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Registration from "../components/Registration";
-import PageHeader from "./components/PageHeader.js";
 import CSRFToken from "../components/CSRFToken";
 import "../css/Login.css";
 import axios from "axios";
@@ -11,13 +10,13 @@ import { useLogin } from "../hooks/useLogin";
 import { useToken } from "../hooks/useToken";
 
 const Login = ({ location }) => {
-  const [user, setUser] = useState({});
-  const [registering, setRegistering] = useState(location.isRegistering);
-
   const token = useToken();
   const logout = useLogout();
   const login = useLogin();
   const isLoggedIn = () => (token ? true : false);
+
+  const [user, setUser] = useState({});
+  const [registering, setRegistering] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -66,8 +65,6 @@ const Login = ({ location }) => {
     } else {
       return (
         <div className="Login">
-          <PageHeader />
-
           <div className="loginBlock">
             <div className="loginHeader"> Log In </div>
             <div className="headerLineBreak"></div>
@@ -82,7 +79,7 @@ const Login = ({ location }) => {
               <div className="lineBreak"></div>
               <input
                 className="passwordEntryField"
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Password"
                 onChange={handleChange}
@@ -109,10 +106,16 @@ const Login = ({ location }) => {
     }
   } else {
     return (
-      <div className="Login">
-        <p>You are Logged In</p>
-        <button onClick={logout}>Logout</button>
-        <Link to="/">Home</Link>
+      <div>
+        <div className="loginBlock">
+          <p className="loggedInNotif">You are Logged In.</p>
+          <button className="logoutBtn" onClick={logout}>
+            Logout
+          </button>
+          <Link className="homeLink" to="/">
+            Home
+          </Link>
+        </div>
       </div>
     );
   }

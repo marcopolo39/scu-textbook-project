@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/SearchFilterBox.css";
+import "../css/SearchFilterBox.css";
 
 const SearchFilterBox = () => {
     return (

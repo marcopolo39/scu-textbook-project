@@ -11,9 +11,11 @@ class TextbookISBNSerializer(serializers.ModelSerializer):
             'volume_edition',
             'price', 
             'condition',
+            'comments',
             'owner',
             'title',
             'authors',
+            'state',
         )
         read_only_fields = ('title', 'owner', 'authors',)
 
@@ -28,8 +30,10 @@ class TextbookTitleSerializer(serializers.ModelSerializer):
             'isbn', 
             'price', 
             'condition',
+            'comments',
             'owner',
             'pk',
+            'state',
         )
         read_only_fields = ('owner', 'pk', )
 

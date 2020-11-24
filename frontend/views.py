@@ -3,5 +3,5 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 @ensure_csrf_cookie
-def index(request):
+def index(request, username=""):
     return render(request, "frontend/index.html")
