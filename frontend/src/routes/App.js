@@ -16,10 +16,12 @@ const App = () => {
       low: 0,
       high: 10000,
     },
+    filterLocation: false,
+    filterSchool: false,
   });
+  const [location, setLocation] = useState({});
 
   const changePriceLow = (e) => {
-    console.log(e.target.value);
     setFilter({
       ...filters,
       price: {
@@ -57,14 +59,14 @@ const App = () => {
   };
 
   // Gets given textbook owner's school
-  const schoolFromTextbook = async (textbook) => {
+  const ownerFromTextbook = async (textbook) => {
     const r = await axios
       .get("/api/account/profile/", {
         params: {
           username: textbook.owner,
         },
       })
-      .then((res) => res.data.school);
+      .then((res) => res.data);
     return r;
   };
 
@@ -76,16 +78,21 @@ const App = () => {
   // filters textbooks
   useEffect(async () => {
     if (textbooks.length > 0) {
-      const schools = await Promise.all(
-        textbooks.map((book) => schoolFromTextbook(book))
+      const owners = await Promise.all(
+        textbooks.map((book) => ownerFromTextbook(book))
       );
 
       const filteredBooks = textbooks.filter((book, i) => {
-        return filters.price.low <= parseInt(book.price, 10) &&
-          filters.price.high >= parseInt(book.price, 10) &&
-          filters.filterSchool
-          ? schools[i] === user.school
+        const priceFilter =
+          filters.price.low <= parseInt(book.price, 10) &&
+          filters.price.high >= parseInt(book.price, 10);
+        const schoolFilter = filters.filterSchool
+          ? owners[i].school === user.school
           : true;
+        const locationFilter = filters.filterLocation
+          ? owners[i].location === [location.city, location.state].join(", ")
+          : true;
+        return priceFilter && schoolFilter && locationFilter;
       });
       setFilteredTextbooks(filteredBooks);
     }
@@ -108,10 +115,33 @@ const App = () => {
             ></input>
           </label>
           <div className="firstFilterGap"></div>
-          Search Within <br></br>
-          <input className="lowerLimitAreaInput" type="text"></input>
-          to
-          <input className="upperLimitAreaInput" type="text"></input>
+          Search by Location <br></br>
+          <input
+            className="city"
+            type="text"
+            placeholder="City"
+            onChange={(e) => {
+              e.preventDefault();
+              setLocation({ ...location, city: e.target.value });
+            }}
+          ></input>
+          <input
+            className="state"
+            type="text"
+            placeholder="State"
+            onChange={(e) => {
+              e.preventDefault();
+              setLocation({ ...location, state: e.target.value });
+            }}
+          ></input>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setFilter({ ...filters, filterLocation: true });
+            }}
+          >
+            Go
+          </button>
           <div className="secondFilterGap"></div>
           Price Range
           <br></br>
@@ -128,6 +158,23 @@ const App = () => {
             name="priceHigh"
             onChange={changePriceHigh}
           ></input>
+          <br />
+          <br />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setFilter({
+                price: {
+                  low: 0,
+                  high: 10000,
+                },
+                filterLocation: false,
+                filterSchool: false,
+              });
+            }}
+          >
+            Clear Filters
+          </button>
         </form>
       </div>
       <div className="textbookDisplayBlock">
