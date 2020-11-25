@@ -36,7 +36,7 @@ function TextbookBoxItem({ textbook, searchCard, children }) {
         ) : undefined}
         <CardText>{stateMap[textbook.state]}</CardText>
       </CardBody>
-      <CardFooter>{children}</CardFooter>
+      {children ? <CardFooter>{children}</CardFooter> : undefined}
     </Card>
   );
 }
