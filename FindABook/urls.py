@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/account/", include("accounts.urls")),
     path("api/messages/", include("messaging.urls")),
+    path('api/textbook/', include('textbook.urls')),
     re_path(r'^$|profile/|cart/|search/|messages/|login/|textbook/.+/',
             include("frontend.urls")),
 ]
