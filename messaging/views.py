@@ -2,7 +2,7 @@ from rest_framework import generics, permissions
 from django.contrib.auth import get_user_model
 from .serializers import MessageSerializer, MessageListSerializer, CreateChatSerializer
 from .models import Message, Chat
-from django.core.exceptions import ObjectDoesNotExist
+
 
 User = get_user_model()
 
@@ -14,15 +14,23 @@ class MessageDetailView(generics.ListCreateAPIView):
     serializer_class = MessageSerializer
 
     def get_queryset(self):
-        chat = Chat.objects.filter(members__username=self.request.user.username).filter(
-            members__username=self.request.query_params.get('send_to', None))[0]
-        messages = Message.objects.filter(chat=chat)
-        return messages
+        try:
+            chat = Chat.objects.filter(members__username=self.request.user.username).filter(
+                members__username=self.request.query_params.get('send_to', None))[0]
+            messages = Message.objects.filter(chat=chat)
+            return messages
+        except:
+            print("User does not exist")
+            return
 
     def perform_create(self, serializer):
-        recipient = User.objects.filter(username=self.request.data['send_to'])[0]
-        chat = Chat.objects.filter(members__username=self.request.user.username).filter(members__username=recipient.username)[0]
-        serializer.save(sender=self.request.user, receiver=recipient, chat=chat)
+        try:
+            recipient = User.objects.filter(username=self.request.data['send_to'])[0]
+            chat = Chat.objects.filter(members__username=self.request.user.username).filter(members__username=recipient.username)[0]
+            serializer.save(sender=self.request.user, receiver=recipient, chat=chat)
+        except:
+            print("User does not exist")
+            return
 
 
 class ChatListView(generics.ListAPIView):
@@ -47,5 +55,5 @@ class ChatCreateView(generics.CreateAPIView):
     queryset = Chat.objects.all()
 
     def perform_create(self, serializer):
-        recipient = User.objects.filter(username=self.request.data['members'][0])[0]
+        recipient = User.objects.filter(username=self.request.data['members'])[0]
         serializer.save(members=[self.request.user.id, recipient.id])
