@@ -22,6 +22,7 @@ class Textbook(models.Model):
     comments = models.CharField(max_length=300, blank=True, null=True)
     volume_edition = models.IntegerField(blank=True, null=True)
     authors = models.CharField(max_length=200, blank=True, null=True)
+    image = models.ImageField(upload_to="images/", blank=True, null=True)
     
     def set_authors(self, x):
         self.authors = json.dumps(x)

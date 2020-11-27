@@ -4,7 +4,7 @@ import axios from "axios";
 import "../css/App.css";
 import TextbookBoxItem from "../components/TextbookBoxItem.js";
 import SearchFilterBox from "../components/SearchFilterBox";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Button, CardColumns } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const App = () => {
@@ -180,9 +180,9 @@ const App = () => {
       <div className="textbookDisplayBlock">
         <Container>
           <Row>
-            {filteredTextbooks.map((textbook, key) => {
-              return (
-                <Col sm="2" lg="3" md="3" key={key}>
+            <CardColumns>
+              {filteredTextbooks.map((textbook, key) => {
+                return (
                   <TextbookBoxItem
                     key={key}
                     textbook={textbook}
@@ -199,9 +199,9 @@ const App = () => {
                       Go
                     </Button>
                   </TextbookBoxItem>
-                </Col>
-              );
-            })}
+                );
+              })}
+            </CardColumns>
           </Row>
         </Container>
       </div>

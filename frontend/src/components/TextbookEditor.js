@@ -19,7 +19,6 @@ const TextbookEditor = ({
   onCancel,
 }) => {
   const [conditionDropdown, setConditionDropdown] = useState(false);
-  const [submit, setSubmit] = useState(false);
   const [stateDropdown, setStateDropdown] = useState(false);
 
   const handleTextChange = (e) => {
@@ -27,6 +26,14 @@ const TextbookEditor = ({
     setTextbookModel({
       ...textbookModel,
       [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleImageUpload = (e) => {
+    console.dir(e.target.files[0]);
+    setTextbookModel({
+      ...textbookModel,
+      img: e.target.files[0],
     });
   };
 
@@ -97,7 +104,14 @@ const TextbookEditor = ({
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Image</InputGroupText>
         </InputGroupAddon>
-        <CustomInput type="file" name="image" id="fileInput" />
+        <CustomInput
+          type="file"
+          name="image"
+          id="fileInput"
+          multiple={false}
+          onChange={handleImageUpload}
+          accept="image/*"
+        />
       </InputGroup>
       <InputGroup>
         <Dropdown

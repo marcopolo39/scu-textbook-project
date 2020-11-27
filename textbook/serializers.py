@@ -16,6 +16,7 @@ class TextbookISBNSerializer(serializers.ModelSerializer):
             'title',
             'authors',
             'state',
+            'image'
         )
         read_only_fields = ('title', 'owner', 'authors',)
 
@@ -34,6 +35,7 @@ class TextbookTitleSerializer(serializers.ModelSerializer):
             'owner',
             'pk',
             'state',
+            'image'
         )
         read_only_fields = ('owner', 'pk', )
 

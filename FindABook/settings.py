@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'rest_framework',
     'knox',
+    'corsheaders',
 
     # custom
     'accounts',
@@ -76,6 +77,8 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -166,3 +169,9 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats.dev.json'),
     }
 }
+
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'
+
+CORS_ALLOW_ALL_ORIGINS = True

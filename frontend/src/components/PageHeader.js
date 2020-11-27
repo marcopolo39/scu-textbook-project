@@ -100,7 +100,7 @@ const PageHeader = () => {
             <input className="searchBtn" type="submit" value="Go" />
           </form>
           <Link className="loginLink" to="/login">
-            Login
+            {token ? "Logout" : "Login"}
           </Link>
           <Link className="sellLink" to="/sell">
             Sell

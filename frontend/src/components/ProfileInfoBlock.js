@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Row, Container, Col } from "reactstrap";
+import { Button, Row, Container, CardColumns } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setReceiver } from "../actions/messageActions";
@@ -101,10 +101,10 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
       <h3>{user.username}'s Textbooks</h3>
       <Container>
         <Row>
-          {userTexbooks && userTexbooks.length > 0 ? (
-            userTexbooks.map((book, key) => {
-              return (
-                <Col sm="2" lg="3" md="3" key={key}>
+          <CardColumns>
+            {userTexbooks && userTexbooks.length > 0 ? (
+              userTexbooks.map((book, key) => {
+                return (
                   <TextbookBoxItem
                     key={key}
                     textbook={book}
@@ -116,12 +116,12 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
                     </Button>
                     <Button onClick={() => deleteTextbook(book)}>Delete</Button>
                   </TextbookBoxItem>
-                </Col>
-              );
-            })
-          ) : (
-            <p>No Textbooks Found.</p>
-          )}
+                );
+              })
+            ) : (
+              <p>No Textbooks Found.</p>
+            )}
+          </CardColumns>
         </Row>
       </Container>
     </div>

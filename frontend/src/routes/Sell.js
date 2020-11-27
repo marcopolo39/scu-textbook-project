@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useToken } from "../hooks/useToken.js";
 import TextbookEditor from "../components/TextbookEditor";
 import { Button, InputGroup, Input, InputGroupAddon, Alert } from "reactstrap";
@@ -7,6 +7,8 @@ import "../css/Sell.css";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import TextbookBoxItem from "../components/TextbookBoxItem.js";
+
+import findabook from "../../admin/img/findabook.png";
 
 const Sell = () => {
   const [textbookModel, setTextbookModel] = useState({});
@@ -28,7 +30,6 @@ const Sell = () => {
             title: res.data.items[0].volumeInfo.title,
             authors: res.data.items[0].volumeInfo.authors.join(", "),
             isbn: textbookModel.isbn,
-            image: res.data.items[0].volumeInfo.imageLinks.thumbnail,
           });
           document.querySelector(".errorBlock").style.display = "none";
           document.querySelector(".searchResults").style.display = "block";
@@ -41,26 +42,24 @@ const Sell = () => {
   };
 
   const createListing = () => {
+    const formData = new FormData();
+    formData.append("isbn", textbookModel.isbn);
+    formData.append("price", textbookModel.price);
+    formData.append("title", textbookModel.title);
+    formData.append("authors", textbookModel.authors);
+    formData.append("condition", textbookModel.condition);
+    formData.append("volume_edition", textbookModel.volume || null);
+    formData.append("comments", textbookModel.comments);
+    formData.append("state", textbookModel.state || "F");
+    formData.append("image", textbookModel.img, textbookModel.img.name);
+    formData.append("owner", username);
     axios
-      .post(
-        "/api/textbook/create/",
-        {
-          isbn: textbookModel.isbn,
-          price: textbookModel.price,
-          title: textbookModel.title,
-          authors: textbookModel.authors,
-          condition: textbookModel.condition,
-          volume_edition: textbookModel.volume,
-          comments: textbookModel.comments,
-          state: textbookModel.state || "F",
-          owner: username,
+      .post("/api/textbook/create/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Token ${token}`,
         },
-        {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      )
+      })
       .then(() => {
         history.push("/profile");
       })
@@ -76,6 +75,19 @@ const Sell = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  useEffect(() => {
+    const setDefaultImage = async () => {
+      const res = await fetch(findabook);
+      const blob = await res.blob();
+      const file = new File([blob], "book.png", { type: blob.type });
+      setTextbookModel({
+        ...textbookModel,
+        img: file,
+      });
+    };
+    setDefaultImage();
+  }, []);
 
   return (
     <div>

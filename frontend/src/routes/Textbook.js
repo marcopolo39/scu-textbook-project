@@ -5,13 +5,17 @@ import "../css/Textbook.css";
 import { useToken } from "../hooks/useToken.js";
 import { Col, Container, Row, Button } from "reactstrap";
 import TextbookEditor from "../components/TextbookEditor";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../actions/cartActions";
 
 const Textbook = () => {
   const { pk } = useParams();
-  const [user, setUser] = useState({});
+  const [profile, setProfile] = useState({});
   const [textbook, setTextbook] = useState({});
   const [editing, setEditing] = useState(false);
   const token = useToken();
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.accountReducer.user);
 
   const states = {
     F: "For Sale",
@@ -19,14 +23,14 @@ const Textbook = () => {
     S: "Sold",
   };
 
-  const getUser = () => {
+  const getProfile = () => {
     axios
       .get("/api/account/profile/", {
         params: {
           username: textbook.owner,
         },
       })
-      .then(({ data }) => setUser(data))
+      .then(({ data }) => setProfile(data))
       .catch((err) => console.dir(err));
   };
 
@@ -63,10 +67,11 @@ const Textbook = () => {
       })
       .catch((err) => console.dir(err));
   }, []);
-  // Get user on change of textbook
+
+  // Get profile on change of textbook
   useEffect(() => {
     if (textbook.owner) {
-      getUser();
+      getProfile();
     }
   }, [textbook]);
 
@@ -99,9 +104,18 @@ const Textbook = () => {
                 <h1>ISBN: {textbook.isbn}</h1>
                 <h1>Authors: {textbook.authors}</h1>
                 <h4>{states[textbook.state]}</h4>
-                {textbook.owner == user.username ? (
-                  <button onClick={() => setEditing(true)}>Edit</button>
-                ) : undefined}
+                {textbook.owner === user.username ? (
+                  <Button onClick={() => setEditing(true)}>Edit</Button>
+                ) : (
+                  <Button
+                    onClick={() => {
+                      dispatch(addToCart(textbook));
+                      alert("Textbook Added to Cart");
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
+                )}
               </div>
             </Col>
           </Row>
@@ -113,15 +127,15 @@ const Textbook = () => {
             </Col>
             <Col>
               <div className="userInfoBlock">
-                <h1>Owner: {user.username}</h1>
+                <h1>Owner: {profile.username}</h1>
                 <h1>
-                  Name: {user.first_name} {user.last_name}
+                  Name: {profile.first_name} {user.last_name}
                 </h1>
-                <h1>Email: {user.email}</h1>
-                <h1>Paypal: {user.paypal_username}</h1>
-                <h1>School: {user.school}</h1>
-                <h1>Location: {user.location}</h1>
-                <Button tag={Link} to={`/profile/${user.username}/`}>
+                <h1>Email: {profile.email}</h1>
+                <h1>Paypal: {profile.paypal_username}</h1>
+                <h1>School: {profile.school}</h1>
+                <h1>Location: {profile.location}</h1>
+                <Button tag={Link} to={`/profile/${profile.username}/`}>
                   Go To Profile
                 </Button>
               </div>

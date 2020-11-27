@@ -60,10 +60,6 @@ const ProfileHelper = ({ location }) => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(pathUsername, curUsername);
-  }, [pathUsername, curUsername]);
-
   if (Object.keys(user).length > 0) {
     if (pathUsername && pathUsername !== curUsername) {
       // Display others' profile

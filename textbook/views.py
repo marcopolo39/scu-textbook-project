@@ -2,6 +2,7 @@ import requests
 import json
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -37,6 +38,7 @@ class TextbookCreateView(generics.CreateAPIView):
     queryset = Textbook.objects.all()
     serializer_class = TextbookTitleSerializer
     permission_classes = (IsAuthenticated, )
+    parser_classes = (MultiPartParser, FormParser)
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -72,6 +74,7 @@ class TextbookUpdateView(generics.UpdateAPIView):
     queryset = Textbook.objects.all()
     serializer_class = TextbookTitleSerializer
     permission_classes = (IsAuthenticated, isTextbookOwnerPermission)
+    parser_classes = (MultiPartParser, FormParser)
 
 
     

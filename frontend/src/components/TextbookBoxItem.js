@@ -1,13 +1,11 @@
 import React from "react";
 import "../css/TextbookBoxItem.css";
-import { Link } from "react-router-dom";
 import {
   Card,
   CardImg,
   CardTitle,
   CardText,
   CardBody,
-  Button,
   CardFooter,
 } from "reactstrap";
 
@@ -18,13 +16,12 @@ function TextbookBoxItem({ textbook, searchCard, children }) {
     D: "Draft",
   };
   return (
-    <Card className={`${searchCard ? "searchCard center col-lg-3" : ""} `}>
+    <Card className="textbookBox">
       <CardImg
         top
-        width="100%"
-        height="50px"
         src={textbook.image}
         alt="Textbook Image"
+        className="img-thumbnail img-fluid"
       />
       <CardBody>
         <CardTitle tag="h5">{textbook.title}</CardTitle>
