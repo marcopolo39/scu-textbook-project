@@ -7,7 +7,7 @@ export const useLogin = () => {
 
   const loginAccount = (user) => {
     axios
-      .post("/api/account/login/", {
+      .post("/api/account/login", {
         username: user.username,
         password: user.password,
       })
