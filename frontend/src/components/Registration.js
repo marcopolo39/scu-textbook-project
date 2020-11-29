@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import axios from "axios";
 import CSRFToken from "./CSRFToken";
+import "../css/Registration.css"
 
 const Registration = ({ setRegistering }) => {
   const [user, setUser] = useState({});
@@ -43,49 +44,61 @@ const Registration = ({ setRegistering }) => {
 
   return (
     <div className="Registration">
-      <p>Register Account</p>
+      <h1 className="registerHeader">Register Account</h1>
       <form method="post" onSubmit={registerAccount}>
-        <p>Username</p>
+        <p className = "inputLbl">Username</p>
         <input
           type="text"
           name="username"
+        className = "inputField"
           onChange={handleChange}
           autoComplete="off"
+          placeholder = "Username..."
           required
         />
-        <p>Password</p>
+        <p className = "inputLbl">Password</p>
         <input
+        className = "inputField"
           type="password"
           name="password"
           onChange={handleChange}
           autoComplete="off"
+          placeholder = "Password..."
           required
         />
-        <p>First Name</p>
-        <input type="text" name="firstName" onChange={handleChange} required />
-        <p>Last Name</p>
-        <input type="text" name="lastName" onChange={handleChange} required />
-        <p>Email</p>
-        <input type="email" name="email" onChange={handleChange} required />
-        <p>School</p>
+        <br />
+        <p className = "inputLbl">First Name</p>
+        <input type="text" name="firstName"className = "inputField" placeholder = "First Name..." onChange={handleChange} required />
+        <p className = "inputLbl">Last Name</p>
+        <input type="text"  className = "inputField"name="lastName" placeholder = "Last Name..." onChange={handleChange} required />
+        <br />
+        <p className = "inputLbl">Email</p>
+        <input type="email" className = "inputField" name="email" placeholder = "Email..." onChange={handleChange} required />
+        <br/>
+        <p className = "inputLbl" >School</p>
         <input
           type="text"
           name="school"
+          placeholder = "School..."
           onChange={handleChange}
           autoComplete="off"
+          className = "inputField"
         />
-        <p>Location</p>
+        <p className = "inputLbl">Location</p>
         <input
           type="text"
           name="location"
+          placeholder = "Location..."
           onChange={handleChange}
           autoComplete="off"
           required
+          className = "inputField"
         />
         <CSRFToken />
-        <input type="submit" />
+        <br/>
+        <input type="submit"  className = "continueBtn" />
       </form>
-      <button onClick={() => setRegistering(false)}>Cancel</button>
+      <button onClick={() => setRegistering(false)}  className = "cancelBtn" >Cancel</button>
     </div>
   );
 };
