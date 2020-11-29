@@ -96,7 +96,7 @@ const Login = ({ location }) => {
                 className="signUpBtn"
                 type="submit"
                 value="Sign Up"
-                onChange={() => setRegistering(true)}
+                onClick={() => setRegistering(true)}
               />
               <CSRFToken />
             </form>
