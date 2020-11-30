@@ -13,6 +13,13 @@ const PageHeader = () => {
   const history = useHistory();
   const token = useToken();
   const isLoggedIn = () => (token ? true : false);
+  const toRegistration = {
+    pathname: '/login',
+    state: {
+      registering: true,
+      isLoggedIn: false
+        }
+  }
 
   const searchTextbook = async (e) => {
     e.preventDefault();
@@ -66,8 +73,8 @@ const PageHeader = () => {
           <Link className="loginLink" to="/login">
             Login
           </Link>
-          <Link className="registerLink" to="/login">
-            Register{" "}
+          <Link className="registerLink" to={toRegistration}>
+            Register
           </Link>
           <Link className="sellLink" to="/sell">
             Sell

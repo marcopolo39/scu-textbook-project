@@ -3,9 +3,15 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import "../css/App.css";
 import TextbookBoxItem from "../components/TextbookBoxItem.js";
-import SearchFilterBox from "../components/SearchFilterBox";
 import { Container, Row, Button, CardColumns } from "reactstrap";
 import { Link } from "react-router-dom";
+import {
+  InputGroup,
+  Dropdown,
+  DropdownItem,
+  DropdownToggle,
+  DropdownMenu,
+} from "reactstrap";
 
 const App = () => {
   const user = useSelector((store) => store.accountReducer.user);
@@ -103,19 +109,22 @@ const App = () => {
       <div className="spacingFromHeader"></div>
       <div className="filterResults">
         <h1 className="filterResultsHeader">Filter Results</h1>
-
+        <br />
+        <br />
         <form className="filterForm">
           <label>
-            Items sold by students who attend my University
+
             <input
               className="sameUniCheckbox"
               name="sameUniCheckbox"
               type="checkbox"
               onChange={filterSchool}
             ></input>
+             <p className="filterText">Same University as Me</p>
           </label>
           <div className="firstFilterGap"></div>
-          Search by Location <br></br>
+          <p>Search by Location </p>
+
           <input
             className="city"
             type="text"
@@ -135,6 +144,7 @@ const App = () => {
             }}
           ></input>
           <button
+              className = "goBtn"
             onClick={(e) => {
               e.preventDefault();
               setFilter({ ...filters, filterLocation: true });
@@ -143,24 +153,27 @@ const App = () => {
             Go
           </button>
           <div className="secondFilterGap"></div>
-          Price Range
-          <br></br>
+          <p>Price Range</p>
+
           <input
             className="lowerPrinceRangeInput"
             type="text"
             name="priceLow"
+            placeholder = "$"
             onChange={changePriceLow}
           ></input>
-          to
+          <p className = "filterText">to</p>
           <input
             className="upperPriceRangeInput"
             type="text"
             name="priceHigh"
+            placeholder = "$"
             onChange={changePriceHigh}
           ></input>
           <br />
           <br />
           <button
+              className = "clearFilterBtn"
             onClick={(e) => {
               e.preventDefault();
               setFilter({
@@ -189,6 +202,11 @@ const App = () => {
                     className="textbookListCard"
                   >
                     <Button
+                        style = {{
+                          color:"black",
+                          backgroundColor:"#CA521F"
+                        }
+                        }
                       tag={Link}
                       to={{
                         pathname: `/textbook/${textbook.pk}`,
@@ -196,7 +214,7 @@ const App = () => {
                       }}
                       color="link"
                     >
-                      Go
+                     Go
                     </Button>
                   </TextbookBoxItem>
                 );

@@ -21,6 +21,31 @@ const TextbookEditor = ({
   const [conditionDropdown, setConditionDropdown] = useState(false);
   const [stateDropdown, setStateDropdown] = useState(false);
 
+   const inputFieldStyle = {
+    width: "500px",
+    height:"35px",
+    marginTop:"15px",
+    marginLeft: "20px"
+
+
+  };
+
+   const moveRight = {
+    marginLeft: "20px"
+  };
+   const btnStyle = {
+    backgroundColor:"#84A4F4",
+    color: "white",
+    fontWeight:"bold"
+  };
+
+   const spacedOrangeBtn = {
+       marginRight: "5px",
+           marginLeft: "5px",
+       color:"black",
+       backgroundColor: " #CA521F",
+       fontWeight:"bold"
+    };
   const handleTextChange = (e) => {
     e.preventDefault();
     setTextbookModel({
@@ -37,9 +62,10 @@ const TextbookEditor = ({
     });
   };
 
+
   return (
-    <div>
-      <InputGroup>
+    <div className = "textbookEditorBlock">
+      <InputGroup style = {inputFieldStyle}>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>ISBN</InputGroupText>
         </InputGroupAddon>
@@ -50,7 +76,7 @@ const TextbookEditor = ({
           onChange={handleTextChange}
         />
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {inputFieldStyle}>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Authors</InputGroupText>
         </InputGroupAddon>
@@ -61,7 +87,7 @@ const TextbookEditor = ({
           onChange={handleTextChange}
         />
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {inputFieldStyle}>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Title</InputGroupText>
         </InputGroupAddon>
@@ -72,7 +98,7 @@ const TextbookEditor = ({
           onChange={handleTextChange}
         />
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {inputFieldStyle}>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Price</InputGroupText>
         </InputGroupAddon>
@@ -83,13 +109,13 @@ const TextbookEditor = ({
           required
         />
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {inputFieldStyle}>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Volume/Edition</InputGroupText>
         </InputGroupAddon>
         <Input type="number" name="volume" onChange={handleTextChange} />
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {inputFieldStyle}>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Comments</InputGroupText>
         </InputGroupAddon>
@@ -100,7 +126,7 @@ const TextbookEditor = ({
           name="comments"
         />
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {inputFieldStyle}>
         <InputGroupAddon addonType="prepend">
           <InputGroupText>Image</InputGroupText>
         </InputGroupAddon>
@@ -113,8 +139,9 @@ const TextbookEditor = ({
           accept="image/*"
         />
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {{marginTop: "10px"}} >
         <Dropdown
+            style = {moveRight}
           isOpen={conditionDropdown}
           toggle={() => setConditionDropdown(!conditionDropdown)}
         >
@@ -138,8 +165,9 @@ const TextbookEditor = ({
           </DropdownMenu>
         </Dropdown>
       </InputGroup>
-      <InputGroup>
+      <InputGroup style = {{marginTop: "10px"}}>
         <Dropdown
+            style = {moveRight}
           isOpen={stateDropdown}
           toggle={() => setStateDropdown(!stateDropdown)}
         >
@@ -163,8 +191,8 @@ const TextbookEditor = ({
           </DropdownMenu>
         </Dropdown>
       </InputGroup>
-      <Button onClick={onCancel}>Cancel</Button>
-      <Button onClick={onSubmit}>Submit</Button>
+      <Button onClick={onCancel} style = {spacedOrangeBtn}>Cancel</Button>
+      <Button onClick={onSubmit} style = {btnStyle}>Submit</Button>
     </div>
   );
 };

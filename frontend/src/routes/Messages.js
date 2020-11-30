@@ -139,7 +139,7 @@ const Messages = () => {
   } else {
     return (
       <div className="Messages">
-        <h1 className="center">Messages</h1>
+        <h1 className="center">Messaging</h1>
         <ListGroup className="conversationsContainer col-lg-6 col-md-6 col-sm-6 clickable">
           {allReceivers.map((rec, key) => {
             return (

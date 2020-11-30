@@ -2,10 +2,21 @@ import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import axios from "axios";
 import CSRFToken from "./CSRFToken";
+import "../css/Registration.css"
+import {InputGroupAddon, InputGroupText, InputGroup, Input} from "reactstrap";
 
 const Registration = ({ setRegistering }) => {
   const [user, setUser] = useState({});
   const login = useLogin();
+
+   const inputFieldStyle = {
+    width: "500px",
+    height:"35px",
+    marginTop:"15px",
+    marginLeft: "20px"
+
+
+  };
 
   /** Calls POST request to /api/account/register with input user data to create user
    * TODO: handle errors
@@ -20,7 +31,11 @@ const Registration = ({ setRegistering }) => {
       school: user.school,
       location: user.location,
       password: user.password,
+      paypal: user.paypalUsername
     };
+
+
+
     axios
       .post("/api/account/register", data)
       .then(() => {
@@ -40,51 +55,136 @@ const Registration = ({ setRegistering }) => {
     });
   };
 
+
+
   return (
     <div className="Registration">
-      <p>Register Account</p>
+      <h1 className="registerHeader">Register Account</h1>
       <form method="post" onSubmit={registerAccount}>
-        <p>Username</p>
-        <input
+        <InputGroup style = {inputFieldStyle}>
+       <InputGroupAddon addonType="prepend">
+          <InputGroupText>Username</InputGroupText>
+        </InputGroupAddon>
+        <Input
+
           type="text"
           name="username"
+        className = "inputField"
           onChange={handleChange}
           autoComplete="off"
+          placeholder = "Username..."
           required
         />
-        <p>Password</p>
-        <input
+         </InputGroup>
+          <br/>
+          <InputGroup style = {inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Password</InputGroupText>
+        </InputGroupAddon>
+        <Input
+        className = "inputField"
           type="password"
           name="password"
           onChange={handleChange}
           autoComplete="off"
+          placeholder = "Password..."
           required
         />
-        <p>First Name</p>
-        <input type="text" name="firstName" onChange={handleChange} required />
-        <p>Last Name</p>
-        <input type="text" name="lastName" onChange={handleChange} required />
-        <p>Email</p>
-        <input type="email" name="email" onChange={handleChange} required />
-        <p>School</p>
-        <input
-          type="text"
+        </InputGroup>
+        <br />
+        <InputGroup style = {inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>First Name</InputGroupText>
+        </InputGroupAddon>
+        <Input
+            type="text"
+            name="firstName"
+            className = "inputField"
+            placeholder = "First Name..."
+            onChange={handleChange}
+            required
+        />
+        </InputGroup>
+          <br />
+       <InputGroup style = {inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Last Name</InputGroupText>
+        </InputGroupAddon>
+        <Input
+            type="text"
+            className = "inputField"
+            name="lastName"
+            placeholder = "Last Name..."
+            onChange={handleChange}
+            required
+            />
+        </InputGroup>
+
+        <br />
+         <InputGroup style = {inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Email</InputGroupText>
+        </InputGroupAddon>
+        <Input
+            type="email"
+            className = "inputField"
+            name="email"
+            placeholder = "Email..."
+            onChange={handleChange}
+            required
+            />
+        </InputGroup>
+
+
+        <br/>
+        <InputGroup style = {inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>School</InputGroupText>
+        </InputGroupAddon>
+        <Input
+            type="text"
           name="school"
+          placeholder = "School..."
           onChange={handleChange}
           autoComplete="off"
-        />
-        <p>Location</p>
-        <input
-          type="text"
+          className = "inputField"
+            />
+        </InputGroup>
+          <br/>
+           <InputGroup style = {inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Location </InputGroupText>
+        </InputGroupAddon>
+        <Input
+           type="text"
           name="location"
+          placeholder = "Location..."
           onChange={handleChange}
           autoComplete="off"
           required
-        />
+          className = "inputField"
+            />
+        </InputGroup>
+        <br />
+          <InputGroup style = {inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Paypal Username</InputGroupText>
+        </InputGroupAddon>
+        <Input
+          type="text"
+          name="paypalUsername"
+          placeholder = "Paypal..."
+          onChange={handleChange}
+          autoComplete="off"
+          required
+          className = "inputField"
+            />
+        </InputGroup>
         <CSRFToken />
-        <input type="submit" />
+        <br/>
+        <input type="submit"  className = "continueBtn" />
       </form>
-      <button onClick={() => setRegistering(false)}>Cancel</button>
+      <button onClick={() => setRegistering(false)}  className = "cancelBtn" >Cancel</button>
     </div>
   );
 };

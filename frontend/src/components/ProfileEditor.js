@@ -8,6 +8,7 @@ import {
   InputGroupText,
   Button,
 } from "reactstrap";
+import "../css/ProfileEditor.css"
 
 const ProfileEditor = ({ user, token, setEditing }) => {
   const [editedUser, setEditiedUser] = useState(user);
