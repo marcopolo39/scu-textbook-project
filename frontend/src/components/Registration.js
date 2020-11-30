@@ -28,8 +28,7 @@ const Registration = ({ setRegistering }) => {
         login(user);
       })
       .catch((err) => {
-        console.log(err);
-        console.log("Email or Username is in use");
+        console.dir(err);
       });
   };
 

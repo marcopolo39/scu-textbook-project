@@ -92,12 +92,12 @@ const Login = ({ location }) => {
                 onChange={handleChange}
               />
 
-              <button
+              <input
                 className="signUpBtn"
-                onClick={() => setRegistering(true)}>
-
-                Sign Up
-              </button>
+                type="submit"
+                value="Sign Up"
+                onClick={() => setRegistering(true)}
+              />
               <CSRFToken />
             </form>
           </div>
