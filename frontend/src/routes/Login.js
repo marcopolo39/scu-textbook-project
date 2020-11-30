@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Registration from "../components/Registration";
 import CSRFToken from "../components/CSRFToken";
 import "../css/Login.css";
 import axios from "axios";
@@ -57,13 +56,6 @@ const Login = ({ location }) => {
   }, []);
 
   if (!isLoggedIn()) {
-    if (registering) {
-      return (
-        <div className="registerBlock">
-          <Registration setRegistering={setRegistering} />
-        </div>
-      );
-    } else {
       return (
         <div className="Login">
           <div className="loginBlock">
@@ -104,7 +96,6 @@ const Login = ({ location }) => {
           </div>
         </div>
       );
-    }
   } else {
     return (
       <div>
