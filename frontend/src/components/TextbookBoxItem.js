@@ -10,19 +10,23 @@ import {
 } from "reactstrap";
 
 function TextbookBoxItem({ textbook, searchCard, children }) {
+
   const stateMap = {
     F: "For Sale",
     S: "Sold",
     D: "Draft",
   };
   return (
-    <Card className="textbookBox">
+    <Card className="textbookBox" style={{height:"300px", width:"300px"}}>
       <CardImg
         top
         src={textbook.image}
         alt="Textbook Image"
         className="img-thumbnail img-fluid"
-      />
+        style = {{height:"100x", width:"100px"}}
+
+        />
+
       <CardBody>
         <CardTitle tag="h5">{textbook.title}</CardTitle>
         {textbook.authors ? (

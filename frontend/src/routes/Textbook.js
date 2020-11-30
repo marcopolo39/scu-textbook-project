@@ -95,14 +95,14 @@ const Textbook = () => {
         <Container fluid>
           <Row>
             <Col lg="3">
-              <img src="" alt="textbook image" />
+              <img style = {{height:"60%"}} src={textbook.image} alt="textbook image" />
             </Col>
             <Col>
               <div className="textbookInfoBlock">
-                <h1>Title: {textbook.title}</h1>
-                <h1>Price: {textbook.price}</h1>
-                <h1>ISBN: {textbook.isbn}</h1>
-                <h1>Authors: {textbook.authors}</h1>
+                <h1 className="textbookInfo">Title: {textbook.title}</h1>
+                <h1 className="textbookInfo">Price: {textbook.price}</h1>
+                <h1 className="textbookInfo">ISBN: {textbook.isbn}</h1>
+                <h1 className="textbookInfo">Authors: {textbook.authors}</h1>
                 <h4>{states[textbook.state]}</h4>
                 {textbook.owner === user.username ? (
                   <Button onClick={() => setEditing(true)}>Edit</Button>
@@ -131,7 +131,7 @@ const Textbook = () => {
                 <h1>
                   Name: {profile.first_name} {user.last_name}
                 </h1>
-                <h1>Email: {profile.email}</h1>
+                <h1 className = "profileInfo">Email: {profile.email}</h1>
                 <h1>Paypal: {profile.paypal_username}</h1>
                 <h1>School: {profile.school}</h1>
                 <h1>Location: {profile.location}</h1>

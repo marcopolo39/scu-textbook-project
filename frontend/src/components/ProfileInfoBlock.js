@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setReceiver } from "../actions/messageActions";
 import TextbookBoxItem from "../components/TextbookBoxItem";
+import "../css/ProfileInfoBlock.css"
 
 const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
   const [userTexbooks, setUserTextbooks] = useState();
@@ -88,13 +89,13 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
         </Row>
       </Container>
 
-      <p>
+      <p className = "userInfoTxt">
         Name: {user.firstName} {user.lastName}
       </p>
-      <p>Email: {user.email}</p>
-      <p>School: {user.school}</p>
-      <p>Location: {user.location}</p>
-      <p>Paypal Username: {user.paypalUsername}</p>
+      <p className = "userInfoTxt">Email: {user.email}</p>
+      <p className = "userInfoTxt">School: {user.school}</p>
+      <p className = "userInfoTxt">Location: {user.location}</p>
+      <p className = "userInfoTxt">Paypal Username: {user.paypalUsername}</p>
       {!isEditable && token ? (
         <Button onClick={goToChat}>Message</Button>
       ) : undefined}
@@ -111,6 +112,7 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
                     className="textbookListCard"
                     buttonName="Delete"
                   >
+
                     <Button onClick={() => console.log("Enter edit function")}>
                       Edit
                     </Button>

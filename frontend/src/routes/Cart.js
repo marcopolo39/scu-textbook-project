@@ -13,11 +13,19 @@ const Cart = () => {
   const dispatch = useDispatch();
   const token = useToken();
 
+   const spacedOrangeBtn = {
+       marginRight: "5px",
+           marginLeft: "5px",
+       color:"black",
+       backgroundColor: " #CA521F"
+    };
+
   const getTotal = () => {
     return cart.reduce((total, book) => {
       return total + Number(book.price);
     }, 0);
   };
+
 
   return (
     <div className="Cart">
@@ -36,7 +44,7 @@ const Cart = () => {
         })}
       </Row>
       <h3>Total: ${getTotal()}</h3>
-      <Button onClick={() => dispatch(clearCart())}>Clear Cart</Button>
+      <Button style = {spacedOrangeBtn} onClick={() => dispatch(clearCart())}>Clear Cart</Button>
     </div>
   );
 };

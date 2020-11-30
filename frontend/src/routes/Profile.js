@@ -67,7 +67,7 @@ const ProfileHelper = ({ location }) => {
     } else {
       if (token) {
         if (editing) {
-          // Dispaly editing screen
+          // Display editing screen
           return (
             <ProfileEditor user={user} token={token} setEditing={setEditing} />
           );

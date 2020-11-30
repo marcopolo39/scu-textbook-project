@@ -49,6 +49,7 @@ const Login = ({ location }) => {
             email: res.data.email,
             school: res.data.school,
             location: res.data.location,
+            paypalUsername: res.data.paypalUsername
           });
         })
         .catch((err) => console.dir(err));
@@ -58,7 +59,7 @@ const Login = ({ location }) => {
   if (!isLoggedIn()) {
     if (registering) {
       return (
-        <div className="loginBlock">
+        <div className="registerBlock">
           <Registration setRegistering={setRegistering} />
         </div>
       );
@@ -107,14 +108,17 @@ const Login = ({ location }) => {
   } else {
     return (
       <div>
-        <div className="loginBlock">
-          <p className="loggedInNotif">You are Logged In.</p>
+        <div className="loggedInNotifBlock">
+          <div className="loggedInNotif">
+          <h1 className = "msg">You are Logged In.</h1>
+            <div className = "largeBreak" />
           <button className="logoutBtn" onClick={logout}>
             Logout
           </button>
           <Link className="homeLink" to="/">
             Home
           </Link>
+          </div>
         </div>
       </div>
     );

@@ -35,3 +35,9 @@
 .center {
   margin: auto;
 }
+
+.card-img {
+    height:50px;
+    width: 50px;
+    margin-top: 20px;
+}

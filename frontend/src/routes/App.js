@@ -202,6 +202,11 @@ const App = () => {
                     className="textbookListCard"
                   >
                     <Button
+                        style = {{
+                          color:"black",
+                          backgroundColor:"#CA521F"
+                        }
+                        }
                       tag={Link}
                       to={{
                         pathname: `/textbook/${textbook.pk}`,
@@ -209,7 +214,7 @@ const App = () => {
                       }}
                       color="link"
                     >
-                      Go
+                     Go
                     </Button>
                   </TextbookBoxItem>
                 );

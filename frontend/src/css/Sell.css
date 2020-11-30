@@ -5,6 +5,7 @@
   margin-top: 100px;
   margin-left: 100px;
   text-align: center;
+  position:absolute;
 }
 
 .uploadImgBtn {
@@ -69,4 +70,9 @@
   width: 200px;
   height: 30px;
   font-size: 24px;
+}
+
+.isbnSearchBlock{
+  margin-top: 30px;
+  position: relative;
 }
