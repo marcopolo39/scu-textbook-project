@@ -193,6 +193,7 @@ const TextbookEditor = ({
       </InputGroup>
       <Button onClick={onCancel} style = {spacedOrangeBtn}>Cancel</Button>
       <Button onClick={onSubmit} style = {btnStyle}>Submit</Button>
+
     </div>
   );
 };

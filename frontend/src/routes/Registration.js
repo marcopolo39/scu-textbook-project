@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import axios from "axios";
-import CSRFToken from "./CSRFToken";
+import CSRFToken from "../components/CSRFToken";
 import "../css/Registration.css"
 import {InputGroupAddon, InputGroupText, InputGroup, Input} from "reactstrap";
 
@@ -31,13 +31,18 @@ const Registration = ({ setRegistering }) => {
       school: user.school,
       location: user.location,
       password: user.password,
-      paypal: user.paypalUsername
+      paypal_username: user.paypalUsername
     };
 
 
 
-    axios
-      .post("/api/account/register", data)
+
+          axios
+              .post("/api/account/register/", data, {
+                  headers: {
+                      "Content-Type": "application/json",
+                  },
+              })
       .then(() => {
         login(user);
       })
@@ -60,7 +65,7 @@ const Registration = ({ setRegistering }) => {
   return (
     <div className="Registration">
       <h1 className="registerHeader">Register Account</h1>
-      <form method="post" onSubmit={registerAccount}>
+        <form onSubmit={registerAccount} method="POST"  >
         <InputGroup style = {inputFieldStyle}>
        <InputGroupAddon addonType="prepend">
           <InputGroupText>Username</InputGroupText>
@@ -180,10 +185,10 @@ const Registration = ({ setRegistering }) => {
           className = "inputField"
             />
         </InputGroup>
-        <CSRFToken />
         <br/>
-        <input type="submit"  className = "continueBtn" />
-      </form>
+            <input type="submit"   className = "continueBtn" value="Submit"/>
+            <CSRFToken />
+        </form>
       <button onClick={() => setRegistering(false)}  className = "cancelBtn" >Cancel</button>
     </div>
   );

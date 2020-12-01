@@ -13,6 +13,7 @@ import Messages from "./routes/Messages";
 import Login from "./routes/Login";
 import Textbook from "./routes/Textbook";
 import Sell from "./routes/Sell";
+import Registration from "./routes/Registration";
 
 import TokenValidator from "./components/TokenValidator";
 
@@ -40,6 +41,7 @@ ReactDOM.render(
               <Route exact path="/login/" component={Login} />
               <Route exact path="/textbook/:pk/" component={Textbook} />
               <Route exact path="/sell/" component={Sell} />
+              <Route exact path="/register/" component={Registration} />
             </Fragment>
           </Switch>
         </Router>

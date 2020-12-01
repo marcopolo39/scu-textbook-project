@@ -25,7 +25,7 @@ urlpatterns = [
     path('api/textbook/', include('textbook.urls')),
     path('profile/', include('frontend.urls')),
     path('profile/<str:username>/', include('frontend.urls')),
-    re_path(r'^$|profile/|cart/|search/|messages/|login/|sell/|textbook/.+/',
+    re_path(r'^$|profile/|register/|cart/|search/|messages/|login/|sell/|textbook/.+/',
             include("frontend.urls")),
 ]
 
