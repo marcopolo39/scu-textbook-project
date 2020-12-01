@@ -31,7 +31,7 @@ const Registration = ({ setRegistering }) => {
       school: user.school,
       location: user.location,
       password: user.password,
-      paypal: user.paypalUsername
+      paypal_username: user.paypalUsername
     };
 
 
