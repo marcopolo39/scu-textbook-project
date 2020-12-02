@@ -24,14 +24,15 @@ const Registration = () => {
   const registerAccount = (e) => {
     e.preventDefault();
     const data = {
-      username: user.username,
-      email: user.email,
-      first_name: user.firstName,
-      last_name: user.lastName,
-      school: user.school,
-      location: user.location,
-      password: user.password,
-      paypal_username: user.paypalUsername,
+        username: user.username,
+        email: user.email,
+        first_name: user.firstName,
+        last_name: user.lastName,
+        school: user.school,
+        location: user.location,
+        password: user.password,
+        paypal_username: user.paypalUsername,
+
     };
 
     axios
