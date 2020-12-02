@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import { useHistory } from "react-router-dom";
 
-import cart from "../../admin/img/cart.png";
+import findabook from "../../admin/img/findabook.png";
 
 const Registration = () => {
   const [user, setUser] = useState({});
@@ -74,9 +74,9 @@ const Registration = () => {
   // Set default user image
   useEffect(() => {
     const setDefaultImage = async () => {
-      const res = await fetch(cart);
+      const res = await fetch(findabook);
       const blob = await res.blob();
-      const file = new File([blob], "cart.png", { type: blob.type });
+      const file = new File([blob], "findabook.png", { type: blob.type });
       setUser({
         ...user,
         img: file,
