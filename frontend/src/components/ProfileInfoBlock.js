@@ -90,6 +90,7 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
         </Row>
       </Container>
 
+      <img src={user.img} alt="profile image" />
       <p className="userInfoTxt">
         Name: {user.firstName} {user.lastName}
       </p>

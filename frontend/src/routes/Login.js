@@ -49,6 +49,7 @@ const Login = () => {
             school: res.data.school,
             location: res.data.location,
             paypalUsername: res.data.paypalUsername,
+            img: res.data.profile_img,
           });
         })
         .catch((err) => console.dir(err));

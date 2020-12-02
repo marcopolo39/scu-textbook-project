@@ -38,7 +38,7 @@ const Registration = () => {
     formData.append("location", user.location);
     formData.append("password", user.password);
     formData.append("paypal_username", user.paypalUsername);
-    formData.append("image", user.img, user.img.name);
+    formData.append("profile_img", user.img, user.img.name);
 
     axios
       .post("/api/account/register", formData, {
@@ -56,7 +56,6 @@ const Registration = () => {
   };
 
   const handleImageUpload = (e) => {
-    console.dir(e.target.files[0]);
     setUser({
       ...user,
       img: e.target.files[0],

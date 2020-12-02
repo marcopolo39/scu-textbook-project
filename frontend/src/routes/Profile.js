@@ -36,6 +36,7 @@ const ProfileHelper = ({ location }) => {
             school: res.data.school,
             location: res.data.location,
             paypalUsername: res.data.paypal_username,
+            img: res.data.profile_img,
           });
         })
         .catch((err) => console.dir(err));
@@ -56,6 +57,7 @@ const ProfileHelper = ({ location }) => {
             school: res.data.school,
             location: res.data.location,
             paypalUsername: res.data.paypal_username,
+            img: res.data.profile_img,
           });
         })
         .catch((err) => console.dir(err));
