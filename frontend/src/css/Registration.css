@@ -1,0 +1,57 @@
+.createAccountBlock {
+    background-color: #F4F8F9;
+    height: 500px;
+    width: 1250px;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.inputField {
+    background-color:inherit;
+    width: 250px;
+    height: 35px;
+    font-size: 18px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    margin-right:15px;
+}
+
+
+.continueBtn {
+   background-color: #84A4F4;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    height: 35px;
+    width: 85px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+   margin-bottom: 10px;
+    display: inline-block;
+}
+
+.cancelBtn{
+    background-color: #ca521f;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    height: 35px;
+    width: 85px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+   margin-bottom: 10px;
+    display: inline-block;
+}
+
+.inputLbl{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right:10px;
+}

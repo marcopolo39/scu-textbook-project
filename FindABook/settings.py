@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+# React app build path
+REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
+
+STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -37,9 +44,41 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # packages
+    'webpack_loader',
+    'rest_framework',
+    'knox',
+    'corsheaders',
+
+    # custom
+    'accounts',
+    'messaging',
+    'textbook',
+    'frontend.apps.FrontendConfig',
 ]
 
+REST_KNOX = {
+    # I'm not sure if this amount is possible right now, default is 10hr
+    'TOKEN_TTL': timedelta(days=7),
+    'AUTO_REFRESH': True,
+}
+
+AUTH_USER_MODEL = 'accounts.User'
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.AllowAny'
+    # ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'knox.auth.TokenAuthentication',
+    ),
+    'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",
+}
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,8 +114,12 @@ WSGI_APPLICATION = 'FindABook.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'FINDABOOK',
+        'USER': 'findabook_admin',
+        'PASSWORD': 'wawawewa',
+        'HOST': 'findabook-2.cniugiv5axzq.us-west-1.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -118,3 +161,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# STATICFILES_DIRS = [
+#     os.path.join(REACT_APP_DIR, "build", "static")
+# ]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats.dev.json'),
+    }
+}
+
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'
+
+CORS_ALLOW_ALL_ORIGINS = True
