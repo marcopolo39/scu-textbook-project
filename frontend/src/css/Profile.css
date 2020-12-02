@@ -1,32 +1,28 @@
 .infoBox1 {
-
 }
 
 .infoBox2 {
-
 }
 
 .editBtn {
- background-color: #84A4F4;
-    color: black;
-    font-weight: bold;
-    font-style: normal;
-    height: 37px;
-    width: 80px;
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: hidden;
-     margin-left: 10px;
-    margin-right:10px;
+  background-color: #84a4f4;
+  color: black;
+  font-weight: bold;
+  font-style: normal;
+  height: 37px;
+  width: 80px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .editBtn:hover {
-      opacity: 0.5;
-    transition: all 1s ease;
+  opacity: 0.5;
+  transition: all 1s ease;
 }
 
-
 .profilePic {
-
 }

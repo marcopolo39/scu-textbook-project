@@ -55,5 +55,5 @@ class ChatCreateView(generics.CreateAPIView):
     queryset = Chat.objects.all()
 
     def perform_create(self, serializer):
-        recipient = User.objects.filter(username=self.request.data['members'])[0]
+        recipient = User.objects.filter(username=self.request.data['members'][0])[0]
         serializer.save(members=[self.request.user.id, recipient.id])

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Alert } from "reactstrap";
-import CSRFToken from "../components/CSRFToken";
 import "../css/Login.css";
 import axios from "axios";
 
@@ -92,7 +91,6 @@ const Login = () => {
               value="Sign Up"
               onClick={() => history.push("/register")}
             />
-            <CSRFToken />
           </form>
           <Alert
             className="loginErrorAlert"

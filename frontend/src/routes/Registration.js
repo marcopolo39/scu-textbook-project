@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useLogin } from "../hooks/useLogin";
 import axios from "axios";
 import cookie from "react-cookies";
 import "../css/Registration.css";
@@ -8,7 +7,6 @@ import { useHistory } from "react-router-dom";
 
 const Registration = () => {
   const [user, setUser] = useState({});
-  const login = useLogin();
   const history = useHistory();
 
   const inputFieldStyle = {

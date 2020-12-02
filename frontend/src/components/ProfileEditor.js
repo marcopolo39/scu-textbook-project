@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CSRFToken from "./CSRFToken";
 import {
   Input,
   InputGroup,
@@ -8,7 +7,7 @@ import {
   InputGroupText,
   Button,
 } from "reactstrap";
-import "../css/ProfileEditor.css"
+import "../css/ProfileEditor.css";
 
 const ProfileEditor = ({ user, token, setEditing }) => {
   const [editedUser, setEditiedUser] = useState(user);

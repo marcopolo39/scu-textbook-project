@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Spinner } from "reactstrap";
 import ProfileInfoBlock from "../components/ProfileInfoBlock";
 import ProfileEditor from "../components/ProfileEditor";
+import Loader from "../components/Loader";
 import "../css/Profile.css";
 import { useToken } from "../hooks/useToken";
 import { useSelector } from "react-redux";
@@ -9,7 +11,7 @@ import { useSelector } from "react-redux";
 const ProfileHelper = ({ location }) => {
   const pathUsername = location.pathname.split("/")[2];
   const token = useToken();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const curUsername = useSelector(
     (store) => store.accountReducer.user.username
   );
@@ -58,9 +60,11 @@ const ProfileHelper = ({ location }) => {
         })
         .catch((err) => console.dir(err));
     }
-  }, []);
+  }, [editing]);
 
-  if (Object.keys(user).length > 0) {
+  if (user === null) {
+    return <Loader />;
+  } else if (Object.keys(user).length > 0) {
     if (pathUsername && pathUsername !== curUsername) {
       // Display others' profile
       return <ProfileInfoBlock user={user} isEditable={false} token={token} />;

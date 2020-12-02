@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CSRFToken from "../components/CSRFToken";
+import cookie from "react-cookies";
 import { useToken } from "../hooks/useToken";
 import { useSelector, useDispatch } from "react-redux";
 import { setReceiver } from "../actions/messageActions";
@@ -54,6 +54,7 @@ const Messages = () => {
         {
           headers: {
             Authorization: `Token ${token}`,
+            "X-CSRFToken": cookie.load("csrftoken"),
           },
         }
       )
@@ -82,6 +83,10 @@ const Messages = () => {
     e.preventDefault();
     setMessage(e.target.value);
   };
+
+  useEffect(() => {
+    dispatch(setReceiver(null));
+  }, []);
 
   useEffect(() => {
     if (receiver) {
@@ -127,7 +132,6 @@ const Messages = () => {
                 Send
               </Button>
             </InputGroupAddon>
-            <CSRFToken />
           </InputGroup>
         </Form>
 

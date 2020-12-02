@@ -1,7 +1,6 @@
 .Messages {
   margin: 0px 50px;
   overflow: auto;
-  position: absolute;
 }
 
 .conversationsContainer a:hover {
@@ -9,9 +8,6 @@
   cursor: pointer;
 }
 
-.conversationsContainer:hover {
-  size: 40%;
-}
 .messagesBox {
   background-color: #c4c4c4;
   height: 500px;
@@ -21,11 +17,8 @@
   text-align: center;
 }
 .center {
-
-
   font-weight: bold;
   font-size: 35px;
   position: relative;
   margin-top: 50px;
 }
-
