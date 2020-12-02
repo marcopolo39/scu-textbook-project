@@ -49,7 +49,6 @@
   height: 40px;
   font-size: 24px;
   margin-right: 10px;
-  margin-left: 10px;
 }
 .state {
   background-color: #c4c4c4;
@@ -148,4 +147,8 @@
 
 .sortByBtn {
   margin-left:400px;
+}
+
+#sidebar{
+  text-align: center;
 }

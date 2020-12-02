@@ -111,7 +111,7 @@ const App = () => {
         <h1 className="filterResultsHeader">Filter Results</h1>
         <br />
         <br />
-        <form className="filterForm">
+        <form className="filterForm" id="sidebar">
           <label>
 
             <input
@@ -133,7 +133,7 @@ const App = () => {
               e.preventDefault();
               setLocation({ ...location, city: e.target.value });
             }}
-          ></input>
+          ></input>,
           <input
             className="state"
             type="text"

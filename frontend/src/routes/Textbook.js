@@ -126,11 +126,11 @@ const Textbook = () => {
               <img src="" alt="profile image" />
             </Col>
             <Col>
+                <h1>Seller</h1>
               <div className="userInfoBlock">
                 <h1 className="profileInfo">Owner: {profile.username}</h1>
                 <h1 className="profileInfo">Name: {profile.first_name} {user.last_name}</h1>
                 <h1 className = "profileInfo">Email: {profile.email}</h1>
-                <h1 className="profileInfo">Paypal: {profile.paypal_username}</h1>
                 <h1 className="profileInfo">School: {profile.school}</h1>
                 <h1 className="profileInfo">Location: {profile.location}</h1>
                 <Button tag={Link} to={`/profile/${profile.username}/`}>
