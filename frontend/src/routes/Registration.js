@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import cookie from "react-cookies";
 import "../css/Registration.css";
-import { InputGroupAddon, InputGroupText, InputGroup, Input } from "reactstrap";
+import {
+  InputGroupAddon,
+  InputGroupText,
+  InputGroup,
+  Input,
+  CustomInput,
+} from "reactstrap";
 import { useHistory } from "react-router-dom";
+
+import cart from "../../admin/img/cart.png";
 
 const Registration = () => {
   const [user, setUser] = useState({});
@@ -21,20 +29,21 @@ const Registration = () => {
    */
   const registerAccount = (e) => {
     e.preventDefault();
-    const data = {
-      username: user.username,
-      email: user.email,
-      first_name: user.firstName,
-      last_name: user.lastName,
-      school: user.school,
-      location: user.location,
-      password: user.password,
-      paypal_username: user.paypalUsername,
-    };
+    const formData = new FormData();
+    formData.append("username", user.username);
+    formData.append("email", user.email);
+    formData.append("first_name", user.firstName);
+    formData.append("last_name", user.lastName);
+    formData.append("school", user.school);
+    formData.append("location", user.location);
+    formData.append("password", user.password);
+    formData.append("paypal_username", user.paypalUsername);
+    formData.append("image", user.img, user.img.name);
 
     axios
-      .post("/api/account/register", data, {
+      .post("/api/account/register", formData, {
         headers: {
+          "Content-Type": "multipart/form-data",
           "X-CSRFToken": cookie.load("csrftoken"),
         },
       })
@@ -46,6 +55,14 @@ const Registration = () => {
       });
   };
 
+  const handleImageUpload = (e) => {
+    console.dir(e.target.files[0]);
+    setUser({
+      ...user,
+      img: e.target.files[0],
+    });
+  };
+
   /** Updates user state on change in text input field */
   const handleChange = (e) => {
     e.preventDefault();
@@ -54,6 +71,20 @@ const Registration = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  // Set default user image
+  useEffect(() => {
+    const setDefaultImage = async () => {
+      const res = await fetch(cart);
+      const blob = await res.blob();
+      const file = new File([blob], "cart.png", { type: blob.type });
+      setUser({
+        ...user,
+        img: file,
+      });
+    };
+    setDefaultImage();
+  }, []);
 
   return (
     <div className="Registration">
@@ -179,6 +210,19 @@ const Registration = () => {
         />
       </InputGroup>
       <br />
+      <InputGroup style={inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Image</InputGroupText>
+        </InputGroupAddon>
+        <CustomInput
+          type="file"
+          name="image"
+          id="fileInput"
+          multiple={false}
+          onChange={handleImageUpload}
+          accept="image/*"
+        />
+      </InputGroup>
       <input
         type="button"
         className="continueBtn"

@@ -122,7 +122,6 @@ const App = () => {
             </label>
             <div className="firstFilterGap"></div>
             <p>Search by Location </p>
-
             <input
               className="city"
               type="text"
@@ -132,6 +131,7 @@ const App = () => {
                 setLocation({ ...location, city: e.target.value });
               }}
             ></input>
+            ,
             <input
               className="state"
               type="text"
@@ -152,7 +152,6 @@ const App = () => {
             </button>
             <div className="secondFilterGap"></div>
             <p>Price Range</p>
-
             <input
               className="lowerPrinceRangeInput"
               type="text"

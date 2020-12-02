@@ -17,14 +17,11 @@ const Sell = () => {
   const username = useSelector((store) => store.accountReducer.user.username);
 
   const btnStyle = {
-    backgroundColor:"#84A4F4",
+    backgroundColor: "#84A4F4",
     color: "white",
-    fontWeight:"bold",
-    marginTop: "10px"
+    fontWeight: "bold",
+    marginTop: "10px",
   };
-
-
-
 
   const searchISBN = () => {
     axios
@@ -103,18 +100,16 @@ const Sell = () => {
     <div>
       <div className="sellBlock">
         <div className="isbnSearchBlock">
-          <h1 className = "listByISBN">List By ISBN</h1>
-          <InputGroup style = {btnStyle}>
+          <h1 className="listByISBN">List By ISBN</h1>
+          <InputGroup style={btnStyle}>
             <Input placeholder="ISBN" name="isbn" onChange={handleTextChange} />
             <br />
             <InputGroupAddon addonType="append">
-              <Button  onClick={searchISBN}>
-                Search
-              </Button>
+              <Button onClick={searchISBN}>Search</Button>
             </InputGroupAddon>
           </InputGroup>
           <Button
-              style = {btnStyle}
+            style={btnStyle}
             onClick={() => {
               document.querySelector(".isbnSearchBlock").style.display = "none";
               document.querySelector(".errorBlock").style.display = "none";
