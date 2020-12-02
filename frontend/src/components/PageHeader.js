@@ -7,11 +7,14 @@ import findabook from "../../admin/img/findabook.png";
 import cart from "../../admin/img/cart.png";
 import ToggleProfileButton from "./ToggleProfileButton";
 import { useToken } from "../hooks/useToken";
+import { useLogout } from "../hooks/useLogout";
+
 
 const PageHeader = () => {
   const [searchTerms, setSearchTerms] = useState("");
   const history = useHistory();
   const token = useToken();
+    const logout = useLogout();
   const isLoggedIn = () => (token ? true : false);
   const toRegistration = {
     pathname: '/login',
@@ -73,7 +76,7 @@ const PageHeader = () => {
           <Link className="loginLink" to="/login">
             Login
           </Link>
-          <Link className="registerLink" to={toRegistration}>
+          <Link className="registerLink" to="/register">
             Register
           </Link>
           <Link className="sellLink" to="/sell">
@@ -108,6 +111,7 @@ const PageHeader = () => {
           </form>
           <Link className="loginLink" to="/login">
             {token ? "Logout" : "Login"}
+
           </Link>
           <Link className="sellLink" to="/sell">
             Sell

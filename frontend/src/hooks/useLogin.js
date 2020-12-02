@@ -12,10 +12,15 @@ export const useLogin = () => {
         password: user.password,
       })
       .then((res) => {
+        document.querySelector(".loginErrorAlert").style.display = "none";
         dispatch(setToken(res.data.token));
         dispatch(setUser(user));
+        return res.data;
       })
-      .catch((err) => console.dir(err));
+      .catch((err) => {
+        console.log(err);
+        document.querySelector(".loginErrorAlert").style.display = "block";
+      });
   };
 
   return loginAccount;

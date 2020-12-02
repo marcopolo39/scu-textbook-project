@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Registration from "../components/Registration";
+import { Link, useHistory } from "react-router-dom";
+import { Alert } from "reactstrap";
 import CSRFToken from "../components/CSRFToken";
 import "../css/Login.css";
 import axios from "axios";
@@ -9,14 +9,14 @@ import { useLogout } from "../hooks/useLogout";
 import { useLogin } from "../hooks/useLogin";
 import { useToken } from "../hooks/useToken";
 
-const Login = ({ location }) => {
+const Login = () => {
   const token = useToken();
   const logout = useLogout();
   const login = useLogin();
+  const history = useHistory();
   const isLoggedIn = () => (token ? true : false);
 
   const [user, setUser] = useState({});
-  const [registering, setRegistering] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ const Login = ({ location }) => {
             email: res.data.email,
             school: res.data.school,
             location: res.data.location,
-            paypalUsername: res.data.paypalUsername
+            paypalUsername: res.data.paypalUsername,
           });
         })
         .catch((err) => console.dir(err));
@@ -57,67 +57,66 @@ const Login = ({ location }) => {
   }, []);
 
   if (!isLoggedIn()) {
-    if (registering) {
-      return (
-        <div className="registerBlock">
-          <Registration setRegistering={setRegistering} />
-        </div>
-      );
-    } else {
-      return (
-        <div className="Login">
-          <div className="loginBlock">
-            <div className="loginHeader"> Log In </div>
-            <div className="headerLineBreak"></div>
-            <form method="post" onSubmit={handleLogin}>
-              <input
-                className="usernameEntryField"
-                type="text"
-                name="username"
-                placeholder="Username"
-                onChange={handleChange}
-              />
-              <div className="lineBreak"></div>
-              <input
-                className="passwordEntryField"
-                type="password"
-                name="password"
-                placeholder="Password"
-                onChange={handleChange}
-              />
-              <div className="lineBreak"></div>
-              <input
-                className="loginBtn"
-                type="submit"
-                value="Login"
-                onChange={handleChange}
-              />
+    return (
+      <div className="Login">
+        <div className="loginBlock">
+          <div className="loginHeader"> Log In </div>
+          <div className="headerLineBreak"></div>
+          <form method="post" onSubmit={handleLogin}>
+            <input
+              className="usernameEntryField"
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={handleChange}
+            />
+            <div className="lineBreak"></div>
+            <input
+              className="passwordEntryField"
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+            <div className="lineBreak"></div>
+            <input
+              className="loginBtn"
+              type="submit"
+              value="Login"
+              onChange={handleChange}
+            />
 
-              <input
-                className="signUpBtn"
-                type="submit"
-                value="Sign Up"
-                onClick={() => setRegistering(true)}
-              />
-              <CSRFToken />
-            </form>
-          </div>
+            <input
+              className="signUpBtn"
+              type="button"
+              value="Sign Up"
+              onClick={() => history.push("/register")}
+            />
+            <CSRFToken />
+          </form>
+          <Alert
+            className="loginErrorAlert"
+            style={{ display: "none" }}
+            color="danger"
+          >
+            Login failed. Username or Password incorrect.
+          </Alert>
         </div>
-      );
-    }
+      </div>
+    );
   } else {
     return (
       <div>
         <div className="loggedInNotifBlock">
           <div className="loggedInNotif">
-          <h1 className = "msg">You are Logged In.</h1>
-            <div className = "largeBreak" />
-          <button className="logoutBtn" onClick={logout}>
-            Logout
-          </button>
-          <Link className="homeLink" to="/">
-            Home
-          </Link>
+            <h1 className="msg">You are Logged In.</h1>
+            <div className="largeBreak" />
+            <button className="logoutBtn" onClick={logout}>
+              Logout
+            </button>
+            <Link className="homeLink" to="/">
+              Home
+            </Link>
           </div>
         </div>
       </div>
