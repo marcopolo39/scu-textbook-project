@@ -101,9 +101,9 @@ const Textbook = () => {
     if (loaded) {
       return (
         <div className="content">
-          <Container fluid>
+          <Container fluid style={{minHeight: '350px'}}>
             <Row>
-              <Col lg="3">
+              <Col lg="3" style={{textAlign: 'center'}}>
                 <img
                   className="textbookImg"
                   src={textbook.image}
@@ -135,8 +135,8 @@ const Textbook = () => {
           </Container>
           <Container fluid>
             <Row className="infoRow">
-              <Col lg="3">
-                <img src={profile.profile_img} alt="profile image" />
+              <Col lg="3" style={{paddingTop: '30px', textAlign: 'center'}}>
+                <img src={profile.profile_img} alt="profile image" className="ProfileImg"/>
               </Col>
               <Col>
                 <h1>Seller</h1>
