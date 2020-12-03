@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import TextbookBoxItem from "../components/TextbookBoxItem";
 import { removeFromCart, clearCart } from "../actions/cartActions";
-import { Col, Row, Button, Popover, PopoverBody } from "reactstrap";
+import { Container, Col, Row, Button, Popover, PopoverBody } from "reactstrap";
 import { useToken } from "../hooks/useToken";
 import cookie from "react-cookies";
 import axios from "axios";
@@ -48,29 +48,65 @@ const Cart = () => {
   };
 
   return (
-    <div className="Cart">
-      <h3>Cart</h3>
-      <Row>
-        {cart.map((textbook, key) => {
-          return (
-            <Col lg="3" key={key}>
-              <TextbookBoxItem textbook={textbook}>
-                <Button onClick={() => dispatch(removeFromCart(textbook))}>
+    <div>
+      <h2 className="PageLabel">Cart</h2>
+      <div className="Cart">
+        <div className="CartItems">
+          {cart.map((textbook, key) => {
+            return (
+              <div className="TextbookCard" key={key}>
+                <img
+                  className="TextbookImage"
+                  src={textbook.image}
+                  alt="textbook image"
+                />
+                <div className="TextbookInfo">
+                  <p>Title: {textbook.title}</p>
+                  <p>Authors: {textbook.authors}</p>
+                  <p>ISBN: {textbook.isbn}</p>
+                  <p>Price: ${textbook.price}</p>
+                  <p>Seller: {textbook.owner}</p>
+                </div>
+                <Button
+                  className="RemoveButton"
+                  onClick={() => dispatch(removeFromCart(textbook))}
+                >
                   Remove
                 </Button>
-              </TextbookBoxItem>
-            </Col>
-          );
-        })}
-      </Row>
-      <h3>Total: ${getTotal()}</h3>
-      <Button style={spacedOrangeBtn} onClick={() => dispatch(clearCart())}>
-        Clear Cart
-      </Button>
-      <Button style={spacedOrangeBtn} onClick={checkout}>
-        Checkout
-      </Button>
+              </div>
+            );
+          })}
+        </div>
+        <div className="Sidebar">
+          <h3>Total: ${getTotal()}</h3>
+          <Button style={spacedOrangeBtn} onClick={() => dispatch(clearCart())}>
+            Clear Cart
+          </Button>
+          <Button style={spacedOrangeBtn} onClick={checkout}>
+            Checkout
+          </Button>
+        </div>
+      </div>
     </div>
+
+    // <div className="Cart">
+    //   <h3>Cart</h3>
+    //   <Row>
+    //     {cart.map((textbook, key) => {
+    //       return (
+    //         <Col lg="3" key={key}>
+    //           <TextbookBoxItem textbook={textbook}>
+    //             <Button onClick={() => dispatch(removeFromCart(textbook))}>
+    //               Remove
+    //             </Button>
+    //           </TextbookBoxItem>
+    //         </Col>
+    //       );
+    //     })}
+    //   </Row>
+    //   <h3>Total: ${getTotal()}</h3>
+    //   <Button style = {spacedOrangeBtn} onClick={() => dispatch(clearCart())}>Clear Cart</Button>
+    // </div>
   );
 };
 

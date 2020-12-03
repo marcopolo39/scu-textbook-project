@@ -24,3 +24,49 @@
     color: black;
     text-align:center;
 }
+
+.Cart {
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+}
+
+.CartItems{
+    padding: 10px;
+    width: 78%;
+}
+
+.Sidebar{
+    padding: 10px;
+    width: 20%;
+    background-color: #f4f8f9;
+    height: 500px;
+
+}
+
+.TextbookCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f8f9;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.TextbookImage {
+    width: 10%;
+}
+
+.TextbookInfo {
+    width: 75%;
+}
+
+.RemoveButton{
+    height: 40px;
+
+}
+
+.PageLabel{
+    padding-left: 30px;
+    padding-top: 15px;
+}
