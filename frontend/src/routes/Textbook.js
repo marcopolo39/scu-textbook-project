@@ -93,9 +93,9 @@ const Textbook = () => {
     return (
       <div className="content">
         <Container fluid>
-          <Row className="infoRow">
-            <Col lg="3">
-              <img style = {{height:"60%"}} src={textbook.image} alt="textbook image" />
+          <Row>
+            <Col lg="3" >
+              <img className="textbookImg" src={textbook.image} alt="textbook image" />
             </Col>
             <Col>
               <div className="textbookInfoBlock">
