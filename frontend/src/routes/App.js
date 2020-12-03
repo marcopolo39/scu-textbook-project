@@ -5,16 +5,11 @@ import "../css/App.css";
 import TextbookBoxItem from "../components/TextbookBoxItem.js";
 import { Container, Row, Button, CardColumns } from "reactstrap";
 import { Link } from "react-router-dom";
-import {
-  InputGroup,
-  Dropdown,
-  DropdownItem,
-  DropdownToggle,
-  DropdownMenu,
-} from "reactstrap";
+import Loader from "../components/Loader";
 
 const App = () => {
   const user = useSelector((store) => store.accountReducer.user);
+  const [loading, setLoading] = useState(true);
   const [textbooks, setTextbooks] = useState([]);
   const [filteredTextbooks, setFilteredTextbooks] = useState([]);
   const [filters, setFilter] = useState({
@@ -53,6 +48,7 @@ const App = () => {
       .then((res) => {
         setTextbooks(res.data.filter((book) => book.state === "F"));
         setFilteredTextbooks(res.data.filter((book) => book.state === "F"));
+        setLoading(false);
       })
       .catch((err) => console.dir(err));
   };
@@ -104,127 +100,128 @@ const App = () => {
     }
   }, [filters]);
 
-  return (
-    <div className="App">
-      <div className="spacingFromHeader"></div>
-      <div className="filterResults">
-        <h1 className="filterResultsHeader">Filter Results</h1>
-        <br />
-        <br />
-        <form className="filterForm" id="sidebar">
-          <label>
-
+  if (loading) {
+    return <Loader />;
+  } else {
+    return (
+      <div className="App">
+        <div className="spacingFromHeader"></div>
+        <div className="filterResults">
+          <h1 className="filterResultsHeader">Filter Results</h1>
+          <br />
+          <br />
+          <form className="filterForm">
+            <label>
+              <input
+                className="sameUniCheckbox"
+                name="sameUniCheckbox"
+                type="checkbox"
+                onChange={filterSchool}
+              ></input>
+              <p className="filterText">Same University as Me</p>
+            </label>
+            <div className="firstFilterGap"></div>
+            <p>Search by Location </p>
             <input
-              className="sameUniCheckbox"
-              name="sameUniCheckbox"
-              type="checkbox"
-              onChange={filterSchool}
+              className="city"
+              type="text"
+              placeholder="City"
+              onChange={(e) => {
+                e.preventDefault();
+                setLocation({ ...location, city: e.target.value });
+              }}
             ></input>
-             <p className="filterText">Same University as Me</p>
-          </label>
-          <div className="firstFilterGap"></div>
-          <p>Search by Location </p>
-
-          <input
-            className="city"
-            type="text"
-            placeholder="City"
-            onChange={(e) => {
-              e.preventDefault();
-              setLocation({ ...location, city: e.target.value });
-            }}
-          ></input>,
-          <input
-            className="state"
-            type="text"
-            placeholder="State"
-            onChange={(e) => {
-              e.preventDefault();
-              setLocation({ ...location, state: e.target.value });
-            }}
-          ></input>
-          <button
-              className = "goBtn"
-            onClick={(e) => {
-              e.preventDefault();
-              setFilter({ ...filters, filterLocation: true });
-            }}
-          >
-            Go
-          </button>
-          <div className="secondFilterGap"></div>
-          <p>Price Range</p>
-
-          <input
-            className="lowerPrinceRangeInput"
-            type="text"
-            name="priceLow"
-            placeholder = "$"
-            onChange={changePriceLow}
-          ></input>
-          <p className = "filterText">to</p>
-          <input
-            className="upperPriceRangeInput"
-            type="text"
-            name="priceHigh"
-            placeholder = "$"
-            onChange={changePriceHigh}
-          ></input>
-          <br />
-          <br />
-          <button
-              className = "clearFilterBtn"
-            onClick={(e) => {
-              e.preventDefault();
-              setFilter({
-                price: {
-                  low: 0,
-                  high: 10000,
-                },
-                filterLocation: false,
-                filterSchool: false,
-              });
-            }}
-          >
-            Clear Filters
-          </button>
-        </form>
-      </div>
-      <div className="textbookDisplayBlock">
-        <Container>
-          <Row>
-            <CardColumns>
-              {filteredTextbooks.map((textbook, key) => {
-                return (
-                  <TextbookBoxItem
-                    key={key}
-                    textbook={textbook}
-                    className="textbookListCard"
-                  >
-                    <Button
-                        style = {{
-                          color:"black",
-                          backgroundColor:"#CA521F"
-                        }
-                        }
-                      tag={Link}
-                      to={{
-                        pathname: `/textbook/${textbook.pk}`,
-                        textbook: textbook,
-                      }}
-                      color="link"
+            ,
+            <input
+              className="state"
+              type="text"
+              placeholder="State"
+              onChange={(e) => {
+                e.preventDefault();
+                setLocation({ ...location, state: e.target.value });
+              }}
+            ></input>
+            <button
+              className="goBtn"
+              onClick={(e) => {
+                e.preventDefault();
+                setFilter({ ...filters, filterLocation: true });
+              }}
+            >
+              Go
+            </button>
+            <div className="secondFilterGap"></div>
+            <p>Price Range</p>
+            <input
+              className="lowerPrinceRangeInput"
+              type="text"
+              name="priceLow"
+              placeholder="$"
+              onChange={changePriceLow}
+            ></input>
+            <p className="filterText">to</p>
+            <input
+              className="upperPriceRangeInput"
+              type="text"
+              name="priceHigh"
+              placeholder="$"
+              onChange={changePriceHigh}
+            ></input>
+            <br />
+            <br />
+            <button
+              className="clearFilterBtn"
+              onClick={(e) => {
+                e.preventDefault();
+                setFilter({
+                  price: {
+                    low: 0,
+                    high: 10000,
+                  },
+                  filterLocation: false,
+                  filterSchool: false,
+                });
+              }}
+            >
+              Clear Filters
+            </button>
+          </form>
+        </div>
+        <div className="textbookDisplayBlock">
+          <Container>
+            <Row>
+              <CardColumns>
+                {filteredTextbooks.map((textbook, key) => {
+                  return (
+                    <TextbookBoxItem
+                      key={key}
+                      textbook={textbook}
+                      className="textbookListCard"
                     >
-                     Go
-                    </Button>
-                  </TextbookBoxItem>
-                );
-              })}
-            </CardColumns>
-          </Row>
-        </Container>
+                      <Button
+                        style={{
+                          color: "black",
+                          backgroundColor: "#CA521F",
+                        }}
+                        tag={Link}
+                        to={{
+                          pathname: `/textbook/${textbook.pk}`,
+                          textbook: textbook,
+                        }}
+                        color="link"
+                      >
+                        Go
+                      </Button>
+                    </TextbookBoxItem>
+                  );
+                })}
+              </CardColumns>
+            </Row>
+          </Container>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default App;

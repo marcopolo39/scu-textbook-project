@@ -1,40 +1,45 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CSRFToken from "./CSRFToken";
 import {
   Input,
   InputGroup,
   InputGroupAddon,
   InputGroupText,
   Button,
+  CustomInput,
 } from "reactstrap";
-import "../css/ProfileEditor.css"
+import "../css/ProfileEditor.css";
 
 const ProfileEditor = ({ user, token, setEditing }) => {
   const [editedUser, setEditiedUser] = useState(user);
+  const inputFieldStyle = {
+    width: "500px",
+    height: "35px",
+    marginTop: "15px",
+    marginLeft: "20px",
+  };
 
   /** Calls PUT request to /api/account/update/id with new input user data to update user
    * TODO: handle errors
    */
   const updateAccount = () => {
+    const formData = new FormData();
+    formData.append("username", editedUser.username);
+    formData.append("email", editedUser.email);
+    formData.append("first_name", editedUser.firstName);
+    formData.append("last_name", editedUser.lastName);
+    formData.append("school", editedUser.school);
+    formData.append("location", editedUser.location);
+    formData.append("password", editedUser.password);
+    formData.append("paypal_username", editedUser.paypalUsername);
+    formData.append("profile_img", editedUser.img, editedUser.img.name);
     axios
-      .put(
-        `/api/account/update/${user.id}`,
-        {
-          username: editedUser.username,
-          email: editedUser.email,
-          first_name: editedUser.firstName,
-          last_name: editedUser.lastName,
-          school: editedUser.school,
-          location: editedUser.location,
-          paypal_username: editedUser.paypalUsername,
+      .put(`/api/account/update/${user.id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Token ${token}`,
         },
-        {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      )
+      })
       .then(() => setEditing(false))
       .catch((err) => console.dir(err));
   };
@@ -44,6 +49,13 @@ const ProfileEditor = ({ user, token, setEditing }) => {
     setEditiedUser({
       ...editedUser,
       [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleImageUpload = (e) => {
+    setEditiedUser({
+      ...editedUser,
+      img: e.target.files[0],
     });
   };
 
@@ -125,6 +137,19 @@ const ProfileEditor = ({ user, token, setEditing }) => {
           name="paypalUsername"
           onChange={handleChange}
           placeholder={user.paypalUsername}
+        />
+      </InputGroup>
+      <InputGroup style={inputFieldStyle}>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText>Image</InputGroupText>
+        </InputGroupAddon>
+        <CustomInput
+          type="file"
+          name="image"
+          id="fileInput"
+          multiple={false}
+          onChange={handleImageUpload}
+          accept="image/*"
         />
       </InputGroup>
       <Button onClick={() => setEditing(false)}>Cancel</Button>

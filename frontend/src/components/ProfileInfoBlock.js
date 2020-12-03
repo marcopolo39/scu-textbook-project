@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setReceiver } from "../actions/messageActions";
 import TextbookBoxItem from "../components/TextbookBoxItem";
-import "../css/ProfileInfoBlock.css"
+import "../css/ProfileInfoBlock.css";
 
 const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
   const [userTexbooks, setUserTextbooks] = useState();
@@ -28,7 +28,8 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
         }
         dispatch(setReceiver(user.username));
         history.push("/messages");
-      });
+      })
+      .catch((err) => console.dir(err));
   };
 
   const createChat = () => {
@@ -89,13 +90,14 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
         </Row>
       </Container>
 
-      <p className = "userInfoTxt">
+      <img src={user.img} alt="profile image" />
+      <p className="userInfoTxt">
         Name: {user.firstName} {user.lastName}
       </p>
-      <p className = "userInfoTxt">Email: {user.email}</p>
-      <p className = "userInfoTxt">School: {user.school}</p>
-      <p className = "userInfoTxt">Location: {user.location}</p>
-      <p className = "userInfoTxt">Paypal Username: {user.paypalUsername}</p>
+      <p className="userInfoTxt">Email: {user.email}</p>
+      <p className="userInfoTxt">School: {user.school}</p>
+      <p className="userInfoTxt">Location: {user.location}</p>
+      <p className="userInfoTxt">Paypal Username: {user.paypalUsername}</p>
       {!isEditable && token ? (
         <Button onClick={goToChat}>Message</Button>
       ) : undefined}
@@ -112,7 +114,6 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
                     className="textbookListCard"
                     buttonName="Delete"
                   >
-
                     <Button onClick={() => console.log("Enter edit function")}>
                       Edit
                     </Button>
