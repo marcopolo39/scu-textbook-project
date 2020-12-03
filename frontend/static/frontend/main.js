@@ -15,6 +15,7 @@
   \**********************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
 /***/ ((module) => {
 
 eval("function _assertThisInitialized(self) {\n  if (self === void 0) {\n    throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");\n  }\n\n  return self;\n}\n\nmodule.exports = _assertThisInitialized;\n\n//# sourceURL=webpack://frontend/./node_modules/@babel/runtime/helpers/assertThisInitialized.js?");
@@ -27,6 +28,7 @@ eval("function _assertThisInitialized(self) {\n  if (self === void 0) {\n    thr
   \***************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
 /***/ ((module) => {
 
 eval("function _defineProperty(obj, key, value) {\n  if (key in obj) {\n    Object.defineProperty(obj, key, {\n      value: value,\n      enumerable: true,\n      configurable: true,\n      writable: true\n    });\n  } else {\n    obj[key] = value;\n  }\n\n  return obj;\n}\n\nmodule.exports = _defineProperty;\n\n//# sourceURL=webpack://frontend/./node_modules/@babel/runtime/helpers/defineProperty.js?");
@@ -114,6 +116,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 2:2-16 */
+/*! CommonJS bailout: module.exports is used directly at 19:0-14 */
 /***/ ((module) => {
 
 eval("function _extends() {\n  module.exports = _extends = Object.assign || function (target) {\n    for (var i = 1; i < arguments.length; i++) {\n      var source = arguments[i];\n\n      for (var key in source) {\n        if (Object.prototype.hasOwnProperty.call(source, key)) {\n          target[key] = source[key];\n        }\n      }\n    }\n\n    return target;\n  };\n\n  return _extends.apply(this, arguments);\n}\n\nmodule.exports = _extends;\n\n//# sourceURL=webpack://frontend/./node_modules/@babel/runtime/helpers/extends.js?");
@@ -126,6 +130,7 @@ eval("function _extends() {\n  module.exports = _extends = Object.assign || func
   \**************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module) => {
 
 eval("function _inheritsLoose(subClass, superClass) {\n  subClass.prototype = Object.create(superClass.prototype);\n  subClass.prototype.constructor = subClass;\n  subClass.__proto__ = superClass;\n}\n\nmodule.exports = _inheritsLoose;\n\n//# sourceURL=webpack://frontend/./node_modules/@babel/runtime/helpers/inheritsLoose.js?");
@@ -138,6 +143,7 @@ eval("function _inheritsLoose(subClass, superClass) {\n  subClass.prototype = Ob
   \**********************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module) => {
 
 eval("function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? obj : {\n    \"default\": obj\n  };\n}\n\nmodule.exports = _interopRequireDefault;\n\n//# sourceURL=webpack://frontend/./node_modules/@babel/runtime/helpers/interopRequireDefault.js?");
@@ -150,6 +156,7 @@ eval("function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? o
   \*****************************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
 /***/ ((module) => {
 
 eval("function _objectWithoutPropertiesLoose(source, excluded) {\n  if (source == null) return {};\n  var target = {};\n  var sourceKeys = Object.keys(source);\n  var key, i;\n\n  for (i = 0; i < sourceKeys.length; i++) {\n    key = sourceKeys[i];\n    if (excluded.indexOf(key) >= 0) continue;\n    target[key] = source[key];\n  }\n\n  return target;\n}\n\nmodule.exports = _objectWithoutPropertiesLoose;\n\n//# sourceURL=webpack://frontend/./node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js?");
@@ -176,6 +183,7 @@ eval("module.exports = __webpack_require__(/*! ./lib/axios */ \"./node_modules/a
   \************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -189,6 +197,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 50:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -202,6 +211,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 19:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -215,6 +225,7 @@ eval("\n\n/**\n * A `Cancel` is an object that is thrown when an operation is ca
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 57:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -228,6 +239,7 @@ eval("\n\nvar Cancel = __webpack_require__(/*! ./Cancel */ \"./node_modules/axio
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 3:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -241,6 +253,7 @@ eval("\n\nmodule.exports = function isCancel(value) {\n  return !!(value && valu
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 95:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -254,6 +267,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \***********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 52:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -267,6 +281,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -280,6 +295,7 @@ eval("\n\nvar isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL *
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -293,6 +309,7 @@ eval("\n\nvar enhanceError = __webpack_require__(/*! ./enhanceError */ \"./node_
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -306,6 +323,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -319,6 +337,7 @@ eval("\n\n/**\n * Update an Error with the specified config, error code, and res
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -332,6 +351,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios
   \***********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -345,6 +365,7 @@ eval("\n\nvar createError = __webpack_require__(/*! ./createError */ \"./node_mo
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -358,6 +379,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 98:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -371,6 +393,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/
   \************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 3:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -384,6 +407,7 @@ eval("\n\nmodule.exports = function bind(fn, thisArg) {\n  return function wrap(
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -397,6 +421,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 10:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -410,6 +435,7 @@ eval("\n\n/**\n * Creates a new URL by combining the specified URLs\n *\n * @par
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -423,6 +449,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -436,6 +463,7 @@ eval("\n\n/**\n * Determines whether the specified URL is absolute\n *\n * @para
   \***********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -449,6 +477,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \***************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -462,6 +491,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 27:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -475,6 +505,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -488,6 +519,7 @@ eval("\n\n/**\n * Syntactic sugar for invoking a function and expanding an array
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 328:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -828,7 +860,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _css_App_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../css/App.css */ \"./src/css/App.css\");\n/* harmony import */ var _components_TextbookBoxItem_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TextbookBoxItem.js */ \"./src/components/TextbookBoxItem.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Container.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Row.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/CardColumns.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Button.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Loader */ \"./src/components/Loader.js\");\n\n\n\n\n\n\n\n\n\nconst App = () => {\n  const user = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(store => store.accountReducer.user);\n  const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);\n  const [textbooks, setTextbooks] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);\n  const [filteredTextbooks, setFilteredTextbooks] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);\n  const [filters, setFilter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({\n    price: {\n      low: 0,\n      high: 10000\n    },\n    filterLocation: false,\n    filterSchool: false\n  });\n  const [location, setLocation] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});\n\n  const changePriceLow = e => {\n    setFilter({ ...filters,\n      price: { ...filters.price,\n        low: e.target.value ? parseInt(e.target.value, 10) : 0\n      }\n    });\n  };\n\n  const changePriceHigh = e => {\n    setFilter({ ...filters,\n      price: { ...filters.price,\n        high: e.target.value ? parseInt(e.target.value, 10) : 10000\n      }\n    });\n  };\n\n  const getTextbooks = () => {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/textbook/list\").then(res => {\n      setTextbooks(res.data.filter(book => book.state === \"F\"));\n      setFilteredTextbooks(res.data.filter(book => book.state === \"F\"));\n      setLoading(false);\n    }).catch(err => console.dir(err));\n  };\n\n  const filterSchool = e => {\n    setFilter({ ...filters,\n      filterSchool: e.target.checked\n    });\n  }; // Gets given textbook owner's school\n\n\n  const ownerFromTextbook = async textbook => {\n    const r = await axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/account/profile/\", {\n      params: {\n        username: textbook.owner\n      }\n    }).then(res => res.data);\n    return r;\n  }; // Initialize books\n\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    getTextbooks();\n  }, []); // filters textbooks\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(async () => {\n    if (textbooks.length > 0) {\n      const owners = await Promise.all(textbooks.map(book => ownerFromTextbook(book)));\n      const filteredBooks = textbooks.filter((book, i) => {\n        const priceFilter = filters.price.low <= parseInt(book.price, 10) && filters.price.high >= parseInt(book.price, 10);\n        const schoolFilter = filters.filterSchool ? owners[i].school === user.school : true;\n        const locationFilter = filters.filterLocation ? owners[i].location === [location.city, location.state].join(\", \") : true;\n        return priceFilter && schoolFilter && locationFilter;\n      });\n      setFilteredTextbooks(filteredBooks);\n    }\n  }, [filters]);\n\n  if (loading) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Loader__WEBPACK_IMPORTED_MODULE_5__.default, null);\n  } else {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"App\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"spacingFromHeader\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"filterResults\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"filterResultsHeader\"\n    }, \"Filter Results\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"form\", {\n      className: \"filterForm\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"label\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"sameUniCheckbox\",\n      name: \"sameUniCheckbox\",\n      type: \"checkbox\",\n      onChange: filterSchool\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", {\n      className: \"filterText\"\n    }, \"Same University as Me\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"firstFilterGap\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"Search by Location \"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"city\",\n      type: \"text\",\n      placeholder: \"City\",\n      onChange: e => {\n        e.preventDefault();\n        setLocation({ ...location,\n          city: e.target.value\n        });\n      }\n    }), \",\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"state\",\n      type: \"text\",\n      placeholder: \"State\",\n      onChange: e => {\n        e.preventDefault();\n        setLocation({ ...location,\n          state: e.target.value\n        });\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n      className: \"goBtn\",\n      onClick: e => {\n        e.preventDefault();\n        setFilter({ ...filters,\n          filterLocation: true\n        });\n      }\n    }, \"Go\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"secondFilterGap\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"Price Range\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"lowerPrinceRangeInput\",\n      type: \"text\",\n      name: \"priceLow\",\n      placeholder: \"$\",\n      onChange: changePriceLow\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", {\n      className: \"filterText\"\n    }, \"to\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"upperPriceRangeInput\",\n      type: \"text\",\n      name: \"priceHigh\",\n      placeholder: \"$\",\n      onChange: changePriceHigh\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n      className: \"clearFilterBtn\",\n      onClick: e => {\n        e.preventDefault();\n        setFilter({\n          price: {\n            low: 0,\n            high: 10000\n          },\n          filterLocation: false,\n          filterSchool: false\n        });\n      }\n    }, \"Clear Filters\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"textbookDisplayBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.default, null, filteredTextbooks.map((textbook, key) => {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TextbookBoxItem_js__WEBPACK_IMPORTED_MODULE_4__.default, {\n        key: key,\n        textbook: textbook,\n        className: \"textbookListCard\"\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.default, {\n        style: {\n          color: \"black\",\n          backgroundColor: \"#CA521F\"\n        },\n        tag: react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link,\n        to: {\n          pathname: `/textbook/${textbook.pk}`,\n          textbook: textbook\n        },\n        color: \"link\"\n      }, \"Go\"));\n    }))))));\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://frontend/./src/routes/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _css_App_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../css/App.css */ \"./src/css/App.css\");\n/* harmony import */ var _components_TextbookBoxItem_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TextbookBoxItem.js */ \"./src/components/TextbookBoxItem.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Container.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Row.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/CardColumns.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Button.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Loader */ \"./src/components/Loader.js\");\n\n\n\n\n\n\n\n\n\nconst App = () => {\n  const user = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(store => store.accountReducer.user);\n  const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);\n  const [textbooks, setTextbooks] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);\n  const [filteredTextbooks, setFilteredTextbooks] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);\n  const [filters, setFilter] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({\n    price: {\n      low: 0,\n      high: 10000\n    },\n    filterLocation: false,\n    filterSchool: false\n  });\n  const [location, setLocation] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});\n\n  const changePriceLow = e => {\n    setFilter({ ...filters,\n      price: { ...filters.price,\n        low: e.target.value ? parseInt(e.target.value, 10) : 0\n      }\n    });\n  };\n\n  const changePriceHigh = e => {\n    setFilter({ ...filters,\n      price: { ...filters.price,\n        high: e.target.value ? parseInt(e.target.value, 10) : 10000\n      }\n    });\n  };\n\n  const getTextbooks = () => {\n    axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/textbook/list\").then(res => {\n      setTextbooks(res.data.filter(book => book.state === \"F\"));\n      setFilteredTextbooks(res.data.filter(book => book.state === \"F\"));\n      setLoading(false);\n    }).catch(err => console.dir(err));\n  };\n\n  const filterSchool = e => {\n    setFilter({ ...filters,\n      filterSchool: e.target.checked\n    });\n  }; // Gets given textbook owner's school\n\n\n  const ownerFromTextbook = async textbook => {\n    const r = await axios__WEBPACK_IMPORTED_MODULE_2___default().get(\"/api/account/profile/\", {\n      params: {\n        username: textbook.owner\n      }\n    }).then(res => res.data);\n    return r;\n  }; // Initialize books\n\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    getTextbooks();\n  }, []); // filters textbooks\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(async () => {\n    if (textbooks.length > 0) {\n      const owners = await Promise.all(textbooks.map(book => ownerFromTextbook(book)));\n      const filteredBooks = textbooks.filter((book, i) => {\n        const priceFilter = filters.price.low <= parseInt(book.price, 10) && filters.price.high >= parseInt(book.price, 10);\n        const schoolFilter = filters.filterSchool ? owners[i].school === user.school : true;\n        const locationFilter = filters.filterLocation ? owners[i].location === [location.city, location.state].join(\", \") : true;\n        return priceFilter && schoolFilter && locationFilter;\n      });\n      setFilteredTextbooks(filteredBooks);\n    }\n  }, [filters]);\n\n  if (loading) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Loader__WEBPACK_IMPORTED_MODULE_5__.default, null);\n  } else {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"App\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"spacingFromHeader\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"filterResults\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"filterResultsHeader\"\n    }, \"Filter Results\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"form\", {\n      className: \"filterForm\",\n      id: \"sidebar\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"label\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"sameUniCheckbox\",\n      name: \"sameUniCheckbox\",\n      type: \"checkbox\",\n      onChange: filterSchool\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", {\n      className: \"filterText\"\n    }, \"Same University as Me\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"firstFilterGap\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"Search by Location \"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"city\",\n      type: \"text\",\n      placeholder: \"City\",\n      onChange: e => {\n        e.preventDefault();\n        setLocation({ ...location,\n          city: e.target.value\n        });\n      }\n    }), \",\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"state\",\n      type: \"text\",\n      placeholder: \"State\",\n      onChange: e => {\n        e.preventDefault();\n        setLocation({ ...location,\n          state: e.target.value\n        });\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n      className: \"goBtn\",\n      onClick: e => {\n        e.preventDefault();\n        setFilter({ ...filters,\n          filterLocation: true\n        });\n      }\n    }, \"Go\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"secondFilterGap\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"Price Range\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"lowerPrinceRangeInput\",\n      type: \"text\",\n      name: \"priceLow\",\n      placeholder: \"$\",\n      onChange: changePriceLow\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", {\n      className: \"filterText\"\n    }, \"to\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n      className: \"upperPriceRangeInput\",\n      type: \"text\",\n      name: \"priceHigh\",\n      placeholder: \"$\",\n      onChange: changePriceHigh\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n      className: \"clearFilterBtn\",\n      onClick: e => {\n        e.preventDefault();\n        setFilter({\n          price: {\n            low: 0,\n            high: 10000\n          },\n          filterLocation: false,\n          filterSchool: false\n        });\n      }\n    }, \"Clear Filters\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"textbookDisplayBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.default, null, filteredTextbooks.map((textbook, key) => {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TextbookBoxItem_js__WEBPACK_IMPORTED_MODULE_4__.default, {\n        key: key,\n        textbook: textbook,\n        className: \"textbookListCard\"\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.default, {\n        style: {\n          color: \"black\",\n          backgroundColor: \"#CA521F\"\n        },\n        tag: react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link,\n        to: {\n          pathname: `/textbook/${textbook.pk}`,\n          textbook: textbook\n        },\n        color: \"link\"\n      }, \"Go\"));\n    }))))));\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://frontend/./src/routes/App.js?");
 
 /***/ }),
 
@@ -948,7 +980,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/esm/react-router.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _css_Textbook_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/Textbook.css */ \"./src/css/Textbook.css\");\n/* harmony import */ var _hooks_useToken_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/useToken.js */ \"./src/hooks/useToken.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Container.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Row.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Col.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Button.js\");\n/* harmony import */ var _components_TextbookEditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TextbookEditor */ \"./src/components/TextbookEditor.js\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _actions_cartActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/cartActions */ \"./src/actions/cartActions.js\");\n\n\n\n\n\n\n\n\n\n\nconst Textbook = () => {\n  const {\n    pk\n  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useParams)();\n  const [profile, setProfile] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});\n  const [textbook, setTextbook] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});\n  const [editing, setEditing] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const token = (0,_hooks_useToken_js__WEBPACK_IMPORTED_MODULE_3__.useToken)();\n  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useDispatch)();\n  const user = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useSelector)(store => store.accountReducer.user);\n  const states = {\n    F: \"For Sale\",\n    D: \"Draft\",\n    S: \"Sold\"\n  };\n\n  const getProfile = () => {\n    axios__WEBPACK_IMPORTED_MODULE_1___default().get(\"/api/account/profile/\", {\n      params: {\n        username: textbook.owner\n      }\n    }).then(({\n      data\n    }) => setProfile(data)).catch(err => console.dir(err));\n  };\n\n  const handleSubmit = () => {\n    axios__WEBPACK_IMPORTED_MODULE_1___default().put(`/api/textbook/update/${pk}/`, {\n      isbn: textbook.isbn,\n      title: textbook.title,\n      price: textbook.price,\n      authors: textbook.authors,\n      state: textbook.state,\n      volume_edition: textbook.volume_edition,\n      condition: textbook.condition,\n      comments: textbook.comments\n    }, {\n      headers: {\n        Authorization: `Token ${token}`\n      }\n    }).then(() => setEditing(false)).catch(err => console.dir(err));\n  }; // Set textbook on mount\n\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    axios__WEBPACK_IMPORTED_MODULE_1___default().get(`/api/textbook/list/${pk}/`).then(({\n      data\n    }) => {\n      setTextbook(data);\n    }).catch(err => console.dir(err));\n  }, []); // Get profile on change of textbook\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    if (textbook.owner) {\n      getProfile();\n    }\n  }, [textbook]);\n\n  if (editing) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"PK: \", pk), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"textbookEditBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TextbookEditor__WEBPACK_IMPORTED_MODULE_4__.default, {\n      textbookModel: textbook,\n      setTextbookModel: setTextbook,\n      onCancel: () => setEditing(false),\n      onSubmit: handleSubmit\n    })));\n  } else {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"content\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.default, {\n      fluid: true\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.default, {\n      className: \"infoRow\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, {\n      lg: \"3\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n      style: {\n        height: \"60%\"\n      },\n      src: textbook.image,\n      alt: \"textbook image\"\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"textbookInfoBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"Title: \", textbook.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"Price: $\", textbook.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"ISBN: \", textbook.isbn), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"Authors: \", textbook.authors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h4\", null, states[textbook.state]), textbook.owner === user.username ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_11__.default, {\n      onClick: () => setEditing(true)\n    }, \"Edit\") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_11__.default, {\n      onClick: () => {\n        dispatch((0,_actions_cartActions__WEBPACK_IMPORTED_MODULE_6__.addToCart)(textbook));\n        alert(\"Textbook Added to Cart\");\n      }\n    }, \"Add to Cart\"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.default, {\n      fluid: true\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.default, {\n      className: \"infoRow\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, {\n      lg: \"3\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n      src: \"\",\n      alt: \"profile image\"\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"Seller\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"userInfoBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Owner: \", profile.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Name: \", profile.first_name, \" \", user.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Email: \", profile.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"School: \", profile.school), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Location: \", profile.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_11__.default, {\n      tag: react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link,\n      to: `/profile/${profile.username}/`\n    }, \"Go To Profile\"))))));\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Textbook);\n\n//# sourceURL=webpack://frontend/./src/routes/Textbook.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/esm/react-router.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _css_Textbook_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/Textbook.css */ \"./src/css/Textbook.css\");\n/* harmony import */ var _hooks_useToken_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/useToken.js */ \"./src/hooks/useToken.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Container.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Row.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Col.js\");\n/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! reactstrap */ \"./node_modules/reactstrap/es/Button.js\");\n/* harmony import */ var _components_TextbookEditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TextbookEditor */ \"./src/components/TextbookEditor.js\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var _actions_cartActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/cartActions */ \"./src/actions/cartActions.js\");\n\n\n\n\n\n\n\n\n\n\nconst Textbook = () => {\n  const {\n    pk\n  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useParams)();\n  const [profile, setProfile] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});\n  const [textbook, setTextbook] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});\n  const [editing, setEditing] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const token = (0,_hooks_useToken_js__WEBPACK_IMPORTED_MODULE_3__.useToken)();\n  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useDispatch)();\n  const user = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useSelector)(store => store.accountReducer.user);\n  const states = {\n    F: \"For Sale\",\n    D: \"Draft\",\n    S: \"Sold\"\n  };\n\n  const getProfile = () => {\n    axios__WEBPACK_IMPORTED_MODULE_1___default().get(\"/api/account/profile/\", {\n      params: {\n        username: textbook.owner\n      }\n    }).then(({\n      data\n    }) => setProfile(data)).catch(err => console.dir(err));\n  };\n\n  const handleSubmit = () => {\n    axios__WEBPACK_IMPORTED_MODULE_1___default().put(`/api/textbook/update/${pk}/`, {\n      isbn: textbook.isbn,\n      title: textbook.title,\n      price: textbook.price,\n      authors: textbook.authors,\n      state: textbook.state,\n      volume_edition: textbook.volume_edition,\n      condition: textbook.condition,\n      comments: textbook.comments\n    }, {\n      headers: {\n        Authorization: `Token ${token}`\n      }\n    }).then(() => setEditing(false)).catch(err => console.dir(err));\n  }; // Set textbook on mount\n\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    axios__WEBPACK_IMPORTED_MODULE_1___default().get(`/api/textbook/list/${pk}/`).then(({\n      data\n    }) => {\n      setTextbook(data);\n    }).catch(err => console.dir(err));\n  }, []); // Get profile on change of textbook\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    if (textbook.owner) {\n      getProfile();\n    }\n  }, [textbook]);\n\n  if (editing) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"PK: \", pk), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"textbookEditBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TextbookEditor__WEBPACK_IMPORTED_MODULE_4__.default, {\n      textbookModel: textbook,\n      setTextbookModel: setTextbook,\n      onCancel: () => setEditing(false),\n      onSubmit: handleSubmit\n    })));\n  } else {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"content\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.default, {\n      fluid: true\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, {\n      lg: \"3\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n      className: \"textbookImg\",\n      src: textbook.image,\n      alt: \"textbook image\"\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"textbookInfoBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"Title: \", textbook.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"Price: $\", textbook.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"ISBN: \", textbook.isbn), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"textbookInfo\"\n    }, \"Authors: \", textbook.authors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h4\", null, states[textbook.state]), textbook.owner === user.username ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_11__.default, {\n      onClick: () => setEditing(true)\n    }, \"Edit\") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_11__.default, {\n      onClick: () => {\n        dispatch((0,_actions_cartActions__WEBPACK_IMPORTED_MODULE_6__.addToCart)(textbook));\n        alert(\"Textbook Added to Cart\");\n      }\n    }, \"Add to Cart\"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.default, {\n      fluid: true\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.default, {\n      className: \"infoRow\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, {\n      lg: \"3\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n      src: \"\",\n      alt: \"profile image\"\n    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"Seller\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n      className: \"userInfoBlock\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Owner: \", profile.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Name: \", profile.first_name, \" \", user.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Email: \", profile.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"School: \", profile.school), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", {\n      className: \"profileInfo\"\n    }, \"Location: \", profile.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_11__.default, {\n      tag: react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link,\n      to: `/profile/${profile.username}/`\n    }, \"Go To Profile\"))))));\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Textbook);\n\n//# sourceURL=webpack://frontend/./src/routes/Textbook.js?");
 
 /***/ }),
 
@@ -974,6 +1006,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_exports__ */
+/*! CommonJS bailout: module.exports is used directly at 41:38-52 */
+/*! CommonJS bailout: module.exports is used directly at 43:2-16 */
 /***/ ((module, exports) => {
 
 eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n  Copyright (c) 2017 Jed Watson.\n  Licensed under the MIT License (MIT), see\n  http://jedwatson.github.io/classnames\n*/\n/* global define */\n\n(function () {\n\t'use strict';\n\n\tvar hasOwn = {}.hasOwnProperty;\n\n\tfunction classNames () {\n\t\tvar classes = [];\n\n\t\tfor (var i = 0; i < arguments.length; i++) {\n\t\t\tvar arg = arguments[i];\n\t\t\tif (!arg) continue;\n\n\t\t\tvar argType = typeof arg;\n\n\t\t\tif (argType === 'string' || argType === 'number') {\n\t\t\t\tclasses.push(arg);\n\t\t\t} else if (Array.isArray(arg) && arg.length) {\n\t\t\t\tvar inner = classNames.apply(null, arg);\n\t\t\t\tif (inner) {\n\t\t\t\t\tclasses.push(inner);\n\t\t\t\t}\n\t\t\t} else if (argType === 'object') {\n\t\t\t\tfor (var key in arg) {\n\t\t\t\t\tif (hasOwn.call(arg, key) && arg[key]) {\n\t\t\t\t\t\tclasses.push(key);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn classes.join(' ');\n\t}\n\n\tif ( true && module.exports) {\n\t\tclassNames.default = classNames;\n\t\tmodule.exports = classNames;\n\t} else if (true) {\n\t\t// register as 'classnames', consistent with npm package name\n\t\t!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {\n\t\t\treturn classNames;\n\t\t}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),\n\t\t__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));\n\t} else {}\n}());\n\n\n//# sourceURL=webpack://frontend/./node_modules/classnames/index.js?");
@@ -1002,6 +1036,7 @@ eval("/*!\n * cookie\n * Copyright(c) 2012-2014 Roman Shtylman\n * Copyright(c) 
   \*****************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 196:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -1015,6 +1050,7 @@ eval("\n\nexports.__esModule = true;\n\nvar _react = __webpack_require__(/*! rea
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -1063,7 +1099,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".checkoutBtn {\\n    background-color: #84A4F4;\\n    color: black;\\n    font-weight: bold;\\n    font-style: normal;\\n    height: 25px;\\n    width: 75px;\\n    border-top-style: hidden;\\n    border-right-style: hidden;\\n    border-left-style: hidden;\\n    border-bottom-style: hidden;\\n   margin-bottom: 10px;\\n}\\n\\n.checkoutBox {\\n    height: 450px;\\n    width: 250px;\\n    background-color: #F4F8F9;\\n    display: inline-block;\\n    font-size: 18px;\\n    margin-right: 10px;\\n    margin-left: 10px;\\n    margin-top: 20px;\\n    color: black;\\n    text-align:center;\\n}\\n\\n.Cart {\\n    display: flex;\\n    padding: 30px;\\n    justify-content: space-between;\\n}\\n\\n.CartItems{\\n    padding: 10px;\\n    width: 78%;\\n}\\n\\n.Sidebar{\\n    padding: 10px;\\n    width: 20%;\\n    background-color: #f4f8f9;\\n    height: 500px;\\n\\n}\\n\\n.TextbookCard{\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: center;\\n    background-color: #f4f8f9;\\n    padding: 20px;\\n    margin-bottom: 20px;\\n}\\n\\n.TextbookImage {\\n    width: 10%;\\n}\\n\\n.TextbookInfo {\\n    width: 75%;\\n}\\n\\n.RemoveButton{\\n    height: 40px;\\n\\n}\\n\\n.PageLabel{\\n    padding-left: 30px;\\n    padding-top: 15px;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://frontend/./src/css/Cart.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".checkoutBtn {\\n    background-color: #84A4F4;\\n    color: black;\\n    font-weight: bold;\\n    font-style: normal;\\n    height: 25px;\\n    width: 75px;\\n    border-top-style: hidden;\\n    border-right-style: hidden;\\n    border-left-style: hidden;\\n    border-bottom-style: hidden;\\n   margin-bottom: 10px;\\n}\\n\\n.checkoutBox {\\n    height: 450px;\\n    width: 250px;\\n    background-color: #F4F8F9;\\n    display: inline-block;\\n    font-size: 18px;\\n    margin-right: 10px;\\n    margin-left: 10px;\\n    margin-top: 20px;\\n    color: black;\\n    text-align:center;\\n}\\n\\n.Cart {\\n    display: flex;\\n    padding: 30px;\\n    justify-content: space-between;\\n}\\n\\n.CartItems{\\n    padding: 10px;\\n    width: 78%;\\n}\\n\\n.Sidebar{\\n    padding: 10px;\\n    width: 20%;\\n    background-color: #f4f8f9;\\n    height: 500px;\\n\\n}\\n\\n.TextbookCard{\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: center;\\n    background-color: #f4f8f9;\\n    padding: 20px;\\n    margin-bottom: 20px;\\n}\\n\\n.TextbookImage {\\n    width: 10%;\\n}\\n\\n.TextbookInfo {\\n    width: 75%;\\n}\\n\\n.RemoveButton{\\n    height: 40px;\\n\\n}\\n\\n.PageLabel{\\n    padding-left: 30px;\\n    padding-top: 15px;\\n}\\n\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://frontend/./src/css/Cart.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -1198,7 +1234,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".sellBlock {\\n  background-color: #f4f8f9;\\n  height: 600px;\\n  width: 1250px;\\n  margin-top: 100px;\\n  margin-left: 100px;\\n  text-align: center;\\n  position:absolute;\\n}\\n\\n.uploadImgBtn {\\n  background-color: #ca521f;\\n  color: black;\\n  font-weight: bold;\\n  font-style: normal;\\n  height: 37px;\\n  width: 80px;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n}\\n\\n.listBtn {\\n  background-color: #84a4f4;\\n  color: black;\\n  font-weight: bold;\\n  font-style: normal;\\n  height: 37px;\\n  width: 80px;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  margin-left: 10px;\\n  margin-right: 10px;\\n}\\n\\n.ISBNInput {\\n  background-color: #c4c4c4;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  display: inline-block;\\n  width: 200px;\\n  height: 30px;\\n  font-size: 24px;\\n}\\n\\n.authorInput {\\n  background-color: #c4c4c4;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  display: inline-block;\\n  width: 200px;\\n  height: 30px;\\n  font-size: 24px;\\n}\\n\\n.bookTitleInput {\\n  background-color: #c4c4c4;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  display: inline-block;\\n  width: 200px;\\n  height: 30px;\\n  font-size: 24px;\\n}\\n\\n.isbnSearchBlock{\\n  margin-top: 30px;\\n  position: relative;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://frontend/./src/css/Sell.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".sellBlock {\\n  background-color: #f4f8f9;\\n  height: 600px;\\n  width: 1250px;\\n  margin-top: 100px;\\n  margin-left: 100px;\\n  text-align: center;\\n  position:absolute;\\n}\\n\\n.uploadImgBtn {\\n  background-color: #ca521f;\\n  color: black;\\n  font-weight: bold;\\n  font-style: normal;\\n  height: 37px;\\n  width: 80px;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n}\\n\\n.listBtn {\\n  background-color: #84a4f4;\\n  color: black;\\n  font-weight: bold;\\n  font-style: normal;\\n  height: 37px;\\n  width: 80px;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  margin-left: 10px;\\n  margin-right: 10px;\\n}\\n\\n.ISBNInput {\\n  background-color: #c4c4c4;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  display: inline-block;\\n  width: 200px;\\n  height: 30px;\\n  font-size: 24px;\\n}\\n\\n.authorInput {\\n  background-color: #c4c4c4;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  display: inline-block;\\n  width: 200px;\\n  height: 30px;\\n  font-size: 24px;\\n}\\n\\n.bookTitleInput {\\n  background-color: #c4c4c4;\\n  border-top-style: hidden;\\n  border-right-style: hidden;\\n  border-left-style: hidden;\\n  border-bottom-style: hidden;\\n  display: inline-block;\\n  width: 200px;\\n  height: 30px;\\n  font-size: 24px;\\n}\\n\\n.isbnSearchBlock{\\n  margin-top: 30px;\\n  position: relative;\\n  padding-left: 150px;\\n  padding-right: 150px;\\n}\\n\\n.isbnSearchBar{\\n  width: 100px;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://frontend/./src/css/Sell.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -1213,7 +1249,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".infoRow {\\n    height: 350px;\\n}\\n\\n.textbookInfoBlock {\\n    background-color: #f4f8f9;\\n    height: 300px;\\n    width: 80%;\\n    position:absolute;\\n    padding: 10px;\\n}\\n\\n.userInfoBlock {\\n    padding: 10px;\\n    background-color: #f4f8f9;\\n    height: 300px;\\n    width: 80%;\\n}\\n\\n.textbookInfo{\\n    font-size: 18px;\\n    font-weight: normal;\\n\\n}\\n\\n.profileInfo{\\n   font-size: 18px;\\n    font-weight: normal;\\n}\\n\\n.content{\\n    padding-top: 20px;\\n    padding-left: 20px;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://frontend/./src/css/Textbook.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".textbookInfoBlock {\\n    background-color: #f4f8f9;\\n    height: 250px;\\n    width: 80%;\\n    position:absolute;\\n    padding: 10px;\\n}\\n\\n.userInfoBlock {\\n    padding: 10px;\\n    background-color: #f4f8f9;\\n    height: 300px;\\n    width: 80%;\\n    height: 250px;\\n}\\n\\n.textbookInfo{\\n    font-size: 18px;\\n    font-weight: normal;\\n\\n}\\n\\n.profileInfo{\\n   font-size: 18px;\\n    font-weight: normal;\\n}\\n\\n.content{\\n    padding-top: 20px;\\n    padding-left: 20px;\\n}\\n\\n.textbookImg {\\n    height: 300px;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://frontend/./src/css/Textbook.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -1268,6 +1304,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1281,6 +1318,7 @@ eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n
   \******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 112:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("var objectKeys = __webpack_require__(/*! object-keys */ \"./node_modules/object-keys/index.js\");\nvar isArguments = __webpack_require__(/*! is-arguments */ \"./node_modules/is-arguments/index.js\");\nvar is = __webpack_require__(/*! object-is */ \"./node_modules/object-is/index.js\");\nvar isRegex = __webpack_require__(/*! is-regex */ \"./node_modules/is-regex/index.js\");\nvar flags = __webpack_require__(/*! regexp.prototype.flags */ \"./node_modules/regexp.prototype.flags/index.js\");\nvar isDate = __webpack_require__(/*! is-date-object */ \"./node_modules/is-date-object/index.js\");\n\nvar getTime = Date.prototype.getTime;\n\nfunction deepEqual(actual, expected, options) {\n  var opts = options || {};\n\n  // 7.1. All identical values are equivalent, as determined by ===.\n  if (opts.strict ? is(actual, expected) : actual === expected) {\n    return true;\n  }\n\n  // 7.3. Other pairs that do not both pass typeof value == 'object', equivalence is determined by ==.\n  if (!actual || !expected || (typeof actual !== 'object' && typeof expected !== 'object')) {\n    return opts.strict ? is(actual, expected) : actual == expected;\n  }\n\n  /*\n   * 7.4. For all other Object pairs, including Array objects, equivalence is\n   * determined by having the same number of owned properties (as verified\n   * with Object.prototype.hasOwnProperty.call), the same set of keys\n   * (although not necessarily the same order), equivalent values for every\n   * corresponding key, and an identical 'prototype' property. Note: this\n   * accounts for both named and indexed properties on Arrays.\n   */\n  // eslint-disable-next-line no-use-before-define\n  return objEquiv(actual, expected, opts);\n}\n\nfunction isUndefinedOrNull(value) {\n  return value === null || value === undefined;\n}\n\nfunction isBuffer(x) {\n  if (!x || typeof x !== 'object' || typeof x.length !== 'number') {\n    return false;\n  }\n  if (typeof x.copy !== 'function' || typeof x.slice !== 'function') {\n    return false;\n  }\n  if (x.length > 0 && typeof x[0] !== 'number') {\n    return false;\n  }\n  return true;\n}\n\nfunction objEquiv(a, b, opts) {\n  /* eslint max-statements: [2, 50] */\n  var i, key;\n  if (typeof a !== typeof b) { return false; }\n  if (isUndefinedOrNull(a) || isUndefinedOrNull(b)) { return false; }\n\n  // an identical 'prototype' property.\n  if (a.prototype !== b.prototype) { return false; }\n\n  if (isArguments(a) !== isArguments(b)) { return false; }\n\n  var aIsRegex = isRegex(a);\n  var bIsRegex = isRegex(b);\n  if (aIsRegex !== bIsRegex) { return false; }\n  if (aIsRegex || bIsRegex) {\n    return a.source === b.source && flags(a) === flags(b);\n  }\n\n  if (isDate(a) && isDate(b)) {\n    return getTime.call(a) === getTime.call(b);\n  }\n\n  var aIsBuffer = isBuffer(a);\n  var bIsBuffer = isBuffer(b);\n  if (aIsBuffer !== bIsBuffer) { return false; }\n  if (aIsBuffer || bIsBuffer) { // && would work too, because both are true or both false here\n    if (a.length !== b.length) { return false; }\n    for (i = 0; i < a.length; i++) {\n      if (a[i] !== b[i]) { return false; }\n    }\n    return true;\n  }\n\n  if (typeof a !== typeof b) { return false; }\n\n  try {\n    var ka = objectKeys(a);\n    var kb = objectKeys(b);\n  } catch (e) { // happens when one is a string literal and the other isn't\n    return false;\n  }\n  // having the same number of owned properties (keys incorporates hasOwnProperty)\n  if (ka.length !== kb.length) { return false; }\n\n  // the same set of keys (although not necessarily the same order),\n  ka.sort();\n  kb.sort();\n  // ~~~cheap key test\n  for (i = ka.length - 1; i >= 0; i--) {\n    if (ka[i] != kb[i]) { return false; }\n  }\n  // equivalent values for every corresponding key, and ~~~possibly expensive deep test\n  for (i = ka.length - 1; i >= 0; i--) {\n    key = ka[i];\n    if (!deepEqual(a[key], b[key], opts)) { return false; }\n  }\n\n  return true;\n}\n\nmodule.exports = deepEqual;\n\n\n//# sourceURL=webpack://frontend/./node_modules/deep-equal/index.js?");
@@ -1293,6 +1331,7 @@ eval("var objectKeys = __webpack_require__(/*! object-keys */ \"./node_modules/o
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 58:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1306,6 +1345,7 @@ eval("\n\nvar keys = __webpack_require__(/*! object-keys */ \"./node_modules/obj
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -1319,6 +1359,7 @@ eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/he
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module */
+/*! CommonJS bailout: module.exports is used directly at 10:0-14 */
 /***/ ((module, exports) => {
 
 "use strict";
@@ -1332,6 +1373,7 @@ eval("\n\nexports.__esModule = true;\nexports.default = hasClass;\n\nfunction ha
   \*******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1345,6 +1387,7 @@ eval("\n\nfunction replaceClassName(origClass, classToRemove) {\n  return origCl
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 225:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1358,6 +1401,8 @@ eval("\n\n/* globals\n\tAggregateError,\n\tAtomics,\n\tFinalizationRegistry,\n\t
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
+/*! CommonJS bailout: module.exports is used directly at 31:17-31 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1401,6 +1446,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 10:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1414,6 +1460,7 @@ eval("\n\n/* eslint no-invalid-this: 1 */\n\nvar ERROR_MESSAGE = 'Function.proto
   \*********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1427,6 +1474,7 @@ eval("\n\nvar implementation = __webpack_require__(/*! ./implementation */ \"./n
   \***********************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__.g, __webpack_require__.* */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1440,6 +1488,7 @@ eval("// @flow\n\n\nvar key = '__global_unique_id__';\n\nmodule.exports = functi
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__.g, __webpack_require__, __webpack_require__.* */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1453,6 +1502,7 @@ eval("\n\nvar origSymbol = __webpack_require__.g.Symbol;\nvar hasSymbolSham = __
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 4:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1466,6 +1516,7 @@ eval("\n\n/* eslint complexity: [2, 18], max-statements: [2, 33] */\nmodule.expo
   \***************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1500,6 +1551,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 103:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1513,6 +1565,7 @@ eval("\n\nvar reactIs = __webpack_require__(/*! react-is */ \"./node_modules/rea
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 31:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1526,6 +1579,7 @@ eval("\n\nvar hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toS
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 17:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1539,6 +1593,7 @@ eval("\n\nvar getDay = Date.prototype.getDay;\nvar tryDateObject = function tryD
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 32:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1552,6 +1607,7 @@ eval("\n\nvar hasSymbols = __webpack_require__(/*! has-symbols */ \"./node_modul
   \***************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 1:0-14 */
 /***/ ((module) => {
 
 eval("module.exports = Array.isArray || function (arr) {\n  return Object.prototype.toString.call(arr) == '[object Array]';\n};\n\n\n//# sourceURL=webpack://frontend/./node_modules/isarray/index.js?");
@@ -1579,6 +1635,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 65:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1592,6 +1649,7 @@ eval("/*\nobject-assign\n(c) Sindre Sorhus\n@license MIT\n*/\n\n\n/* eslint-disa
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1605,6 +1663,7 @@ eval("\n\nvar numberIsNaN = function (value) {\n\treturn value !== value;\n};\n\
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 18:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1618,6 +1677,7 @@ eval("\n\nvar define = __webpack_require__(/*! define-properties */ \"./node_mod
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1631,6 +1691,7 @@ eval("\n\nvar implementation = __webpack_require__(/*! ./implementation */ \"./n
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1644,6 +1705,7 @@ eval("\n\nvar getPolyfill = __webpack_require__(/*! ./polyfill */ \"./node_modul
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 122:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1657,6 +1719,7 @@ eval("\n\nvar keysShim;\nif (!Object.keys) {\n\t// modified from https://github.
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 32:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1670,6 +1733,7 @@ eval("\n\nvar slice = Array.prototype.slice;\nvar isArgs = __webpack_require__(/
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -1683,6 +1747,7 @@ eval("\n\nvar toStr = Object.prototype.toString;\n\nmodule.exports = function is
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("var isarray = __webpack_require__(/*! isarray */ \"./node_modules/isarray/index.js\")\n\n/**\n * Expose `pathToRegexp`.\n */\nmodule.exports = pathToRegexp\nmodule.exports.parse = parse\nmodule.exports.compile = compile\nmodule.exports.tokensToFunction = tokensToFunction\nmodule.exports.tokensToRegExp = tokensToRegExp\n\n/**\n * The main path matching regexp utility.\n *\n * @type {RegExp}\n */\nvar PATH_REGEXP = new RegExp([\n  // Match escaped characters that would otherwise appear in future matches.\n  // This allows the user to escape special characters that won't transform.\n  '(\\\\\\\\.)',\n  // Match Express-style parameters and un-named parameters with a prefix\n  // and optional suffixes. Matches appear as:\n  //\n  // \"/:test(\\\\d+)?\" => [\"/\", \"test\", \"\\d+\", undefined, \"?\", undefined]\n  // \"/route(\\\\d+)\"  => [undefined, undefined, undefined, \"\\d+\", undefined, undefined]\n  // \"/*\"            => [\"/\", undefined, undefined, undefined, undefined, \"*\"]\n  '([\\\\/.])?(?:(?:\\\\:(\\\\w+)(?:\\\\(((?:\\\\\\\\.|[^\\\\\\\\()])+)\\\\))?|\\\\(((?:\\\\\\\\.|[^\\\\\\\\()])+)\\\\))([+*?])?|(\\\\*))'\n].join('|'), 'g')\n\n/**\n * Parse a string for the raw tokens.\n *\n * @param  {string}  str\n * @param  {Object=} options\n * @return {!Array}\n */\nfunction parse (str, options) {\n  var tokens = []\n  var key = 0\n  var index = 0\n  var path = ''\n  var defaultDelimiter = options && options.delimiter || '/'\n  var res\n\n  while ((res = PATH_REGEXP.exec(str)) != null) {\n    var m = res[0]\n    var escaped = res[1]\n    var offset = res.index\n    path += str.slice(index, offset)\n    index = offset + m.length\n\n    // Ignore already escaped sequences.\n    if (escaped) {\n      path += escaped[1]\n      continue\n    }\n\n    var next = str[index]\n    var prefix = res[2]\n    var name = res[3]\n    var capture = res[4]\n    var group = res[5]\n    var modifier = res[6]\n    var asterisk = res[7]\n\n    // Push the current path onto the tokens.\n    if (path) {\n      tokens.push(path)\n      path = ''\n    }\n\n    var partial = prefix != null && next != null && next !== prefix\n    var repeat = modifier === '+' || modifier === '*'\n    var optional = modifier === '?' || modifier === '*'\n    var delimiter = res[2] || defaultDelimiter\n    var pattern = capture || group\n\n    tokens.push({\n      name: name || key++,\n      prefix: prefix || '',\n      delimiter: delimiter,\n      optional: optional,\n      repeat: repeat,\n      partial: partial,\n      asterisk: !!asterisk,\n      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')\n    })\n  }\n\n  // Match any characters still remaining.\n  if (index < str.length) {\n    path += str.substr(index)\n  }\n\n  // If the path exists, push it onto the end.\n  if (path) {\n    tokens.push(path)\n  }\n\n  return tokens\n}\n\n/**\n * Compile a string to a template function for the path.\n *\n * @param  {string}             str\n * @param  {Object=}            options\n * @return {!function(Object=, Object=)}\n */\nfunction compile (str, options) {\n  return tokensToFunction(parse(str, options), options)\n}\n\n/**\n * Prettier encoding of URI path segments.\n *\n * @param  {string}\n * @return {string}\n */\nfunction encodeURIComponentPretty (str) {\n  return encodeURI(str).replace(/[\\/?#]/g, function (c) {\n    return '%' + c.charCodeAt(0).toString(16).toUpperCase()\n  })\n}\n\n/**\n * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.\n *\n * @param  {string}\n * @return {string}\n */\nfunction encodeAsterisk (str) {\n  return encodeURI(str).replace(/[?#]/g, function (c) {\n    return '%' + c.charCodeAt(0).toString(16).toUpperCase()\n  })\n}\n\n/**\n * Expose a method for transforming tokens into the path function.\n */\nfunction tokensToFunction (tokens, options) {\n  // Compile all the tokens into regexps.\n  var matches = new Array(tokens.length)\n\n  // Compile all the patterns before compilation.\n  for (var i = 0; i < tokens.length; i++) {\n    if (typeof tokens[i] === 'object') {\n      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$', flags(options))\n    }\n  }\n\n  return function (obj, opts) {\n    var path = ''\n    var data = obj || {}\n    var options = opts || {}\n    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent\n\n    for (var i = 0; i < tokens.length; i++) {\n      var token = tokens[i]\n\n      if (typeof token === 'string') {\n        path += token\n\n        continue\n      }\n\n      var value = data[token.name]\n      var segment\n\n      if (value == null) {\n        if (token.optional) {\n          // Prepend partial segment prefixes.\n          if (token.partial) {\n            path += token.prefix\n          }\n\n          continue\n        } else {\n          throw new TypeError('Expected \"' + token.name + '\" to be defined')\n        }\n      }\n\n      if (isarray(value)) {\n        if (!token.repeat) {\n          throw new TypeError('Expected \"' + token.name + '\" to not repeat, but received `' + JSON.stringify(value) + '`')\n        }\n\n        if (value.length === 0) {\n          if (token.optional) {\n            continue\n          } else {\n            throw new TypeError('Expected \"' + token.name + '\" to not be empty')\n          }\n        }\n\n        for (var j = 0; j < value.length; j++) {\n          segment = encode(value[j])\n\n          if (!matches[i].test(segment)) {\n            throw new TypeError('Expected all \"' + token.name + '\" to match \"' + token.pattern + '\", but received `' + JSON.stringify(segment) + '`')\n          }\n\n          path += (j === 0 ? token.prefix : token.delimiter) + segment\n        }\n\n        continue\n      }\n\n      segment = token.asterisk ? encodeAsterisk(value) : encode(value)\n\n      if (!matches[i].test(segment)) {\n        throw new TypeError('Expected \"' + token.name + '\" to match \"' + token.pattern + '\", but received \"' + segment + '\"')\n      }\n\n      path += token.prefix + segment\n    }\n\n    return path\n  }\n}\n\n/**\n * Escape a regular expression string.\n *\n * @param  {string} str\n * @return {string}\n */\nfunction escapeString (str) {\n  return str.replace(/([.+*?=^!:${}()[\\]|\\/\\\\])/g, '\\\\$1')\n}\n\n/**\n * Escape the capturing group by escaping special characters and meaning.\n *\n * @param  {string} group\n * @return {string}\n */\nfunction escapeGroup (group) {\n  return group.replace(/([=!:$\\/()])/g, '\\\\$1')\n}\n\n/**\n * Attach the keys as a property of the regexp.\n *\n * @param  {!RegExp} re\n * @param  {Array}   keys\n * @return {!RegExp}\n */\nfunction attachKeys (re, keys) {\n  re.keys = keys\n  return re\n}\n\n/**\n * Get the flags for a regexp from the options.\n *\n * @param  {Object} options\n * @return {string}\n */\nfunction flags (options) {\n  return options && options.sensitive ? '' : 'i'\n}\n\n/**\n * Pull out keys from a regexp.\n *\n * @param  {!RegExp} path\n * @param  {!Array}  keys\n * @return {!RegExp}\n */\nfunction regexpToRegexp (path, keys) {\n  // Use a negative lookahead to match only capturing groups.\n  var groups = path.source.match(/\\((?!\\?)/g)\n\n  if (groups) {\n    for (var i = 0; i < groups.length; i++) {\n      keys.push({\n        name: i,\n        prefix: null,\n        delimiter: null,\n        optional: false,\n        repeat: false,\n        partial: false,\n        asterisk: false,\n        pattern: null\n      })\n    }\n  }\n\n  return attachKeys(path, keys)\n}\n\n/**\n * Transform an array into a regexp.\n *\n * @param  {!Array}  path\n * @param  {Array}   keys\n * @param  {!Object} options\n * @return {!RegExp}\n */\nfunction arrayToRegexp (path, keys, options) {\n  var parts = []\n\n  for (var i = 0; i < path.length; i++) {\n    parts.push(pathToRegexp(path[i], keys, options).source)\n  }\n\n  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options))\n\n  return attachKeys(regexp, keys)\n}\n\n/**\n * Create a path regexp from string input.\n *\n * @param  {string}  path\n * @param  {!Array}  keys\n * @param  {!Object} options\n * @return {!RegExp}\n */\nfunction stringToRegexp (path, keys, options) {\n  return tokensToRegExp(parse(path, options), keys, options)\n}\n\n/**\n * Expose a function for taking tokens and returning a RegExp.\n *\n * @param  {!Array}          tokens\n * @param  {(Array|Object)=} keys\n * @param  {Object=}         options\n * @return {!RegExp}\n */\nfunction tokensToRegExp (tokens, keys, options) {\n  if (!isarray(keys)) {\n    options = /** @type {!Object} */ (keys || options)\n    keys = []\n  }\n\n  options = options || {}\n\n  var strict = options.strict\n  var end = options.end !== false\n  var route = ''\n\n  // Iterate over the tokens and create our regexp string.\n  for (var i = 0; i < tokens.length; i++) {\n    var token = tokens[i]\n\n    if (typeof token === 'string') {\n      route += escapeString(token)\n    } else {\n      var prefix = escapeString(token.prefix)\n      var capture = '(?:' + token.pattern + ')'\n\n      keys.push(token)\n\n      if (token.repeat) {\n        capture += '(?:' + prefix + capture + ')*'\n      }\n\n      if (token.optional) {\n        if (!token.partial) {\n          capture = '(?:' + prefix + '(' + capture + '))?'\n        } else {\n          capture = prefix + '(' + capture + ')?'\n        }\n      } else {\n        capture = prefix + '(' + capture + ')'\n      }\n\n      route += capture\n    }\n  }\n\n  var delimiter = escapeString(options.delimiter || '/')\n  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter\n\n  // In non-strict mode we allow a slash at the end of match. If the path to\n  // match already ends with a slash, we remove it for consistency. The slash\n  // is valid at the end of a path match, not in the middle. This is important\n  // in non-ending mode, where \"/test/\" shouldn't match \"/test//route\".\n  if (!strict) {\n    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?'\n  }\n\n  if (end) {\n    route += '$'\n  } else {\n    // In non-ending mode, we need the capturing groups to match as much as\n    // possible by using a positive lookahead to the end or next path segment.\n    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)'\n  }\n\n  return attachKeys(new RegExp('^' + route, flags(options)), keys)\n}\n\n/**\n * Normalize the given path string, returning a regular expression.\n *\n * An empty array can be passed in for the keys, which will hold the\n * placeholder key descriptions. For example, using `/user/:id`, `keys` will\n * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.\n *\n * @param  {(string|RegExp|Array)} path\n * @param  {(Array|Object)=}       keys\n * @param  {Object=}               options\n * @return {!RegExp}\n */\nfunction pathToRegexp (path, keys, options) {\n  if (!isarray(keys)) {\n    options = /** @type {!Object} */ (keys || options)\n    keys = []\n  }\n\n  options = options || {}\n\n  if (path instanceof RegExp) {\n    return regexpToRegexp(path, /** @type {!Array} */ (keys))\n  }\n\n  if (isarray(path)) {\n    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)\n  }\n\n  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)\n}\n\n\n//# sourceURL=webpack://frontend/./node_modules/path-to-regexp/index.js?");
@@ -1710,6 +1775,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 102:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1723,6 +1789,7 @@ eval("/**\n * Copyright (c) 2013-present, Facebook, Inc.\n *\n * This source cod
   \************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 38:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -1736,6 +1803,7 @@ eval("/**\n * Copyright (c) 2013-present, Facebook, Inc.\n *\n * This source cod
   \******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 14:2-16 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("/**\n * Copyright (c) 2013-present, Facebook, Inc.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE file in the root directory of this source tree.\n */\n\nif (true) {\n  var ReactIs = __webpack_require__(/*! react-is */ \"./node_modules/react-is/index.js\");\n\n  // By explicitly using `prop-types` you are opting into new development behavior.\n  // http://fb.me/prop-types-in-prod\n  var throwOnDirectAccess = true;\n  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ \"./node_modules/prop-types/factoryWithTypeCheckers.js\")(ReactIs.isElement, throwOnDirectAccess);\n} else {}\n\n\n//# sourceURL=webpack://frontend/./node_modules/prop-types/index.js?");
@@ -1748,6 +1816,7 @@ eval("/**\n * Copyright (c) 2013-present, Facebook, Inc.\n *\n * This source cod
   \*************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -2439,6 +2508,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 364:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -2452,6 +2522,7 @@ eval("\n\nexports.__esModule = true;\nexports.default = void 0;\n\nvar PropTypes
   \******************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 150:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -2486,6 +2557,7 @@ eval("\n\nexports.__esModule = true;\nexports.default = exports.EXITING = export
   \****************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 208:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -2499,6 +2571,7 @@ eval("\n\nexports.__esModule = true;\nexports.default = void 0;\n\nvar _propType
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3414,6 +3487,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -3427,6 +3501,7 @@ eval("\n\nvar $Object = Object;\nvar $TypeError = TypeError;\n\nmodule.exports =
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 18:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3440,6 +3515,7 @@ eval("\n\nvar define = __webpack_require__(/*! define-properties */ \"./node_mod
   \**************************************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 193:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3453,6 +3529,8 @@ eval("\n\n/* globals\n\tAtomics,\n\tSharedArrayBuffer,\n*/\n\nvar undefined;\n\n
   \******************************************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
+/*! CommonJS bailout: module.exports is used directly at 31:17-31 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3466,6 +3544,7 @@ eval("\n\nvar bind = __webpack_require__(/*! function-bind */ \"./node_modules/f
   \*********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3479,6 +3558,7 @@ eval("\n\nvar implementation = __webpack_require__(/*! ./implementation */ \"./n
   \*****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 11:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3550,6 +3630,16 @@ eval("/** @license React v0.20.1\n * scheduler-tracing.development.js\n *\n * Co
 /*! export unstable_wrapCallback [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_exports__ */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 52:26-46 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 125:13-33 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 149:24-44 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 193:15-35 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 548:28-48 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 565:25-45 */
+/*! CommonJS bailout: exports.unstable_shouldYield(...) prevents optimization as exports is passed as call context at 578:74-102 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 591:20-40 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 695:20-40 */
+/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 804:24-44 */
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -3859,6 +3949,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__.nc, __webpack_require__.* */
+/*! CommonJS bailout: module.exports is used directly at 230:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3947,6 +4038,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 62:0-14 */
 /***/ ((module) => {
 
 "use strict";

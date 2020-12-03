@@ -1,10 +1,6 @@
-.infoRow {
-    height: 350px;
-}
-
 .textbookInfoBlock {
     background-color: #f4f8f9;
-    height: 300px;
+    height: 250px;
     width: 80%;
     position:absolute;
     padding: 10px;
@@ -15,6 +11,7 @@
     background-color: #f4f8f9;
     height: 300px;
     width: 80%;
+    height: 250px;
 }
 
 .textbookInfo{
@@ -31,4 +28,8 @@
 .content{
     padding-top: 20px;
     padding-left: 20px;
+}
+
+.textbookImg {
+    height: 300px;
 }
