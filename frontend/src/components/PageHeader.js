@@ -9,20 +9,19 @@ import ToggleProfileButton from "./ToggleProfileButton";
 import { useToken } from "../hooks/useToken";
 import { useLogout } from "../hooks/useLogout";
 
-
 const PageHeader = () => {
   const [searchTerms, setSearchTerms] = useState("");
   const history = useHistory();
   const token = useToken();
-    const logout = useLogout();
+  const logout = useLogout();
   const isLoggedIn = () => (token ? true : false);
   const toRegistration = {
-    pathname: '/login',
+    pathname: "/login",
     state: {
       registering: true,
-      isLoggedIn: false
-        }
-  }
+      isLoggedIn: false,
+    },
+  };
 
   const searchTextbook = async (e) => {
     e.preventDefault();
@@ -111,7 +110,6 @@ const PageHeader = () => {
           </form>
           <Link className="loginLink" to="/login">
             {token ? "Logout" : "Login"}
-
           </Link>
           <Link className="sellLink" to="/sell">
             Sell

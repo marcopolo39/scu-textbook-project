@@ -73,7 +73,7 @@ class TextbookISBNCreateView(generics.CreateAPIView):
 class TextbookUpdateView(generics.UpdateAPIView):
     queryset = Textbook.objects.all()
     serializer_class = TextbookTitleSerializer
-    permission_classes = (IsAuthenticated, isTextbookOwnerPermission)
+    permission_classes = (IsAuthenticated,)
     parser_classes = (MultiPartParser, FormParser)
 
 
