@@ -6,10 +6,11 @@ import TextbookBoxItem from "../components/TextbookBoxItem.js";
 import { Container, Row, Button, CardColumns } from "reactstrap";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
+import { useLoader } from "../hooks/useLoader";
 
 const App = () => {
   const user = useSelector((store) => store.accountReducer.user);
-  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useLoader();
   const [textbooks, setTextbooks] = useState([]);
   const [filteredTextbooks, setFilteredTextbooks] = useState([]);
   const [filters, setFilter] = useState({
@@ -48,7 +49,7 @@ const App = () => {
       .then((res) => {
         setTextbooks(res.data.filter((book) => book.state === "F"));
         setFilteredTextbooks(res.data.filter((book) => book.state === "F"));
-        setLoading(false);
+        setLoaded(true);
       })
       .catch((err) => console.dir(err));
   };
@@ -100,7 +101,7 @@ const App = () => {
     }
   }, [filters]);
 
-  if (loading) {
+  if (!loaded) {
     return <Loader />;
   } else {
     return (

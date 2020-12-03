@@ -34,6 +34,7 @@ const Sell = () => {
           document.querySelector(".errorBlock").style.display = "block";
         } else {
           setTextbookModel({
+            ...textbookModel,
             title: res.data.items[0].volumeInfo.title,
             authors: res.data.items[0].volumeInfo.authors.join(", "),
             isbn: textbookModel.isbn,
@@ -54,7 +55,7 @@ const Sell = () => {
     formData.append("price", textbookModel.price);
     formData.append("title", textbookModel.title);
     formData.append("authors", textbookModel.authors);
-    formData.append("condition", textbookModel.condition);
+    formData.append("condition", textbookModel.condition || 1);
     formData.append("volume_edition", textbookModel.volume || null);
     formData.append("comments", textbookModel.comments);
     formData.append("state", textbookModel.state || "F");
@@ -83,7 +84,7 @@ const Sell = () => {
     });
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     const setDefaultImage = async () => {
       const res = await fetch(findabook);
       const blob = await res.blob();
@@ -93,7 +94,7 @@ const Sell = () => {
         img: file,
       });
     };
-    setDefaultImage();
+    await setDefaultImage();
   }, []);
 
   return (
@@ -122,7 +123,7 @@ const Sell = () => {
 
           <div className="searchResults" style={{ display: "none" }}>
             <h1>Results</h1>
-            <TextbookBoxItem textbook={textbookModel} searchCard>
+            <TextbookBoxItem textbook={textbookModel} clearImage>
               <Button
                 onClick={() => {
                   document.querySelector(".isbnSearchBlock").style.display =

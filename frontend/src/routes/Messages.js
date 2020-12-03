@@ -15,6 +15,8 @@ import {
   ListGroupItem,
 } from "reactstrap";
 import "../css/Messages.css";
+import { useLoader } from "../hooks/useLoader";
+import Loader from "../components/Loader";
 
 const Messages = () => {
   const token = useToken();
@@ -23,6 +25,7 @@ const Messages = () => {
   const receiver = useSelector(
     (store) => store.messageReducer.conversationReceiver
   );
+  const [loaded, setLoaded] = useLoader();
 
   const [message, setMessage] = useState();
   const [conversation, setConversation] = useState([]);
@@ -40,6 +43,7 @@ const Messages = () => {
       .then((res) => {
         let chatList = res.data.map((chat) => chat.username);
         setAll(chatList);
+        setLoaded(true);
       });
   };
 
@@ -135,29 +139,38 @@ const Messages = () => {
           </InputGroup>
         </Form>
 
-        <Button onClick={() => dispatch(setReceiver(null))}>
+        <Button
+          onClick={() => {
+            dispatch(setReceiver(null));
+            setLoaded(false);
+          }}
+        >
           Back to Messages
         </Button>
       </div>
     );
   } else {
-    return (
-      <div className="Messages">
-        <h1 className="center">Messaging</h1>
-        <ListGroup className="conversationsContainer col-lg-6 col-md-6 col-sm-6 clickable">
-          {allReceivers.map((rec, key) => {
-            return (
-              <ListGroupItem
-                key={key}
-                onClick={() => dispatch(setReceiver(rec))}
-              >
-                {rec}
-              </ListGroupItem>
-            );
-          })}
-        </ListGroup>
-      </div>
-    );
+    if (loaded) {
+      return (
+        <div className="Messages">
+          <h1 className="center">Messaging</h1>
+          <ListGroup className="conversationsContainer col-lg-6 col-md-6 col-sm-6 clickable">
+            {allReceivers.map((rec, key) => {
+              return (
+                <ListGroupItem
+                  key={key}
+                  onClick={() => dispatch(setReceiver(rec))}
+                >
+                  {rec}
+                </ListGroupItem>
+              );
+            })}
+          </ListGroup>
+        </div>
+      );
+    } else {
+      return <Loader />;
+    }
   }
 };
 

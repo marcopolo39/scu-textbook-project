@@ -7,11 +7,15 @@ import { Col, Container, Row, Button } from "reactstrap";
 import TextbookEditor from "../components/TextbookEditor";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../actions/cartActions";
+import { useLoader } from "../hooks/useLoader";
+import Loader from "../components/Loader";
 
 const Textbook = () => {
   const { pk } = useParams();
+
   const [profile, setProfile] = useState({});
   const [textbook, setTextbook] = useState({});
+  const [loaded, setLoaded] = useLoader();
   const [editing, setEditing] = useState(false);
   const token = useToken();
   const dispatch = useDispatch();
@@ -30,7 +34,11 @@ const Textbook = () => {
           username: textbook.owner,
         },
       })
-      .then(({ data }) => setProfile(data))
+      .then(({ data }) => {
+        setProfile(data);
+        setLoaded(true);
+      })
+
       .catch((err) => console.dir(err));
   };
 
@@ -90,58 +98,68 @@ const Textbook = () => {
       </div>
     );
   } else {
-    return (
-      <div className="content">
-        <Container fluid>
-          <Row>
-            <Col lg="3" >
-              <img className="textbookImg" src={textbook.image} alt="textbook image" />
-            </Col>
-            <Col>
-              <div className="textbookInfoBlock">
-                <h1 className="textbookInfo">Title: {textbook.title}</h1>
-                <h1 className="textbookInfo">Price: ${textbook.price}</h1>
-                <h1 className="textbookInfo">ISBN: {textbook.isbn}</h1>
-                <h1 className="textbookInfo">Authors: {textbook.authors}</h1>
-                <h4>{states[textbook.state]}</h4>
-                {textbook.owner === user.username ? (
-                  <Button onClick={() => setEditing(true)}>Edit</Button>
-                ) : (
-                  <Button
-                    onClick={() => {
-                      dispatch(addToCart(textbook));
-                      alert("Textbook Added to Cart");
-                    }}
-                  >
-                    Add to Cart
-                  </Button>
-                )}
-              </div>
-            </Col>
-          </Row>
-        </Container>
-        <Container fluid>
-          <Row className="infoRow">
-            <Col lg="3">
-              <img src="" alt="profile image" />
-            </Col>
-            <Col>
+    if (loaded) {
+      return (
+        <div className="content">
+          <Container fluid>
+            <Row>
+              <Col lg="3">
+                <img
+                  className="textbookImg"
+                  src={textbook.image}
+                  alt="textbook image"
+                />
+              </Col>
+              <Col>
+                <div className="textbookInfoBlock">
+                  <h1 className="textbookInfo">Title: {textbook.title}</h1>
+                  <h1 className="textbookInfo">Price: ${textbook.price}</h1>
+                  <h1 className="textbookInfo">ISBN: {textbook.isbn}</h1>
+                  <h1 className="textbookInfo">Authors: {textbook.authors}</h1>
+                  <h4>{states[textbook.state]}</h4>
+                  {textbook.owner === user.username ? (
+                    <Button onClick={() => setEditing(true)}>Edit</Button>
+                  ) : (
+                    <Button
+                      onClick={() => {
+                        dispatch(addToCart(textbook));
+                        alert("Textbook Added to Cart");
+                      }}
+                    >
+                      Add to Cart
+                    </Button>
+                  )}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+          <Container fluid>
+            <Row className="infoRow">
+              <Col lg="3">
+                <img src={profile.profile_img} alt="profile image" />
+              </Col>
+              <Col>
                 <h1>Seller</h1>
-              <div className="userInfoBlock">
-                <h1 className="profileInfo">Owner: {profile.username}</h1>
-                <h1 className="profileInfo">Name: {profile.first_name} {user.last_name}</h1>
-                <h1 className = "profileInfo">Email: {profile.email}</h1>
-                <h1 className="profileInfo">School: {profile.school}</h1>
-                <h1 className="profileInfo">Location: {profile.location}</h1>
-                <Button tag={Link} to={`/profile/${profile.username}/`}>
-                  Go To Profile
-                </Button>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
+                <div className="userInfoBlock">
+                  <h1 className="profileInfo">Owner: {profile.username}</h1>
+                  <h1 className="profileInfo">
+                    Name: {profile.first_name} {user.last_name}
+                  </h1>
+                  <h1 className="profileInfo">Email: {profile.email}</h1>
+                  <h1 className="profileInfo">School: {profile.school}</h1>
+                  <h1 className="profileInfo">Location: {profile.location}</h1>
+                  <Button tag={Link} to={`/profile/${profile.username}/`}>
+                    Go To Profile
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      );
+    } else {
+      return <Loader />;
+    }
   }
 };
 
