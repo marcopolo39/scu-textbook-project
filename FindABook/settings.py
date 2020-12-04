@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,18 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # React app build path
 REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
 
-STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
+#STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cy#%(!8h2bee-i_p%@+!5y13_r&pim4p(v2ex#w)z))i-may%z'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['FindABook-env.eba-pz6pppsm.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 
 
 # Application definition
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'messaging',
     'textbook',
     'frontend.apps.FrontendConfig',
+    'core',
 ]
 
 REST_KNOX = {
@@ -123,6 +125,16 @@ DATABASES = {
     }
 }
 
+# Old Default database - I need to switch between the two when deploying
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+"""
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -173,9 +185,16 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats.dev.json'),
     }
 }
+# Temp add for deploy
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
-
+"""
+STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
-
+"""
 CORS_ALLOW_ALL_ORIGINS = True

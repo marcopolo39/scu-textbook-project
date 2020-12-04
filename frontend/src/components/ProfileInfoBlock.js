@@ -78,6 +78,7 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
   };
 
   const updateTextbook = () => {
+    console.log(editedTextbook);
     const formData = new FormData();
     formData.append("isbn", editedTextbook.isbn);
     formData.append("price", editedTextbook.price);
@@ -87,11 +88,7 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
     formData.append("volume_edition", editedTextbook.volume || null);
     formData.append("comments", editedTextbook.comments);
     formData.append("state", editedTextbook.state || "F");
-    formData.append(
-      "image",
-      editedTextbook.img || null,
-      editedTextbook.img.name || null
-    );
+    formData.append("image", editedTextbook.img, editedTextbook.img.name);
     axios
       .put(`/api/textbook/update/${editedTextbook.pk}/`, formData, {
         headers: {
