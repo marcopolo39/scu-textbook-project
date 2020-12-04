@@ -19,6 +19,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    console.log("Login User", user);
     login(user);
   };
 
@@ -79,12 +80,7 @@ const Login = () => {
               onChange={handleChange}
             />
             <div className="lineBreak"></div>
-            <input
-              className="loginBtn"
-              type="submit"
-              value="Login"
-              onChange={handleChange}
-            />
+            <input className="loginBtn" type="submit" value="Login" />
 
             <input
               className="signUpBtn"

@@ -14,8 +14,7 @@ export const useLogin = () => {
       .then((res) => {
         document.querySelector(".loginErrorAlert").style.display = "none";
         dispatch(setToken(res.data.token));
-        dispatch(setUser(user));
-        return res.data;
+        dispatch(setUser(res.data.user));
       })
       .catch((err) => {
         console.log(err);

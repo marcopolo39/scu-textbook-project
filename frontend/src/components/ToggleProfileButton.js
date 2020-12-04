@@ -1,40 +1,27 @@
-import React from "react";
-import "../css/ToggleProfileButton.css"
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import "../css/ToggleProfileButton.css";
 import HiddenToggleBox from "./HiddenToggleBox";
 
+const ToggleProfileButton = () => {
+  const [isToggleOn, setIsToggleOn] = useState(false);
+  const user = useSelector((store) => store.accountReducer.user);
 
-export default class ToggleProfileButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {isToggleOn: false};
+  const handleClick = () => {
+    setIsToggleOn(!isToggleOn);
+  };
 
-    // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }));
-  }
-
-  render() {
-    if(this.state.isToggleOn){
-      return (
-          <div>
-
-            <button className = "profileDot" onClick={this.handleClick}></button>
-            <HiddenToggleBox />
-
-          </div>
-        )
-    } else {
-    return (
-          <div>
-            <button className = "profileDot" onClick={this.handleClick}></button>
-          </div>
-    )
-    }
-  }
-}
-
+  return (
+    <div>
+      <img
+        src={user.profile_img}
+        style={{ height: "30px" }}
+        className="profileDot"
+        onClick={handleClick}
+        alt="profile pic"
+      />
+      {isToggleOn ? <HiddenToggleBox /> : undefined}
+    </div>
+  );
+};
+export default ToggleProfileButton;
