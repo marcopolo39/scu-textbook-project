@@ -28,7 +28,7 @@ REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+#DEBUG = True
 
 ALLOWED_HOSTS = ['FindABook-env.eba-pz6pppsm.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 #ALLOWED_HOST = []
