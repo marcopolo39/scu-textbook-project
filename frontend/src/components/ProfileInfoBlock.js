@@ -100,7 +100,8 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
       })
       .then((res) => console.log(res.data))
       .catch((err) => console.dir(err));
-    document.querySelector(".profileBlock").style.display = "block";
+    document.querySelector(".ProfileOverview").style.display = "block";
+    document.querySelector(".ProfileData").style.display = "block";
     document.querySelector(".TextbookEditBlock").style.display = "none";
   };
 
@@ -109,197 +110,121 @@ const ProfileInfoBlock = ({ user, isEditable, setEditing, token }) => {
   }, [user]);
 
   return (
-      <div className="ProfileInfoBlock">
-        <div className="ProfileOverview">
-            <img src={user.img} alt="profile image" className="ProfileImg"/>
-            <p style={{ marginBottom:'0px', marginTop:'20px'}} className='userInfoTxt'>@{user.username}</p>
-            <p style={{ margin:'0px' }} className='userInfoTxt'>{user.firstName} {user.lastName}</p>
+    <div className="ProfileInfoBlock">
+      <div className="TextbookEditBlock" style={{ display: "none" }}>
+        <h1>Edit your textbook listing</h1>
+        {editedTextbook ? (
+          <TextbookEditor
+            textbookModel={editedTextbook}
+            setTextbookModel={setEditedTextbook}
+            onSubmit={updateTextbook}
+            onCancel={() => {
+              document.querySelector(".ProfileOverview").style.display =
+                "block";
+              document.querySelector(".ProfileData").style.display = "block";
+              document.querySelector(".TextbookEditBlock").style.display =
+                "none";
+            }}
+          />
+        ) : undefined}
+      </div>
+      <div className="ProfileOverview">
+        <img src={user.img} alt="profile image" className="ProfileImg" />
+        <p
+          style={{ marginBottom: "0px", marginTop: "20px" }}
+          className="userInfoTxt"
+        >
+          @{user.username}
+        </p>
+        <p style={{ margin: "0px" }} className="userInfoTxt">
+          {user.firstName} {user.lastName}
+        </p>
+      </div>
+      <div className="ProfileData">
+        <h2 style={{ textAlign: "left" }}>Profile</h2>
+        <div className="AccountDataBlock">
+          <p className="userInfoTxt">Email: {user.email}</p>
+          <p className="userInfoTxt">School: {user.school}</p>
+          <p className="userInfoTxt">Location: {user.location}</p>
+          <p className="userInfoTxt">Paypal Username: {user.paypalUsername}</p>
+          {isEditable ? (
+            <Button onClick={() => setEditing(true)}>Edit</Button>
+          ) : undefined}
+          {!isEditable && token ? (
+            <Button onClick={goToChat}>Message</Button>
+          ) : undefined}
         </div>
-        <div className="ProfileData">
-            <h2 style={{textAlign:'left'}}>Profile</h2>
-            <div className="AccountDataBlock">
-                <p className="userInfoTxt">Email: {user.email}</p>
-                <p className="userInfoTxt">School: {user.school}</p>
-                <p className="userInfoTxt">Location: {user.location}</p>
-                <p className="userInfoTxt">Paypal Username: {user.paypalUsername}</p>
-                {isEditable ? (
-                    <Button onClick={() => setEditing(true)}>Edit</Button>
-                ) : undefined}
-                {!isEditable && token ? (
-                    <Button onClick={goToChat}>Message</Button>
-                ) : undefined}
-            </div>
-            <h2 style={{textAlign:'left'}}>My Textbooks</h2>
-            <div className="TextbookDataBlock">
-                <Container>
-                   <Row>
-                     <CardColumns>
-                       {userTexbooks && userTexbooks.length > 0 ? (
-                         userTexbooks.map((book, key) => {
-                           if (isEditable) {
-                             return (
-                               <TextbookBoxItem
-                                 key={key}
-                                 textbook={book}
-                                 className="textbookListCard"
-                                 buttonName="Delete"
-                               >
-                                 <Button
-                                   onClick={() => {
-                                     setEditedTextbook(book);
-                                     document.querySelector(
-                                       ".profileBlock"
-                                     ).style.display = "none";
-                                     document.querySelector(
-                                       ".TextbookEditBlock"
-                                     ).style.display = "block";
-                                   }}
-                                 >
-                                   Edit
-                                 </Button>
-                                 <Button onClick={() => deleteTextbook(book)}>
-                                   Delete
-                                 </Button>
-                               </TextbookBoxItem>
-                             );
-                           } else {
-                             return (
-                               <TextbookBoxItem
-                                 key={key}
-                                 textbook={book}
-                                 className="textbookListCard"
-                                 buttonName="Delete"
-                               >
-                                 <Button
-                                   style={{
-                                     color: "black",
-                                     backgroundColor: "#CA521F",
-                                   }}
-                                   tag={Link}
-                                   to={{
-                                     pathname: `/textbook/${book.pk}`,
-                                     textbook: book,
-                                   }}
-                                   color="link"
-                                 >
-                                   Go
-                                 </Button>
-                               </TextbookBoxItem>
-                             );
-                           }
-                         })
-                       ) : (
-                         <p>No Textbooks Found.</p>
-                       )}
-                     </CardColumns>
-                   </Row>
-                 </Container>
-            </div>
+        <h2 style={{ textAlign: "left" }}>My Textbooks</h2>
+        <div className="TextbookDataBlock">
+          <Container>
+            <Row>
+              <CardColumns>
+                {userTexbooks && userTexbooks.length > 0 ? (
+                  userTexbooks.map((book, key) => {
+                    if (isEditable) {
+                      return (
+                        <TextbookBoxItem
+                          key={key}
+                          textbook={book}
+                          className="textbookListCard"
+                          buttonName="Delete"
+                        >
+                          <Button
+                            onClick={() => {
+                              setEditedTextbook(book);
+                              document.querySelector(
+                                ".ProfileOverview"
+                              ).style.display = "none";
+                              document.querySelector(
+                                ".ProfileData"
+                              ).style.display = "none";
+                              document.querySelector(
+                                ".TextbookEditBlock"
+                              ).style.display = "block";
+                            }}
+                          >
+                            Edit
+                          </Button>
+                          <Button onClick={() => deleteTextbook(book)}>
+                            Delete
+                          </Button>
+                        </TextbookBoxItem>
+                      );
+                    } else {
+                      return (
+                        <TextbookBoxItem
+                          key={key}
+                          textbook={book}
+                          className="textbookListCard"
+                          buttonName="Delete"
+                        >
+                          <Button
+                            style={{
+                              color: "black",
+                              backgroundColor: "#CA521F",
+                            }}
+                            tag={Link}
+                            to={{
+                              pathname: `/textbook/${book.pk}`,
+                              textbook: book,
+                            }}
+                            color="link"
+                          >
+                            Go
+                          </Button>
+                        </TextbookBoxItem>
+                      );
+                    }
+                  })
+                ) : (
+                  <p>No Textbooks Found.</p>
+                )}
+              </CardColumns>
+            </Row>
+          </Container>
         </div>
       </div>
-    // <div className="ProfileInfoBlock">
-    //   <div className="TextbookEditBlock" style={{ display: "none" }}>
-    //     <h1>Edit your textbook listing</h1>
-    //     {editedTextbook ? (
-    //       <TextbookEditor
-    //         textbookModel={editedTextbook}
-    //         setTextbookModel={setEditedTextbook}
-    //         onSubmit={updateTextbook}
-    //         onCancel={() => {
-    //           document.querySelector(".profileBlock").style.display = "block";
-    //           document.querySelector(".TextbookEditBlock").style.display =
-    //             "none";
-    //         }}
-    //       />
-    //     ) : undefined}
-    //   </div>
-    //   <div className="profileBlock">
-    //     <Container fluid>
-    //       <Row>
-    //         <h1 style={{ marginRight: "10px" }}>{user.username}</h1>
-    //         {isEditable ? (
-    //           <Button onClick={() => setEditing(true)}>Edit</Button>
-    //         ) : undefined}
-    //       </Row>
-    //     </Container>
-    //
-    //     <img src={user.img} alt="profile image" />
-    //     <p className="userInfoTxt">
-    //       Name: {user.firstName} {user.lastName}
-    //     </p>
-    //     <p className="userInfoTxt">Email: {user.email}</p>
-    //     <p className="userInfoTxt">School: {user.school}</p>
-    //     <p className="userInfoTxt">Location: {user.location}</p>
-    //     <p className="userInfoTxt">Paypal Username: {user.paypalUsername}</p>
-    //     {!isEditable && token ? (
-    //       <Button onClick={goToChat}>Message</Button>
-    //     ) : undefined}
-    //     <h3>{user.username}'s Textbooks</h3>
-    //     <Container>
-    //       <Row>
-    //         <CardColumns>
-    //           {userTexbooks && userTexbooks.length > 0 ? (
-    //             userTexbooks.map((book, key) => {
-    //               if (isEditable) {
-    //                 return (
-    //                   <TextbookBoxItem
-    //                     key={key}
-    //                     textbook={book}
-    //                     className="textbookListCard"
-    //                     buttonName="Delete"
-    //                   >
-    //                     <Button
-    //                       onClick={() => {
-    //                         setEditedTextbook(book);
-    //                         document.querySelector(
-    //                           ".profileBlock"
-    //                         ).style.display = "none";
-    //                         document.querySelector(
-    //                           ".TextbookEditBlock"
-    //                         ).style.display = "block";
-    //                       }}
-    //                     >
-    //                       Edit
-    //                     </Button>
-    //                     <Button onClick={() => deleteTextbook(book)}>
-    //                       Delete
-    //                     </Button>
-    //                   </TextbookBoxItem>
-    //                 );
-    //               } else {
-    //                 return (
-    //                   <TextbookBoxItem
-    //                     key={key}
-    //                     textbook={book}
-    //                     className="textbookListCard"
-    //                     buttonName="Delete"
-    //                   >
-    //                     <Button
-    //                       style={{
-    //                         color: "black",
-    //                         backgroundColor: "#CA521F",
-    //                       }}
-    //                       tag={Link}
-    //                       to={{
-    //                         pathname: `/textbook/${book.pk}`,
-    //                         textbook: book,
-    //                       }}
-    //                       color="link"
-    //                     >
-    //                       Go
-    //                     </Button>
-    //                   </TextbookBoxItem>
-    //                 );
-    //               }
-    //             })
-    //           ) : (
-    //             <p>No Textbooks Found.</p>
-    //           )}
-    //         </CardColumns>
-    //       </Row>
-    //     </Container>
-    //   </div>
-    // </div>
+    </div>
   );
 };
 
