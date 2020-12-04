@@ -31,7 +31,7 @@ STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['FindABook-env.eba-pz6pppsm.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 
