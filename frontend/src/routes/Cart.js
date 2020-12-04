@@ -30,21 +30,26 @@ const Cart = () => {
   };
 
   const checkout = () => {
-    const formData = new FormData();
-    formData.append("state", "S");
-    cart.forEach((textbook) => {
-      axios
-        .patch(`/api/textbook/update/${textbook.pk}/`, formData, {
-          headers: {
-            Authorization: `Token ${token}`,
-            "Content-Type": "multipart/form-data",
-            "X-CSRFToken": cookie.load("csrftoken"),
-          },
-        })
-        .then((res) => history.pushState("/messages"))
-        .catch((err) => console.log(err));
-    });
-    dispatch(clearCart());
+    if (token !== null) {
+      const formData = new FormData();
+      formData.append("state", "S");
+      cart.forEach((textbook) => {
+        axios
+          .patch(`/api/textbook/update/${textbook.pk}/`, formData, {
+            headers: {
+              Authorization: `Token ${token}`,
+              "Content-Type": "multipart/form-data",
+              "X-CSRFToken": cookie.load("csrftoken"),
+            },
+          })
+          .then((res) => history.pushState("/messages"))
+          .catch((err) => console.log(err));
+      });
+      dispatch(clearCart());
+    } else {
+      // might change alert method later
+      alert("You must login to checkout");
+    }
   };
 
   return (
