@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "../css/Textbook.css";
 import { useToken } from "../hooks/useToken.js";
@@ -7,6 +7,7 @@ import { Col, Container, Row, Button } from "reactstrap";
 import TextbookEditor from "../components/TextbookEditor";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../actions/cartActions";
+import { setReceiver } from "../actions/messageActions";
 import { useLoader } from "../hooks/useLoader";
 import Loader from "../components/Loader";
 
@@ -19,6 +20,7 @@ const Textbook = () => {
   const [editing, setEditing] = useState(false);
   const token = useToken();
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector((store) => store.accountReducer.user);
 
   const states = {
@@ -66,6 +68,42 @@ const Textbook = () => {
       .catch((err) => console.dir(err));
   };
 
+  const goToChat = () => {
+    axios
+      .get("/api/messages/chat-list/", {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
+      .then((res) => {
+        const chats = res.data.filter(
+          (chat) => chat.username === profile.username
+        );
+        if (chats.length === 0) {
+          createChat();
+        }
+        dispatch(setReceiver(profile.username));
+        history.push("/messages");
+      })
+      .catch((err) => console.dir(err));
+  };
+
+  const createChat = () => {
+    axios
+      .post(
+        "/api/messages/create-chat/",
+        {
+          members: [profile.username],
+        },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
+      .catch((err) => console.dir(err));
+  };
+
   // Set textbook on mount
   useEffect(() => {
     axios
@@ -101,9 +139,9 @@ const Textbook = () => {
     if (loaded) {
       return (
         <div className="content">
-          <Container fluid style={{minHeight: '350px'}}>
+          <Container fluid style={{ minHeight: "350px" }}>
             <Row>
-              <Col lg="3" style={{textAlign: 'center'}}>
+              <Col lg="3" style={{ textAlign: "center" }}>
                 <img
                   className="textbookImg"
                   src={textbook.image}
@@ -135,8 +173,12 @@ const Textbook = () => {
           </Container>
           <Container fluid>
             <Row className="infoRow">
-              <Col lg="3" style={{paddingTop: '30px', textAlign: 'center'}}>
-                <img src={profile.profile_img} alt="profile image" className="ProfileImg"/>
+              <Col lg="3" style={{ paddingTop: "30px", textAlign: "center" }}>
+                <img
+                  src={profile.profile_img}
+                  alt="profile image"
+                  className="ProfileImg"
+                />
               </Col>
               <Col>
                 <h1>Seller</h1>
@@ -151,6 +193,7 @@ const Textbook = () => {
                   <Button tag={Link} to={`/profile/${profile.username}/`}>
                     Go To Profile
                   </Button>
+                  <Button onClick={goToChat}>Message</Button>
                 </div>
               </Col>
             </Row>

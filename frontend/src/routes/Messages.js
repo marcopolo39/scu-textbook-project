@@ -89,10 +89,6 @@ const Messages = () => {
   };
 
   useEffect(() => {
-    dispatch(setReceiver(null));
-  }, []);
-
-  useEffect(() => {
     if (receiver) {
       getConversation(receiver);
     } else {
