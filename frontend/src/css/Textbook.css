@@ -1,0 +1,43 @@
+.textbookInfoBlock {
+    background-color: #f4f8f9;
+    height: 250px;
+    width: 80%;
+    position:absolute;
+    padding: 10px;
+}
+
+.userInfoBlock {
+    padding: 10px;
+    background-color: #f4f8f9;
+    height: 300px;
+    width: 80%;
+
+}
+
+.textbookInfo{
+    font-size: 18px;
+    font-weight: normal;
+
+}
+
+.profileInfo{
+   font-size: 18px;
+    font-weight: normal;
+}
+
+.content{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.textbookImg {
+    height: 300px;
+}
+
+.ProfileImg{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    object-fit: fill;
+}

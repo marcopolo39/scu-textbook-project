@@ -1,0 +1,15 @@
+.profileDot {
+border-radius: 25px;
+    z-index: 5;
+}
+
+.profilePic {
+    color: gray;
+    border-radius: 25px;
+}
+
+.profileDot:hover{
+    opacity: 0.5;
+    transition: all 1s ease;
+
+}

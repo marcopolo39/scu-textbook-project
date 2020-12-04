@@ -1,0 +1,44 @@
+/* .textbookBoxProp{
+    height: 250px;
+    width: 225px;
+    background-color: #F4F8F9;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: black;
+}
+
+.textbookImage {
+    background-color: #C4C4C4;
+    height:125px;
+    width: 125px;
+    margin-top: 20px;
+
+
+}
+
+.textbookInfo {
+å
+} */
+
+.card {
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.col-lg-3 {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.center {
+  margin: auto;
+}
+
+.card-img {
+    height:50px;
+    width: 50px;
+    margin-top: 20px;
+}

@@ -1,0 +1,150 @@
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    align-items: center;
+    margin-top: 5px;
+
+}
+
+
+.logoDiv {
+    justify-content: flex-start;
+}
+
+.titleLogo {
+    height: auto;
+    color: #ca521f;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.titleLogoImage {
+    height: 35px ;
+
+}
+
+.titleLogo:hover {
+    opacity: 0.5;
+    transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.searchBarDiv {
+justify-content: center;
+}
+
+.searchForm {
+}
+
+.searchBtn {
+
+    background-color: #ca521f;
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    height: 35px;
+    width:75px;
+    border-radius: 8px;
+}
+
+.searchBtn:hover {
+    opacity: 0.5;
+    transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.searchBar {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    width: 400px;
+    height: 35px;
+}
+
+.searchBar::placeholder {
+
+    font-style: normal;
+}
+
+.linkDiv {
+    justify-content: flex-end;
+}
+
+.loginLink {
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
+    padding: 0 15px;
+
+}
+
+.loginLink:hover {
+    opacity: 0.5;
+    transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.sellLink {
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
+    padding: 0 15px;
+}
+
+.sellLink:hover {
+    opacity: 0.5;
+    transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.cartImage {
+    height: 35px;
+    padding: 0 15px;
+    position:relative;
+    top: -3px;
+}
+
+.cartImageLogo {
+    color: inherit;
+    text-decoration: none;
+
+
+}
+
+.cartImageLogo:hover {
+    opacity: 0.5;
+    transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.registerLink {
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
+    padding: 0 15px;
+}
+
+.registerLink:hover {
+    opacity: 0.5;
+    transition: all 1s ease;
+    text-decoration: none;
+    color: inherit;
+}

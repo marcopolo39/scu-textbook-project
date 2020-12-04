@@ -1,0 +1,44 @@
+.userInfoTxt{
+    font-size: 21px;
+    font-weight:bold
+}
+
+.ProfileInfoBlock{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 30px
+}
+
+.ProfileOverview{
+    width: 25%;
+    text-align: center;
+}
+
+.ProfileData{
+    width: 70%;
+    text-align: center;
+}
+
+.ProfileImg{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    object-fit: fill;
+}
+
+.AccountDataBlock{
+    background-color: #F4F8F9;
+    height: 300px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 20px;
+}
+
+.TextbookDataBlock{
+    background-color: #F4F8F9;
+    min-height: 200px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
