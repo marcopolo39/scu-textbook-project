@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # React app build path
 REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
 
-STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
+#STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -190,7 +190,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+#MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
 
 CORS_ALLOW_ALL_ORIGINS = True
