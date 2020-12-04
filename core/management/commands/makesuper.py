@@ -8,7 +8,7 @@ class Command(BaseCommand):
 
         if not qs.exists():
             User.objects.create_superuser(
-                'admin',
+                'admin',                        # This is the username
                 'admin@tempemail.com',
                 'adminFirst',
                 'adminLast',
@@ -18,3 +18,4 @@ class Command(BaseCommand):
                 None,                           # There is no profile image
                 '&FindABookAdmin4923#$'         # This is the password
             )
+            
