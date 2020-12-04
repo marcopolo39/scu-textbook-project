@@ -28,10 +28,10 @@ REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['FindABook-env.eba-pz6pppsm.us-west-2.elasticbeanstalk.com', '127.0.0.1']
-
+#ALLOWED_HOSTS = ['FindABook-env.eba-pz6pppsm.us-west-2.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOST = []
 
 # Application definition
 
@@ -176,7 +176,7 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats.dev.json'),
     }
 }
-
+"""
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
@@ -194,6 +194,7 @@ MEDIA_URL = 'https://' + AWS_S3_CUSTOM_DOMAIN + '/' + PUBLIC_MEDIA_LOCATION + '/
 DEFAULTFILE_STORAGE = 'FindABook.storage_backends.MediaStorage'
 # Shit I added for deploy does not work
 """
+"""
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -201,11 +202,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 """
 # this was what the static file dirs are for stuff to work
-"""
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
-"""
+
 
 CORS_ALLOW_ALL_ORIGINS = True
