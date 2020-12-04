@@ -86,153 +86,156 @@ const Registration = () => {
   }, []);
 
   return (
-    <div className="Registration">
-      <h1 className="registerHeader">Register Account</h1>
+      <div className="createAccountBlock">
+          <div className="Registration">
+              <h1 className="registerHeader" style={{padding:'5%'}}>Register Account</h1>
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Username</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  name="username"
+                  className="inputField"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  placeholder="Username..."
+                  required
+                />
+              </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Password</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  className="inputField"
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  autoComplete="off"
+                  placeholder="Password..."
+                  required
+                />
+              </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>First Name</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  name="firstName"
+                  className="inputField"
+                  placeholder="First Name..."
+                  onChange={handleChange}
+                  required
+                />
+              </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Last Name</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  className="inputField"
+                  name="lastName"
+                  placeholder="Last Name..."
+                  onChange={handleChange}
+                  required
+                />
+              </InputGroup>
 
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>Username</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          type="text"
-          name="username"
-          className="inputField"
-          onChange={handleChange}
-          autoComplete="off"
-          placeholder="Username..."
-          required
-        />
-      </InputGroup>
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>Password</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          className="inputField"
-          type="password"
-          name="password"
-          onChange={handleChange}
-          autoComplete="off"
-          placeholder="Password..."
-          required
-        />
-      </InputGroup>
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>First Name</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          type="text"
-          name="firstName"
-          className="inputField"
-          placeholder="First Name..."
-          onChange={handleChange}
-          required
-        />
-      </InputGroup>
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>Last Name</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          type="text"
-          className="inputField"
-          name="lastName"
-          placeholder="Last Name..."
-          onChange={handleChange}
-          required
-        />
-      </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Email</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="email"
+                  className="inputField"
+                  name="email"
+                  placeholder="Email..."
+                  onChange={handleChange}
+                  required
+                />
+              </InputGroup>
 
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>Email</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          type="email"
-          className="inputField"
-          name="email"
-          placeholder="Email..."
-          onChange={handleChange}
-          required
-        />
-      </InputGroup>
-
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>School</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          type="text"
-          name="school"
-          placeholder="School..."
-          onChange={handleChange}
-          autoComplete="off"
-          className="inputField"
-          required
-        />
-      </InputGroup>
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>Location (City, State)</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          type="text"
-          name="location"
-          placeholder="Location..."
-          onChange={handleChange}
-          autoComplete="off"
-          required
-          className="inputField"
-          required
-        />
-      </InputGroup>
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>Paypal Username</InputGroupText>
-        </InputGroupAddon>
-        <Input
-          type="text"
-          name="paypalUsername"
-          placeholder="Paypal..."
-          onChange={handleChange}
-          autoComplete="off"
-          required
-          className="inputField"
-        />
-      </InputGroup>
-      <br />
-      <InputGroup style={inputFieldStyle}>
-        <InputGroupAddon addonType="prepend">
-          <InputGroupText>Image</InputGroupText>
-        </InputGroupAddon>
-        <CustomInput
-          type="file"
-          name="image"
-          id="fileInput"
-          multiple={false}
-          onChange={handleImageUpload}
-          accept="image/*"
-        />
-      </InputGroup>
-      <input
-        type="button"
-        className="continueBtn"
-        value="Submit"
-        onClick={registerAccount}
-      />
-
-      <button onClick={() => history.push("/login")} className="cancelBtn">
-        Cancel
-      </button>
-    </div>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>School</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  name="school"
+                  placeholder="School..."
+                  onChange={handleChange}
+                  autoComplete="off"
+                  className="inputField"
+                  required
+                />
+              </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Location (City, State)</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  name="location"
+                  placeholder="Location..."
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                  className="inputField"
+                  required
+                />
+              </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Paypal Username</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  name="paypalUsername"
+                  placeholder="Paypal..."
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                  className="inputField"
+                />
+              </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Image</InputGroupText>
+                </InputGroupAddon>
+                <CustomInput
+                  type="file"
+                  name="image"
+                  id="fileInput"
+                  multiple={false}
+                  onChange={handleImageUpload}
+                  accept="image/*"
+                />
+              </InputGroup>
+              <div className="BottomButtons">
+                  <input
+                    type="button"
+                    className="continueBtn"
+                    value="Submit"
+                    onClick={registerAccount}
+                  />
+                  <div style={{width:'30px'}}></div>
+                  <button onClick={() => history.push("/login")} className="cancelBtn">
+                    Cancel
+                  </button>
+              </div>
+          </div>
+      </div>
   );
 };
 
