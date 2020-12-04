@@ -25,25 +25,22 @@ export default class ToggleProfileButton extends React.Component {
     if(this.state.isToggleOn){
       return (
           <div>
-            <div className = "profileDot">
-            <button className = "profileBtn" onClick={this.handleClick}>
-                    <div className = "profilePic"/>
-                    <img src={downArrow}/>
+
+            <button className = "profileDot" onClick={this.handleClick}>
+
             </button>
 
             <HiddenToggleBox />
-            </div>
+
           </div>
         )
     } else {
     return (
           <div>
-              <div className = "profileDot">
-            <button className = "profileBtn" onClick={this.handleClick}>
-                <div className = "profilePic"/>
-                <img src={downArrow}/>
+
+            <button className = "profileDot" onClick={this.handleClick}>
             </button>
-              </div>
+
 
           </div>
     )
