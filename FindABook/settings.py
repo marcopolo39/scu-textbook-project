@@ -18,12 +18,6 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# React app build path
-REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
-
-#STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -58,6 +52,7 @@ INSTALLED_APPS = [
     'textbook',
     'frontend.apps.FrontendConfig',
     'core',
+    'storages',
 ]
 
 REST_KNOX = {
@@ -168,13 +163,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = '/static/'
-
-
 # STATICFILES_DIRS = [
 #     os.path.join(REACT_APP_DIR, "build", "static")
 # ]
@@ -185,16 +173,38 @@ WEBPACK_LOADER = {
         'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats.dev.json'),
     }
 }
-# Temp add for deploy
+
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+
+AWS_DEFAULT_ACL = None
+AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+
+STATIC_LOCATION = 'static'
+STATIC_URL = 'https://' + AWS_S3_CUSTOM_DOMAIN + '/' + STATIC_LOCATION + '/'
+STATICFILES_STORAGE = 'FindABook.storage_backends.StaticStorage'
+
+PUBLIC_MEDIA_LOCATION = 'media'
+MEDIA_URL = 'https://' + AWS_S3_CUSTOM_DOMAIN + '/' + PUBLIC_MEDIA_LOCATION + '/'
+DEFAULTFILE_STORAGE = 'FindABook.storage_backends.MediaStorage'
+# Shit I added for deploy does not work
+"""
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
-
 """
+# this was what the static file dirs are for stuff to work
+"""
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
 """
+# React app build path
+REACT_APP_DIR = os.path.join(BASE_DIR, "frontend")
+
 CORS_ALLOW_ALL_ORIGINS = True
