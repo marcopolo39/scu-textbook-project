@@ -108,9 +108,23 @@ const PageHeader = () => {
             </label>
             <input className="searchBtn" type="submit" value="Go" />
           </form>
-          <Link className="loginLink" to="/login">
-            {token ? "Logout" : "Login"}
-          </Link>
+          {token ? (
+            <Link
+              className="loginLink"
+              to="/"
+              onClick={() => {
+                logout();
+                alert("You have been logged out.");
+              }}
+            >
+              Logout
+            </Link>
+          ) : (
+            <Link className="loginLink" to="/login">
+              Login
+            </Link>
+          )}
+
           <Link className="sellLink" to="/sell">
             Sell
           </Link>
