@@ -186,11 +186,15 @@ WEBPACK_LOADER = {
     }
 }
 # Temp add for deploy
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
-#MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+"""
+STATIC_ROOT = os.path.join(REACT_APP_DIR, "static")
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
-
+"""
 CORS_ALLOW_ALL_ORIGINS = True
